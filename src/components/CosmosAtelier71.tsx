@@ -2,13 +2,9 @@ import React from "react";
 import { 
   ArrowLeft, 
   Palette, 
-  Award, 
-  CheckCircle, 
   Layers, 
   Users, 
-  Sparkles,
   BookOpen,
-  Compass
 } from "lucide-react";
 
 interface CosmosAtelier71Props {
@@ -16,24 +12,6 @@ interface CosmosAtelier71Props {
 }
 
 export default function CosmosAtelier71({ onBackToHome }: CosmosAtelier71Props) {
-  const artPillars = [
-    {
-      title: "Fine Art Printmaking",
-      icon: Layers,
-      desc: "Promoting specialized print methods (etching, lithography, woodcut, and silk-screen printing) as an expressive high-art discipline."
-    },
-    {
-      title: "Artist Residencies & Exchanges",
-      icon: Users,
-      desc: "Providing cross-border artistic residencies, bridging visual artists from South Asia, Europe, and the Americas for mutual growth."
-    },
-    {
-      title: "Workshops & Masterclasses",
-      icon: Sparkles,
-      desc: "Hosting intensive masterclasses led by esteemed local masters and international printmaking icons to educate young contemporary talents."
-    }
-  ];
-
   return (
     <div id="atelier-portal-page" className="pt-24 pb-20 bg-slate-50 min-h-screen text-slate-800 font-sans">
       {/* Back Navigation Bar */}
@@ -48,7 +26,7 @@ export default function CosmosAtelier71({ onBackToHome }: CosmosAtelier71Props) 
         </button>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">
+    <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">
         {/* Hero Section */}
         <div className="bg-[#0B132B] text-white rounded-3xl overflow-hidden border border-slate-900 shadow-2xl relative">
           <div className="absolute inset-0 bg-radial-gradient from-red-950/20 via-transparent to-transparent opacity-60 pointer-events-none" />
@@ -71,97 +49,85 @@ export default function CosmosAtelier71({ onBackToHome }: CosmosAtelier71Props) 
             </div>
 
             <p className="text-slate-300 text-sm md:text-lg font-light leading-relaxed max-w-2xl">
-              Bangladesh's premiere private printmaking studio, serving as a creative incubator for visual artists. We organize workshops, publish premium art portfolios, host esteemed local and international resident artists, and foster cultural diplomacy.
+              Cosmos Atelier 71 has remained a living site of printmaking practice and artistic exchange for almost two decades. The studio sustains a continuous working environment, encouraging cross-cultural dialogue and experimentation.
             </p>
           </div>
+        </div>
+
+        {/* Introduction / About Block */}
+        <div className="bg-white border border-slate-200/80 p-8 md:p-12 rounded-3xl shadow-sm text-slate-700 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+           <div className="space-y-6">
+             <h2 className="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tight mb-2">
+                A Legacy of Artistic Practice
+             </h2>
+             <p className="text-sm md:text-base font-light leading-relaxed">
+               Over the years, Cosmos Atelier 71 has hosted many international artists, including Toshihiko Ikeda (Japan) and Oona Hyland (Ireland). These residencies frequently culminate in exhibitions at Gallery Cosmos, strengthening the connection between studio-based practice and public presentation. Emerging and self-taught artists are actively encouraged through residencies, workshops, and a year-long membership programme bringing together practitioners from diverse cultural fields.
+             </p>
+           </div>
+           
+           <div className="relative group overflow-hidden rounded-2xl shadow-lg border border-slate-100">
+              <img 
+                src="/images/atelier-studio.jpg" 
+                alt="Cosmos Atelier 71 Studio" 
+                className="w-full h-full object-cover aspect-video md:aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-in-out" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+           </div>
         </div>
 
         {/* Dynamic Focus Section */}
         <div className="space-y-6">
           <div className="space-y-2">
             <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block px-1">
-              Creative Incubation
+              Studio Activities
             </span>
             <h2 className="text-2xl md:text-3.5xl font-black text-slate-900 uppercase tracking-tight">
-              Atelier Creative Pillars
+              Atelier Core Pillars
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {artPillars.map((pillar, idx) => {
-              const IconComp = pillar.icon;
-              return (
-                <div 
-                  key={idx}
-                  className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between"
-                >
-                  <div className="space-y-4">
-                    <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100">
-                      <IconComp className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
-                      {pillar.desc}
-                    </p>
+             <div className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100">
+                    <Layers className="w-5 h-5" />
                   </div>
+                  <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">
+                    Intensive Workshops
+                  </h3>
+                  <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
+                    Organising intensive workshops in printmaking techniques, including etching, woodcut, plate lithography, cyanotype, and drypoint, led by master artists from Bangladesh and abroad.
+                  </p>
                 </div>
-              );
-            })}
-          </div>
-        </div>
+             </div>
 
-        {/* Global Impact Block */}
-        <div className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
-          <div className="max-w-3xl space-y-2">
-            <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
-              Artistic Diplomacy
-            </span>
-            <h2 className="text-2xl md:text-3.5xl font-black text-slate-900 uppercase tracking-tight">
-              Atelier Impact Numbers
-            </h2>
-            <p className="text-slate-500 text-sm md:text-base font-light">
-              Through collaborative print projects and curated group galleries, Cosmos Atelier 71 bridges the local creative community with global fine arts corridors.
-            </p>
-          </div>
+             <div className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100">
+                    <Users className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">
+                    International Residencies
+                  </h3>
+                  <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
+                    Hosting local artists alongside an annual international residency programme that encourages cross-cultural dialogue. Participants are selected nationwide to support artistic decentralisation.
+                  </p>
+                </div>
+             </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
-              <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
-                200+ Artists
-              </span>
-              <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider font-mono mt-1">
-                Supported Creators
-              </span>
-              <p className="text-xs text-slate-500 font-light mt-2">
-                Providing specialized studio resources, presses, and acid-rooms for diverse printmaking artists.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
-              <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
-                50+ Portfolios
-              </span>
-              <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider font-mono mt-1">
-                Art Monographs & Prints
-              </span>
-              <p className="text-xs text-slate-500 font-light mt-2">
-                Successfully published premium limited-edition print portfolios of national masters.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
-              <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
-                Global Showcases
-              </span>
-              <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider font-mono mt-1">
-                International Exhibitions
-              </span>
-              <p className="text-xs text-slate-500 font-light mt-2">
-                Organizing diplomatic visual exchanges in tandem with embassies and international centers.
-              </p>
-            </div>
+             <div className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100">
+                    <BookOpen className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">
+                    Education & Community
+                  </h3>
+                  <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
+                    In addition to printmaking, the studio regularly organises workshops in ceramics, drawing, and watercolour, while conducting educational programmes with children throughout the year.
+                  </p>
+                </div>
+             </div>
           </div>
         </div>
 

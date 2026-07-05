@@ -9,7 +9,11 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 
-export default function OurCommitment() {
+interface OurCommitmentProps {
+  onDialogueClick?: () => void;
+}
+
+export default function OurCommitment({ onDialogueClick }: OurCommitmentProps) {
   const educationTags = [
     "Journalism", 
     "Medicine", 
@@ -114,7 +118,8 @@ export default function OurCommitment() {
             {/* Card 3: Cosmos Dialogue (Dark Navy Background) */}
             <div 
               id="card-cosmos-dialogue"
-              className="bg-[#0B132B] text-white p-6 md:p-8 rounded-3xl shadow-lg border border-slate-900 flex flex-col md:flex-row gap-6 items-start hover:scale-[1.015] hover:shadow-xl transition-all duration-300 ease-out"
+              onClick={onDialogueClick}
+              className={`bg-[#0B132B] text-white p-6 md:p-8 rounded-3xl shadow-lg border border-slate-900 flex flex-col md:flex-row gap-6 items-start transition-all duration-300 ease-out ${onDialogueClick ? 'cursor-pointer hover:scale-[1.015] hover:shadow-xl' : 'hover:scale-[1.015] hover:shadow-xl'}`}
             >
               <div className="w-12 h-12 rounded-2xl bg-red-950/80 border border-red-900/40 text-red-400 flex items-center justify-center shadow-lg shrink-0">
                 <MessageSquare className="w-6 h-6" />
