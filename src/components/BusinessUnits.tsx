@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowUpRight, Zap, Ship, Globe2, Building, TrendingUp, Phone, Shirt, Gem, Printer, Globe, Palette, BookOpen, PawPrint, Image, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowUpRight, Zap, Ship, Globe2, Building, TrendingUp, Phone, Shirt, Gem, Printer, Globe, Palette, BookOpen, PawPrint, Image as ImageIcon, ChevronDown, ChevronUp } from "lucide-react";
 
 interface BusinessUnit {
   id: string;
@@ -128,7 +128,7 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
       icon: <Globe2 className="w-5 h-5 text-red-500" />,
       tagline: "United News of Bangladesh - the leading news agency.",
       logo: "/logos/United News of Bangladesh.png",
-      image: "/images/unb.jpg",
+      image: "/images/unb.jpeg",
       detailedText: "UNB is a cornerstone of national news reporting, broadcasting unbiased reportage and hosting cultural galleries with global organizations.",
       metric: "15M+",
       metricLabel: "Weekly Active Readers",
@@ -169,7 +169,7 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
     {
       id: "gallery",
       title: "Cosmos Gallery",
-      icon: <Image className="w-5 h-5 text-red-500" />,
+      icon: <ImageIcon className="w-5 h-5 text-red-500" />,
       tagline: "A premier destination for fine arts and cultural expression.",
       logo: "/logos/Gallery Cosmos.png",
       image: "/images/gallery.jpeg",
