@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Menu,
   X,
@@ -15,21 +15,36 @@ import {
   Globe,
   Palette,
   Globe2,
-  ChevronDown
+  ChevronDown,
+  PawPrint
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import CosmosLogo from "./CosmosLogo";
 
 interface NavbarProps {
   onInvestorClick: () => void;
-  currentPage: "home" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global";
-  onPageChange: (page: "home" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global") => void;
+  currentPage: "home" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam";
+  onPageChange: (page: "home" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam") => void;
 }
 
 export default function Navbar({ onInvestorClick, currentPage, onPageChange }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleHashLink = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    onPageChange("home");
+    const targetId = href.replace("#", "");
+    setTimeout(() => {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, 120);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,6 +82,7 @@ export default function Navbar({ onInvestorClick, currentPage, onPageChange }: N
     { name: "UNB", subtitle: "News Agency", icon: Globe2, href: "#businesses" },
     { name: "Cosmos Atelier 71", subtitle: "Printmaking Studio", icon: Palette, href: "#businesses" },
     { name: "Cosmos Global", subtitle: "Global Resources", icon: Globe, href: "#businesses" },
+    { name: "WildTeam", subtitle: "Wildlife Conservation", icon: PawPrint, href: "#businesses" },
   ];
 
   return (
@@ -105,7 +121,7 @@ export default function Navbar({ onInvestorClick, currentPage, onPageChange }: N
                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[840px] bg-slate-950/95 backdrop-blur-xl border border-slate-800/80 rounded-2xl shadow-2xl p-6 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
                       <div className="flex items-center justify-between border-b border-slate-800/40 pb-3 mb-4">
                         <span className="text-[10px] font-mono tracking-[0.2em] text-slate-400 uppercase font-bold">
-                          Cosmos Conglomerate Portfolio - 12 Divisions
+                          Cosmos Conglomerate Portfolio - 13 Divisions
                         </span>
                         <span className="text-[9px] font-mono text-red-500">
                           ESTABLISHED 1972
@@ -115,7 +131,7 @@ export default function Navbar({ onInvestorClick, currentPage, onPageChange }: N
                       <div className="grid grid-cols-3 gap-3">
                         {companies.map((company) => {
                           const IconComp = company.icon;
-                          const companyToPageMap: Record<string, "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global"> = {
+                          const companyToPageMap: Record<string, "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam"> = {
                             "Cosmos Energy": "energy",
                             "Cosmos Shipping": "shipping",
                             "UNB": "unb",
@@ -128,6 +144,7 @@ export default function Navbar({ onInvestorClick, currentPage, onPageChange }: N
                             "Cosmos Printing": "printing",
                             "Cosmos Atelier 71": "atelier",
                             "Cosmos Global": "global",
+                            "WildTeam": "wildteam",
                           };
                           const targetPage = companyToPageMap[company.name];
                           return (
@@ -179,7 +196,7 @@ export default function Navbar({ onInvestorClick, currentPage, onPageChange }: N
                       onPageChange("careers");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     } else {
-                      onPageChange("home");
+                      handleHashLink(e, link.href);
                     }
                   }}
                 >
@@ -237,7 +254,7 @@ export default function Navbar({ onInvestorClick, currentPage, onPageChange }: N
                           <span className="flex items-center gap-2">
                             {link.name}
                             <span className="text-[9px] font-mono px-1.5 py-0.5 bg-red-950/40 border border-red-900/30 text-red-400 rounded uppercase">
-                              12 Units
+                              13 Units
                             </span>
                           </span>
                           <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${mobileMenuOpen ? 'rotate-180 text-red-500' : ''}`} />
@@ -255,7 +272,7 @@ export default function Navbar({ onInvestorClick, currentPage, onPageChange }: N
                               <div className="grid grid-cols-2 gap-2 py-3">
                                  {companies.map((company) => {
                                   const IconComp = company.icon;
-                                  const companyToPageMap: Record<string, "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global"> = {
+                                  const companyToPageMap: Record<string, "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam"> = {
                                     "Cosmos Energy": "energy",
                                     "Cosmos Shipping": "shipping",
                                     "UNB": "unb",
@@ -268,6 +285,7 @@ export default function Navbar({ onInvestorClick, currentPage, onPageChange }: N
                                     "Cosmos Printing": "printing",
                                     "Cosmos Atelier 71": "atelier",
                                     "Cosmos Global": "global",
+                                    "WildTeam": "wildteam",
                                   };
                                   const targetPage = companyToPageMap[company.name];
                                   return (
@@ -321,7 +339,7 @@ export default function Navbar({ onInvestorClick, currentPage, onPageChange }: N
                           onPageChange("careers");
                           window.scrollTo({ top: 0, behavior: "smooth" });
                         } else {
-                          onPageChange("home");
+                          handleHashLink(e, link.href);
                         }
                       }}
                       className={`font-medium py-2 border-b border-slate-800/50 text-base flex items-center justify-between transition-colors ${

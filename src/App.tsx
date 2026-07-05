@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import NewsTicker from "./components/NewsTicker";
@@ -26,13 +26,14 @@ import PearlsParadise from "./components/PearlsParadise";
 import CosmosPrinting from "./components/CosmosPrinting";
 import CosmosAtelier71 from "./components/CosmosAtelier71";
 import CosmosGlobal from "./components/CosmosGlobal";
+import WildTeam from "./components/WildTeam";
 import { X, Check } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<
     "home" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" |
-    "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global"
+    "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam"
   >("home");
   const [isInvestorOpen, setIsInvestorOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -43,6 +44,20 @@ export default function App() {
     message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Scroll to hash target whenever returning to the home page
+  useEffect(() => {
+    if (currentPage === "home" && window.location.hash) {
+      const targetId = window.location.hash.replace("#", "");
+      const timer = setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 250);
+      return () => clearTimeout(timer);
+    }
+  }, [currentPage]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -102,20 +117,8 @@ export default function App() {
 
             {/* Business Conglomerate Grid */}
             <BusinessUnits 
-              onExploreEnergy={() => {
-                setCurrentPage("energy");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }} 
-              onExploreShipping={() => {
-                setCurrentPage("shipping");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              onExploreUNB={() => {
-                setCurrentPage("unb");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              onExploreDhakaCourier={() => {
-                setCurrentPage("dhaka-courier");
+              onNavigate={(page) => {
+                setCurrentPage(page as typeof currentPage);
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             />
@@ -294,7 +297,7 @@ export default function App() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }} />
           </motion.div>
-        ) : (
+        ) : currentPage === "global" ? (
           <motion.div
             key="global-page-content"
             initial={{ opacity: 0, y: 15 }}
@@ -303,6 +306,19 @@ export default function App() {
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <CosmosGlobal onBackToHome={() => {
+              setCurrentPage("home");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }} />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="wildteam-page-content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <WildTeam onBackToHome={() => {
               setCurrentPage("home");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }} />

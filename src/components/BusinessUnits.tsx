@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowUpRight, Zap, Ship, Globe2, Building, TrendingUp, Phone, Shirt, Gem, Printer, Globe, Palette, BookOpen, X, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowUpRight, Zap, Ship, Globe2, Building, TrendingUp, Phone, Shirt, Gem, Printer, Globe, Palette, BookOpen, PawPrint, ChevronDown, ChevronUp } from "lucide-react";
 
 interface BusinessUnit {
   id: string;
@@ -14,22 +14,13 @@ interface BusinessUnit {
 }
 
 interface BusinessUnitsProps {
-  onExploreEnergy?: () => void;
-  onExploreShipping?: () => void;
-  onExploreUNB?: () => void;
-  onExploreDhakaCourier?: () => void;
+  onNavigate: (page: string) => void;
 }
 
-export default function BusinessUnits({ 
-  onExploreEnergy, 
-  onExploreShipping,
-  onExploreUNB,
-  onExploreDhakaCourier
-}: BusinessUnitsProps) {
-  const [selectedUnit, setSelectedUnit] = useState<BusinessUnit | null>(null);
+export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
   const [showAll, setShowAll] = useState(false);
 
-  // 12 Companies based on the Navbar Sectors menu
+  // 13 Companies & Initiatives based on the Navbar Sectors menu
   const units: BusinessUnit[] = [
     {
       id: "energy",
@@ -151,9 +142,35 @@ export default function BusinessUnits({
       metric: "Worldwide",
       metricLabel: "Trade Network",
     },
+    {
+      id: "wildteam",
+      title: "WildTeam",
+      icon: <PawPrint className="w-5 h-5 text-slate-400 group-hover:text-red-500 transition-colors" />,
+      tagline: "Wildlife conservation initiative protecting Bangladesh's rich biodiversity.",
+      logo: "/logos/WildTeam.png",
+      detailedText: "WildTeam is a dedicated wildlife conservation initiative focused on protecting the Royal Bengal Tiger and preserving Bangladesh's unique natural heritage through science, community engagement, and field action.",
+      metric: "Conservation",
+      metricLabel: "Field Excellence",
+    },
   ];
 
-  const visibleUnits = showAll ? units : units.slice(0, 8);
+  const unitToPageMap: Record<string, string> = {
+    energy: "energy",
+    holdings: "holdings",
+    marketing: "marketing",
+    telecom: "telecom",
+    apparels: "apparels",
+    pearls: "pearls",
+    printing: "printing",
+    shipping: "shipping",
+    dhakacourier: "dhaka-courier",
+    unb: "unb",
+    atelier: "atelier",
+    global: "global",
+    wildteam: "wildteam",
+  };
+
+  const visibleUnits = showAll ? units : units.slice(0, 12);
 
   return (
     <section id="businesses" className="py-20 md:py-28 px-6 bg-[#0B132B]">
@@ -184,20 +201,20 @@ export default function BusinessUnits({
                 exit={{ opacity: 0, y: 16, scale: 0.96 }}
                 transition={{ 
                   duration: 0.35, 
-                  delay: showAll && index >= 8 ? (index - 8) * 0.06 : index * 0.04,
+                  delay: showAll && index >= 12 ? (index - 12) * 0.06 : index * 0.03,
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
                 tabIndex={0}
-                onClick={() => setSelectedUnit(unit)}
+                onClick={() => onNavigate(unitToPageMap[unit.id] || "home")}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    setSelectedUnit(unit);
+                    onNavigate(unitToPageMap[unit.id] || "home");
                   }
                 }}
                 className="group relative h-72 bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:border-slate-700 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center justify-center p-5 text-center"
                 role="button"
-                aria-label={`View additional information about ${unit.title}`}
+                aria-label={`Visit ${unit.title} portal`}
               >
                 {/* Logo Area */}
                 <div className="w-28 h-28 md:w-32 md:h-32 mb-5 relative z-10 flex items-center justify-center p-3 bg-white/5 rounded-xl transition-transform duration-500 group-hover:scale-105 border border-white/5">
@@ -245,106 +262,16 @@ export default function BusinessUnits({
               </>
             ) : (
               <>
-                View All 12 Divisions <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+                View All 13 Divisions <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
               </>
             )}
             <span className="bg-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-              12
+              13
             </span>
           </button>
         </div>
       </div>
 
-      {/* Information Overlay Drawer / Modal */}
-      {selectedUnit && (
-        <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative">
-            <button
-              onClick={() => setSelectedUnit(null)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-white bg-slate-950/60 p-2 rounded-full border border-slate-800 focus:outline-none focus:ring-2 focus:ring-red-600 z-10"
-              aria-label="Close details"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <div className="h-56 relative flex items-center justify-center bg-slate-950 p-8 border-b border-slate-800">
-              <img
-                src={selectedUnit.logo}
-                alt={`${selectedUnit.title} Logo`}
-                className="max-w-full max-h-full object-contain filter drop-shadow-lg"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-              <div className="absolute bottom-6 left-6 text-left">
-                <h3 id="modal-title" className="text-2xl font-bold text-white uppercase tracking-wide">
-                  {selectedUnit.title}
-                </h3>
-              </div>
-            </div>
-            <div className="p-6 md:p-8 space-y-6">
-              <p className="text-slate-300 font-normal leading-relaxed text-sm md:text-base">
-                {selectedUnit.detailedText}
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-slate-800 pt-6">
-                <div>
-                  <p className="text-2xl font-extrabold text-red-500">{selectedUnit.metric}</p>
-                  <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">{selectedUnit.metricLabel}</p>
-                </div>
-                <div className="flex flex-col gap-2 justify-end md:items-end md:text-right">
-                  {selectedUnit.id === "energy" && onExploreEnergy && (
-                    <button
-                      onClick={() => {
-                        setSelectedUnit(null);
-                        onExploreEnergy();
-                      }}
-                      className="bg-slate-950 hover:bg-slate-850 text-red-400 hover:text-red-350 font-bold py-2 px-4 rounded-xl text-xs uppercase tracking-wider border border-red-900/40 transition-all shadow-md cursor-pointer w-full md:w-auto"
-                    >
-                      View Energy Portal
-                    </button>
-                  )}
-                  {selectedUnit.id === "shipping" && onExploreShipping && (
-                    <button
-                      onClick={() => {
-                        setSelectedUnit(null);
-                        onExploreShipping();
-                      }}
-                      className="bg-slate-950 hover:bg-slate-850 text-red-400 hover:text-red-350 font-bold py-2 px-4 rounded-xl text-xs uppercase tracking-wider border border-red-900/40 transition-all shadow-md cursor-pointer w-full md:w-auto"
-                    >
-                      View Shipping Portal
-                    </button>
-                  )}
-                  {selectedUnit.id === "unb" && onExploreUNB && (
-                    <button
-                      onClick={() => {
-                        setSelectedUnit(null);
-                        onExploreUNB();
-                      }}
-                      className="bg-slate-950 hover:bg-slate-850 text-red-400 hover:text-red-350 font-bold py-2 px-4 rounded-xl text-xs uppercase tracking-wider border border-red-900/40 transition-all shadow-md cursor-pointer w-full md:w-auto"
-                    >
-                      Explore UNB Portal
-                    </button>
-                  )}
-                  {selectedUnit.id === "dhakacourier" && onExploreDhakaCourier && (
-                    <button
-                      onClick={() => {
-                        setSelectedUnit(null);
-                        onExploreDhakaCourier();
-                      }}
-                      className="bg-slate-950 hover:bg-slate-850 text-red-400 hover:text-red-350 font-bold py-2 px-4 rounded-xl text-xs uppercase tracking-wider border border-red-900/40 transition-all shadow-md cursor-pointer w-full md:w-auto"
-                    >
-                      Explore Dhaka Courier
-                    </button>
-                  )}
-                  <button
-                    onClick={() => setSelectedUnit(null)}
-                    className="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer w-full md:w-auto"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
