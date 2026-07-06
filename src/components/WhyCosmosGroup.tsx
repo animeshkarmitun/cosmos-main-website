@@ -151,10 +151,32 @@ export default function WhyCosmosGroup() {
       {/* Decorative ambient radial glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-950/10 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Prelude Image Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="relative mb-12 md:mb-16 rounded-3xl overflow-hidden border border-slate-800/70 shadow-2xl shadow-black/35"
+        >
+          <img
+            src="/images/Why%20Cosmos%20Group.jpeg"
+            alt="Why Cosmos Group thematic visual"
+            className="w-full h-56 md:h-72 object-cover object-center"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B132B]/88 via-[#0B132B]/65 to-[#0B132B]/55" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0B132B]/80 to-transparent" />
+          <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1 bg-red-950/60 border border-red-900/40 rounded-full text-[10px] font-mono font-bold tracking-widest text-red-300 uppercase">
+            Strategic Trust Framework
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
         
-        {/* Left Side: Editorial Context Branding */}
-        <div className="lg:col-span-5 space-y-6">
+          {/* Left Side: Editorial Context Branding */}
+          <div className="lg:col-span-5 space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-950/40 border border-red-900/40 rounded-full">
             <Sparkles className="w-3.5 h-3.5 text-red-500" />
             <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-red-500 uppercase">
@@ -183,29 +205,29 @@ export default function WhyCosmosGroup() {
               <span className="block text-xs text-slate-500 uppercase font-mono tracking-wider">Compliance Record</span>
             </div>
           </div>
-        </div>
+          </div>
 
-        {/* Right Side: Masked Reveal Bullet Points */}
-        <div className="lg:col-span-7">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-col h-full justify-center"
-          >
-            {trustPoints.map((point, index) => (
-              <TrustPoint
-                key={index}
-                index={index}
-                numberStr={point.numberStr}
-                title={point.title}
-                description={point.description}
-              />
-            ))}
-          </motion.div>
+          {/* Right Side: Masked Reveal Bullet Points */}
+          <div className="lg:col-span-7">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="flex flex-col h-full justify-center"
+            >
+              {trustPoints.map((point, index) => (
+                <TrustPoint
+                  key={index}
+                  index={index}
+                  numberStr={point.numberStr}
+                  title={point.title}
+                  description={point.description}
+                />
+              ))}
+            </motion.div>
+          </div>
         </div>
-
       </div>
     </section>
   );

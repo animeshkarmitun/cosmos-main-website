@@ -26,6 +26,27 @@ export default function WhyCosmosLight() {
   return (
     <section id="why-cosmos" className="py-28 md:py-36 px-6 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto">
+        {/* Prelude Image Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="relative mb-12 md:mb-16 rounded-3xl overflow-hidden border border-stone-200 shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+        >
+          <img
+            src="/images/Why%20Cosmos%20Group.jpeg"
+            alt="Why Cosmos Group thematic visual"
+            className="w-full h-56 md:h-72 object-cover object-center"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/65 via-white/35 to-sky-100/30" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#FAF8F5]/80 to-transparent" />
+          <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/70 bg-white/80 backdrop-blur text-[10px] font-mono font-bold tracking-widest text-sky-700 uppercase">
+            Trusted Across Sectors
+          </div>
+        </motion.div>
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.span
