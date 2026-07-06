@@ -71,7 +71,7 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
     { name: "Sectors", href: "#businesses", hasDropdown: true },
     { name: "Services", href: "#services" },
     { name: "Why Us", href: "#why-cosmos" },
-    { name: "Founder", href: "#founder" },
+    { name: "Chairman", href: "#founder" },
     { name: "Careers", href: "#careers" },
   ];
 

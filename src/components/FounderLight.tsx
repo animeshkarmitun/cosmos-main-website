@@ -18,7 +18,7 @@ export default function FounderLight() {
               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-stone-200">
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi_mLNS0l4Na3bFGLtJC-BQevcb-gHMhPELGF38SGivw&s=10"
-                  alt="Founder of Cosmos Group in a formal business portrait"
+                  alt="Chairman of Cosmos Group in a formal business portrait"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                   loading="lazy"
@@ -39,7 +39,7 @@ export default function FounderLight() {
           >
             <span className="inline-flex items-center gap-2 text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-sky-700 mb-8">
               <span className="w-8 h-[1px] bg-sky-700" />
-              Founder’s Message
+              Chairman’s Message
             </span>
 
             <div className="relative">
@@ -51,7 +51,7 @@ export default function FounderLight() {
 
             <div className="border-t border-stone-200 pt-6">
               <p className="text-lg font-bold text-slate-900">ENAYETULLAH KHAN</p>
-              <p className="text-slate-500 text-sm font-medium">Founder - Cosmos Group</p>
+              <p className="text-slate-500 text-sm font-medium">Chairman - Cosmos Group</p>
             </div>
           </motion.div>
         </div>

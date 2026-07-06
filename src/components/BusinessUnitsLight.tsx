@@ -24,7 +24,7 @@ interface BusinessUnitsLightProps {
 export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightProps) {
   const companies = [
     { name: "Cosmos Energy", subtitle: "Leading the transition to sustainable energy solutions across the region.", icon: Zap, page: "energy", image: "/images/energy.jpg" },
-    { name: "Cosmos Holdings", subtitle: "Investment and holding management driving diverse portfolios.", icon: Building, page: "holdings", image: "/images/holdings.jpg" },
+    { name: "Cosmos Holdings", subtitle: "Investment and holding management driving diverse portfolios.", icon: Building, page: "holdings", image: "/images/cosmos-holdings-card.jpg" },
     { name: "Cosmos Marketing", subtitle: "Comprehensive consultation and marketing strategies.", icon: TrendingUp, page: "marketing", image: "/images/marketing.jpg" },
     { name: "Cosmos Telecom", subtitle: "Connecting the nation with advanced telecommunication infrastructure.", icon: Phone, page: "telecom", image: "/images/telecom.jpg" },
     { name: "Cosmos Apparels", subtitle: "High-quality garment manufacturing with international standards.", icon: Shirt, page: "apparels", image: "/images/apparels.jpg" },

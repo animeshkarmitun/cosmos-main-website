@@ -40,7 +40,7 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
       icon: <Building className="w-5 h-5 text-red-500" />,
       tagline: "Investment and holding management driving diverse portfolios.",
       logo: "/logos/Cosmos Logo-01.png",
-      image: "/images/holdings.jpg",
+      image: "/images/cosmos-holdings-card.jpg",
       detailedText: "Cosmos Holdings manages the strategic investments of the group, ensuring sustainable financial growth across diverse industries and maintaining operational excellence.",
       metric: "12+",
       metricLabel: "Diverse Industries",
