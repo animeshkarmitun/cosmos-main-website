@@ -74,11 +74,13 @@ export default function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
+            {/* News & Updates Ticker */}
+            <div className="relative z-40 pt-24 md:pt-28 -mb-24 md:-mb-28">
+              <NewsTicker />
+            </div>
+
             {/* Hero Slide & Overlapping Cards */}
             <Hero />
-
-            {/* News & Updates Ticker */}
-            <NewsTicker />
 
             {/* About Section */}
             <About />

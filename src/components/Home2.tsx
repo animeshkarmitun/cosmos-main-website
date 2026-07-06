@@ -20,8 +20,10 @@ interface Home2Props {
 export default function Home2({ onNavigate, onDialogueClick, onFoundationClick }: Home2Props) {
   return (
     <main className="bg-[#FAF8F5] min-h-screen">
+      <div className="relative z-40 pt-24 md:pt-28 -mb-24 md:-mb-28">
+        <NewsTicker />
+      </div>
       <HeroLight />
-      <NewsTicker />
       <AboutLight />
       <CodeOfGovernance />
       <StatsLight />
