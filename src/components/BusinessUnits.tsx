@@ -134,6 +134,17 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
       metricLabel: "Of Journalism",
     },
     {
+      id: "books",
+      title: "Cosmos Books",
+      icon: <BookOpen className="w-5 h-5 text-red-500" />,
+      tagline: "Publishing meaningful titles that enrich thought, culture, and knowledge.",
+      logo: "/logos/Cosmos Logo-01.png",
+      image: "/images/cosmos-books-card.png",
+      detailedText: "Cosmos Books curates and publishes impactful titles spanning culture, policy, literature, and contemporary thought for a broad readership.",
+      metric: "Editorial",
+      metricLabel: "Knowledge Publishing",
+    },
+    {
       id: "unb",
       title: "UNB",
       icon: <Globe2 className="w-5 h-5 text-red-500" />,
@@ -219,17 +230,18 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
     holdings: 4,
     marketing: 5,
     dhakacourier: 6,
-    unb: 7,
-    wildteam: 8,
-    gallery: 9,
-    telecom: 10,
-    apparels: 11,
-    pearls: 12,
-    printing: 13,
-    atelier: 14,
-    global: 15,
-    dialogue: 16,
-    foundation: 17,
+    books: 7,
+    unb: 8,
+    wildteam: 9,
+    gallery: 10,
+    telecom: 11,
+    apparels: 12,
+    pearls: 13,
+    printing: 14,
+    atelier: 15,
+    global: 16,
+    dialogue: 17,
+    foundation: 18,
   };
 
   const orderedUnits = [...units].sort(
@@ -247,6 +259,7 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
     printing: "printing",
     shipping: "shipping",
     dhakacourier: "dhaka-courier",
+    books: "home",
     unb: "unb",
     atelier: "atelier",
     global: "global",
@@ -354,11 +367,11 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
               </>
             ) : (
               <>
-                View All 17 Divisions <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+                View All 18 Divisions <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
               </>
             )}
             <span className="bg-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-              17
+              18
             </span>
           </button>
         </div>

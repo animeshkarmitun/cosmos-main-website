@@ -35,6 +35,7 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
     { name: "Cosmos Printing", subtitle: "Advanced printing and commercial publishing solutions.", icon: Printer, page: "printing", image: "/images/printing.jpg" },
     { name: "Cosmos Shipping", subtitle: "Global logistics and freight management with unparalled efficiency.", icon: Ship, page: "shipping", image: "/images/shipping.jpg" },
     { name: "Dhaka Courier", subtitle: "The premier English-language news weekly.", icon: BookOpen, page: "dhaka-courier", image: "/images/brochure_extracts/Dhaka-courier.jpeg" },
+    { name: "Cosmos Books", subtitle: "Publishing meaningful titles that enrich thought, culture, and knowledge.", icon: BookOpen, page: "home", image: "/images/cosmos-books-card.png" },
     { name: "UNB", subtitle: "United News of Bangladesh - the leading news agency.", icon: Globe2, page: "unb", image: "/images/unb.jpeg" },
     { name: "Cosmos Atelier 71", subtitle: "A premier printmaking studio promoting fine arts.", icon: Palette, page: "atelier", image: "/images/atelier.jpeg" },
     { name: "Cosmos Global", subtitle: "Global resources and international trade ventures.", icon: Globe, page: "global", image: "/images/global.jpg" },
@@ -51,17 +52,18 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
     "Cosmos Holdings": 4,
     "Cosmos Marketing Consultants": 5,
     "Dhaka Courier": 6,
-    UNB: 7,
-    WildTeam: 8,
-    "Cosmos Gallery": 9,
-    "Cosmos Telecom": 10,
-    "Cosmos Apparels": 11,
-    "Pearls Paradise": 12,
-    "Cosmos Printing": 13,
-    "Cosmos Atelier 71": 14,
-    "Cosmos Global": 15,
-    "Cosmos Dialogue": 16,
-    "Cosmos Foundation": 17,
+    "Cosmos Books": 7,
+    UNB: 8,
+    WildTeam: 9,
+    "Cosmos Gallery": 10,
+    "Cosmos Telecom": 11,
+    "Cosmos Apparels": 12,
+    "Pearls Paradise": 13,
+    "Cosmos Printing": 14,
+    "Cosmos Atelier 71": 15,
+    "Cosmos Global": 16,
+    "Cosmos Dialogue": 17,
+    "Cosmos Foundation": 18,
   };
 
   const orderedCompanies = [...companies].sort(
@@ -99,7 +101,7 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-500 text-base md:text-lg font-light mt-5 leading-relaxed"
           >
-            From energy to media, our seventeen divisions operate at the forefront of Bangladesh’s economic growth.
+            From energy to media, our eighteen divisions operate at the forefront of Bangladesh’s economic growth.
           </motion.p>
         </div>
 

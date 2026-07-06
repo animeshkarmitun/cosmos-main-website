@@ -166,8 +166,8 @@ export default function WhyCosmosGroup() {
             className="w-full h-56 md:h-72 object-cover object-center"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B132B]/88 via-[#0B132B]/65 to-[#0B132B]/55" />
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0B132B]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B132B]/62 via-[#0B132B]/42 to-[#0B132B]/30" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0B132B]/48 to-transparent" />
           <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1 bg-red-950/60 border border-red-900/40 rounded-full text-[10px] font-mono font-bold tracking-widest text-red-300 uppercase">
             Strategic Trust Framework
           </div>

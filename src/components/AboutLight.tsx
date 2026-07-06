@@ -24,7 +24,7 @@ export default function AboutLight() {
   return (
     <section id="about" className="py-28 md:py-36 px-6 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
           {/* Left: Images */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -33,9 +33,9 @@ export default function AboutLight() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 md:gap-5">
               {images.map((image, index) => (
-                <div key={image.src} className={`aspect-video rounded-2xl overflow-hidden shadow-lg group ${index % 2 === 0 ? "mt-8" : ""}`}>
+                <div key={image.src} className={`aspect-[4/3] md:aspect-[5/4] rounded-2xl overflow-hidden shadow-lg group ${index % 2 === 0 ? "mt-8" : ""}`}>
                   <img
                     src={image.src}
                     alt={image.alt}

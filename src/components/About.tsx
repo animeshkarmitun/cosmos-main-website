@@ -22,9 +22,9 @@ export default function About() {
 
   return (
     <section id="about" className="py-20 md:py-28 px-6 bg-slate-50">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
         {/* Left Side: About Text Description */}
-        <div className="lg:w-1/2" data-purpose="about-text">
+        <div className="lg:w-[46%]" data-purpose="about-text">
           <LineRevealText
             text="ABOUT US"
             tag="h2"
@@ -71,11 +71,11 @@ export default function About() {
         </div>
 
         {/* Right Side: Grid of Images */}
-        <div className="lg:w-1/2 w-full grid grid-cols-2 gap-4" data-purpose="about-gallery">
+        <div className="lg:w-[54%] w-full grid grid-cols-2 gap-4 md:gap-5" data-purpose="about-gallery">
           {images.map((img, index) => (
             <div
               key={index}
-              className="group relative aspect-video filter overflow-hidden rounded-xl bg-slate-200 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="group relative aspect-[4/3] md:aspect-[5/4] filter overflow-hidden rounded-xl bg-slate-200 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <img
                 src={img.src}

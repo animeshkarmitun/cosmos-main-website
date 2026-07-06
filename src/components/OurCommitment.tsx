@@ -63,9 +63,16 @@ export default function OurCommitment({ onDialogueClick, onFoundationClick }: Ou
             {/* Card 1: Education Support */}
             <div 
               id="card-education-support"
-              className={`bg-white p-6 md:p-8 rounded-3xl shadow-sm flex flex-col justify-between h-full ${cardHoverEffect}`}
+              className={`relative overflow-hidden bg-white p-6 md:p-8 rounded-3xl shadow-sm flex flex-col justify-between h-full ${cardHoverEffect}`}
             >
-              <div className="space-y-6">
+              <img
+                src="/images/about-us-3.jpg"
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover opacity-[0.24] pointer-events-none"
+                aria-hidden="true"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-white/70 to-white/55 pointer-events-none" />
+              <div className="relative z-10 space-y-6">
                 <div className="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100 shadow-sm">
                   <GraduationCap className="w-6 h-6" />
                 </div>
@@ -79,7 +86,7 @@ export default function OurCommitment({ onDialogueClick, onFoundationClick }: Ou
                 </div>
               </div>
 
-              <div className="mt-8 space-y-3">
+              <div className="relative z-10 mt-8 space-y-3">
                 <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
                   Supported Disciplines
                 </span>
@@ -99,12 +106,19 @@ export default function OurCommitment({ onDialogueClick, onFoundationClick }: Ou
             {/* Card 2: Community Activities */}
             <div 
               id="card-community-activities"
-              className={`bg-white p-6 md:p-8 rounded-3xl shadow-sm ${cardHoverEffect} flex items-start gap-5`}
+              className={`relative overflow-hidden bg-white p-6 md:p-8 rounded-3xl shadow-sm ${cardHoverEffect} flex items-start gap-5`}
             >
-              <div className="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100 shadow-sm shrink-0">
+              <img
+                src="/images/about-us-4.jpeg"
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover opacity-[0.24] pointer-events-none"
+                aria-hidden="true"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/70 to-white/60 pointer-events-none" />
+              <div className="relative z-10 w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100 shadow-sm shrink-0">
                 <Heart className="w-6 h-6" />
               </div>
-              <div className="space-y-2">
+              <div className="relative z-10 space-y-2">
                 <h3 className="text-lg md:text-xl font-bold text-slate-900 uppercase tracking-tight">
                   Community Activities
                 </h3>
@@ -123,12 +137,19 @@ export default function OurCommitment({ onDialogueClick, onFoundationClick }: Ou
             <div 
               id="card-cosmos-dialogue"
               onClick={onDialogueClick}
-              className={`bg-[#0B132B] text-white p-6 md:p-8 rounded-3xl shadow-lg border border-slate-900 flex flex-col md:flex-row gap-6 items-start transition-all duration-300 ease-out ${onDialogueClick ? 'cursor-pointer hover:scale-[1.015] hover:shadow-xl' : 'hover:scale-[1.015] hover:shadow-xl'}`}
+              className={`relative overflow-hidden bg-[#0B132B] text-white p-6 md:p-8 rounded-3xl shadow-lg border border-slate-900 flex flex-col md:flex-row gap-6 items-start transition-all duration-300 ease-out ${onDialogueClick ? 'cursor-pointer hover:scale-[1.015] hover:shadow-xl' : 'hover:scale-[1.015] hover:shadow-xl'}`}
             >
-              <div className="w-12 h-12 rounded-2xl bg-red-950/80 border border-red-900/40 text-red-400 flex items-center justify-center shadow-lg shrink-0">
+              <img
+                src="/images/about-us-2.jpg"
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover opacity-[0.34] pointer-events-none"
+                aria-hidden="true"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0B132B]/88 via-[#0B132B]/80 to-[#0B132B]/72 pointer-events-none" />
+              <div className="relative z-10 w-12 h-12 rounded-2xl bg-red-950/80 border border-red-900/40 text-red-400 flex items-center justify-center shadow-lg shrink-0">
                 <MessageSquare className="w-6 h-6" />
               </div>
-              <div className="space-y-4">
+              <div className="relative z-10 space-y-4">
                 <div className="space-y-1">
                   <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">
                     Cosmos Dialogue
@@ -154,9 +175,16 @@ export default function OurCommitment({ onDialogueClick, onFoundationClick }: Ou
               {/* Card 4: Anti-Tobacco Movement (Solid Red/Coral Background) */}
               <div 
                 id="card-anti-tobacco"
-                className="bg-red-600 text-white p-6 md:p-8 rounded-3xl shadow-md flex flex-col justify-between hover:scale-[1.015] hover:shadow-lg transition-all duration-300 ease-out"
+                className="relative overflow-hidden bg-red-600 text-white p-6 md:p-8 rounded-3xl shadow-md flex flex-col justify-between hover:scale-[1.015] hover:shadow-lg transition-all duration-300 ease-out"
               >
-                <div className="space-y-4">
+                <img
+                  src="/images/about-us-1.jpeg"
+                  alt=""
+                className="absolute inset-0 w-full h-full object-cover opacity-[0.3] pointer-events-none"
+                  aria-hidden="true"
+                />
+              <div className="absolute inset-0 bg-gradient-to-t from-red-700/85 via-red-600/78 to-red-600/62 pointer-events-none" />
+                <div className="relative z-10 space-y-4">
                   <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 text-white flex items-center justify-center shadow-sm">
                     <Ban className="w-6 h-6" />
                   </div>
@@ -174,7 +202,7 @@ export default function OurCommitment({ onDialogueClick, onFoundationClick }: Ou
                 </div>
 
                 {/* WHO Medal Highlight */}
-                <div className="mt-8 p-3 bg-red-700/60 border border-white/10 rounded-2xl flex items-center gap-3">
+                <div className="relative z-10 mt-8 p-3 bg-red-700/60 border border-white/10 rounded-2xl flex items-center gap-3">
                   <div className="w-8 h-8 rounded-lg bg-yellow-400 text-red-950 flex items-center justify-center shrink-0 shadow-inner">
                     <Award className="w-4 h-4" />
                   </div>
@@ -192,9 +220,16 @@ export default function OurCommitment({ onDialogueClick, onFoundationClick }: Ou
               {/* Card 5: Trust Fund Initiatives */}
               <div 
                 id="card-trust-funds"
-                className={`bg-white p-6 md:p-8 rounded-3xl shadow-sm flex flex-col justify-between ${cardHoverEffect}`}
+                className={`relative overflow-hidden bg-white p-6 md:p-8 rounded-3xl shadow-sm flex flex-col justify-between ${cardHoverEffect}`}
               >
-                <div className="space-y-4">
+                <img
+                  src="/images/Wild-Team-card.jpeg"
+                  alt=""
+                className="absolute inset-0 w-full h-full object-cover opacity-[0.24] pointer-events-none"
+                  aria-hidden="true"
+                />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-white/70 to-white/55 pointer-events-none" />
+                <div className="relative z-10 space-y-4">
                   <div className="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100 shadow-sm shrink-0">
                     <HeartHandshake className="w-6 h-6" />
                   </div>
@@ -206,7 +241,7 @@ export default function OurCommitment({ onDialogueClick, onFoundationClick }: Ou
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-slate-100 text-[10px] font-mono text-slate-400 uppercase tracking-widest text-right">
+                <div className="relative z-10 pt-6 border-t border-slate-100 text-[10px] font-mono text-slate-400 uppercase tracking-widest text-right">
                   Asiatic Society Partnership
                 </div>
               </div>
