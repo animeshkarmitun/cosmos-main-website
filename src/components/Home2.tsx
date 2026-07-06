@@ -25,11 +25,11 @@ export default function Home2({ onNavigate, onDialogueClick, onFoundationClick }
       </div>
       <HeroLight />
       <AboutLight />
-      <CodeOfGovernance />
-      <StatsLight />
-      <BusinessUnitsLight onNavigate={onNavigate} />
-      <ServicesLight />
       <WhyCosmosLight />
+      <CodeOfGovernance />
+      <BusinessUnitsLight onNavigate={onNavigate} />
+      <StatsLight />
+      <ServicesLight />
       <OurCommitment onDialogueClick={onDialogueClick} onFoundationClick={onFoundationClick} />
       <FounderLight />
       <WHSPolicy />

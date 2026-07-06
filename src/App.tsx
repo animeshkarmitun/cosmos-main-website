@@ -9,6 +9,7 @@ import BusinessUnits from "./components/BusinessUnits";
 import PartnershipServices from "./components/PartnershipServices";
 import WhyCosmosGroup from "./components/WhyCosmosGroup";
 import OurCommitment from "./components/OurCommitment";
+import MajorAchievements from "./components/MajorAchievements";
 import FounderMessage from "./components/FounderMessage";
 import WHSPolicy from "./components/WHSPolicy";
 import ContactSection from "./components/ContactSection";
@@ -85,11 +86,11 @@ export default function App() {
             {/* About Section */}
             <About />
 
+            {/* Why Cosmos Group (Trust Section) */}
+            <WhyCosmosGroup />
+
             {/* Code of Governance Section */}
             <CodeOfGovernance />
-
-            {/* Corporate Infographics Section */}
-            <CosmosStats />
 
             {/* Business Conglomerate Grid */}
             <BusinessUnits 
@@ -99,11 +100,14 @@ export default function App() {
               }}
             />
 
+            {/* Major Achievements */}
+            <MajorAchievements />
+
+            {/* Corporate Infographics Section */}
+            <CosmosStats />
+
             {/* N-Country Partnership & Services (Bento Grid) */}
             <PartnershipServices />
-
-            {/* Why Cosmos Group (Trust Section) */}
-            <WhyCosmosGroup />
 
             {/* Our Commitment (CSR & Philanthropy Section) */}
             <OurCommitment 

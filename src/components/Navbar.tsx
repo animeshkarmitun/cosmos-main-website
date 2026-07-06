@@ -68,10 +68,10 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
   const navLinks = [
     { name: "Home", href: "#home", hasDropdown: true, isHome: true },
     { name: "About", href: "#about" },
-    { name: "Sectors", href: "#businesses", hasDropdown: true },
+    { name: "Companies", href: "#businesses", hasDropdown: true },
     { name: "Services", href: "#services" },
     { name: "Why Us", href: "#why-cosmos" },
-    { name: "Chairman", href: "#founder" },
+    { name: "Team", href: "#founder" },
     { name: "Careers", href: "#careers" },
   ];
 
@@ -183,6 +183,10 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
                       <span>{link.name}</span>
                       <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${homeDropdownOpen ? "rotate-180" : ""} ${isLight ? "text-slate-400" : "text-slate-400"}`} />
                     </button>
+                    <div
+                      className="absolute top-full left-0 right-0 h-3"
+                      aria-hidden="true"
+                    />
                     {/* Home Dropdown Panel */}
                     <AnimatePresence>
                       {homeDropdownOpen && (
@@ -191,7 +195,7 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.2 }}
-                          className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 border rounded-2xl shadow-2xl p-3 z-50 ${
+                          className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 border rounded-2xl shadow-2xl p-3 z-50 ${
                             isLight ? "bg-white/95 border-stone-200 backdrop-blur-xl" : "bg-slate-950/95 border-slate-800/80 backdrop-blur-xl"
                           }`}
                         >
@@ -249,8 +253,12 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
                       <span>{link.name}</span>
                       <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-300 text-slate-400" />
                     </button>
+                    <div
+                      className="absolute top-full left-0 right-0 h-3"
+                      aria-hidden="true"
+                    />
                     {/* Mega Dropdown Panel */}
-                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[840px] border rounded-2xl shadow-2xl p-6 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50 ${
+                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[840px] border rounded-2xl shadow-2xl p-6 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50 ${
                       isLight ? "bg-white/95 border-stone-200 backdrop-blur-xl" : "bg-slate-950/95 border-slate-800/80 backdrop-blur-xl"
                     }`}>
                       <div className={`flex items-center justify-between border-b pb-3 mb-4 ${isLight ? "border-stone-200" : "border-slate-800/40"}`}>

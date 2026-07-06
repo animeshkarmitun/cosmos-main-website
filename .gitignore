@@ -9,3 +9,6 @@ coverage/
 logos/
 *.octet-stream
 brochures/
+
+# Local-only Next.js migration planning workspace (not part of the product)
+.nextjs-migration/
