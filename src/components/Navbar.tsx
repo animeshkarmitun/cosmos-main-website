@@ -37,6 +37,8 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
 
   const isLight = currentPage === "home2";
   const isHomeActive = currentPage === "home" || currentPage === "home2";
+  const isHomeVariant = currentPage === "home" || currentPage === "home2";
+  const useSolidDarkShell = !isLight && !isHomeVariant;
 
   const handleHashLink = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
@@ -120,12 +122,20 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
         scrolled ? "bg-white/90 py-2.5 shadow-sm border-b border-stone-200/70 backdrop-blur-md" : "bg-white/60 py-4 md:py-6"
       }`
     : `fixed top-0 left-0 right-0 z-50 px-4 md:px-6 transition-all duration-300 ${
-        scrolled ? "bg-slate-950/95 py-2.5 shadow-2xl border-b border-slate-900/80 backdrop-blur-md" : "bg-transparent py-4 md:py-6"
+        useSolidDarkShell
+          ? "bg-slate-950/95 py-2.5 shadow-2xl border-b border-slate-900/80 backdrop-blur-md"
+          : scrolled
+            ? "bg-slate-950/95 py-2.5 shadow-2xl border-b border-slate-900/80 backdrop-blur-md"
+            : "bg-transparent py-4 md:py-6"
       }`;
 
   const navContainerClasses = isLight
     ? "max-w-7xl mx-auto flex items-center justify-between bg-white/70 backdrop-blur-sm border border-stone-200/60 px-6 md:px-8 py-3 rounded-xl"
-    : "max-w-7xl mx-auto flex items-center justify-between bg-slate-900/30 backdrop-blur-sm border border-white/10 px-6 md:px-8 py-3 rounded-xl";
+    : `max-w-7xl mx-auto flex items-center justify-between px-6 md:px-8 py-3 rounded-xl ${
+        useSolidDarkShell
+          ? "bg-slate-950 border border-slate-800/80"
+          : "bg-slate-900/30 backdrop-blur-sm border border-white/10"
+      }`;
 
   const linkTextClasses = isLight
     ? "text-slate-700 hover:text-sky-700"
