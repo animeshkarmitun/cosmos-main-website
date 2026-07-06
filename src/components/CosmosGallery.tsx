@@ -1,7 +1,7 @@
 import React from "react";
 import { 
   ArrowLeft, 
-  Image,
+  Image as ImageIcon,
   Palette,
   Users,
   Sparkles,
@@ -58,7 +58,7 @@ export default function CosmosGallery({ onBackToHome }: CosmosGalleryProps) {
           
           <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-950/60 border border-red-900/40 rounded-full">
-              <Image className="w-3.5 h-3.5 text-red-500" />
+              <ImageIcon className="w-3.5 h-3.5 text-red-500" />
               <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-red-400 uppercase">
                 Arts & Culture Division
               </span>

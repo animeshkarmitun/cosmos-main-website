@@ -11,9 +11,10 @@ import { motion } from "motion/react";
 
 interface OurCommitmentProps {
   onDialogueClick?: () => void;
+  onFoundationClick?: () => void;
 }
 
-export default function OurCommitment({ onDialogueClick }: OurCommitmentProps) {
+export default function OurCommitment({ onDialogueClick, onFoundationClick }: OurCommitmentProps) {
   const educationTags = [
     "Journalism", 
     "Medicine", 
@@ -44,9 +45,12 @@ export default function OurCommitment({ onDialogueClick }: OurCommitmentProps) {
             </p>
           </div>
           <div className="md:text-right shrink-0">
-            <span className="inline-block text-[10px] md:text-xs font-mono font-bold tracking-widest text-slate-500 bg-white border border-slate-200 px-4 py-1.5 rounded-full shadow-sm">
+            <button 
+              onClick={onFoundationClick}
+              className={`inline-block text-[10px] md:text-xs font-mono font-bold tracking-widest text-slate-500 bg-white border border-slate-200 px-4 py-1.5 rounded-full shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-red-600 ${onFoundationClick ? 'hover:bg-red-50 hover:text-red-700 hover:border-red-200 cursor-pointer' : ''}`}
+            >
               COSMOS FOUNDATION PHILANTHROPIC ARM
-            </span>
+            </button>
           </div>
         </div>
 

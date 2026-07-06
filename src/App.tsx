@@ -29,13 +29,15 @@ import CosmosGlobal from "./components/CosmosGlobal";
 import WildTeam from "./components/WildTeam";
 import CosmosGallery from "./components/CosmosGallery";
 import CosmosDialogue from "./components/CosmosDialogue";
+import CosmosFoundation from "./components/CosmosFoundation";
+import Home2 from "./components/Home2";
 import { X, Check } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<
-    "home" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" |
-    "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue"
+    "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" |
+    "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation"
   >("home");
   const [isInvestorOpen, setIsInvestorOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -82,8 +84,8 @@ export default function App() {
 
   return (
     <div className="bg-white min-h-screen font-sans selection:bg-red-700 selection:text-white relative">
-      {/* Film Grain Subtle Noise Overlay */}
-      <div className="film-grain" aria-hidden="true" />
+      {/* Film Grain stays exclusive to the default dark home variant */}
+      {currentPage !== "home2" && <div className="film-grain" aria-hidden="true" />}
 
       {/* Header */}
       <Navbar 
@@ -132,10 +134,16 @@ export default function App() {
             <WhyCosmosGroup />
 
             {/* Our Commitment (CSR & Philanthropy Section) */}
-            <OurCommitment onDialogueClick={() => {
-              setCurrentPage("dialogue");
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }} />
+            <OurCommitment 
+              onDialogueClick={() => {
+                setCurrentPage("dialogue");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }} 
+              onFoundationClick={() => {
+                setCurrentPage("foundation");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }} 
+            />
 
             {/* Founder Address */}
             <FounderMessage />
@@ -145,6 +153,29 @@ export default function App() {
 
             {/* Dynamic Partner & Contact Section */}
             <ContactSection />
+          </motion.main>
+        ) : currentPage === "home2" ? (
+          <motion.main
+            key="home2-page-content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Home2
+              onNavigate={(page) => {
+                setCurrentPage(page as typeof currentPage);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              onDialogueClick={() => {
+                setCurrentPage("dialogue");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              onFoundationClick={() => {
+                setCurrentPage("foundation");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            />
           </motion.main>
         ) : currentPage === "careers" ? (
           <motion.div
@@ -341,7 +372,7 @@ export default function App() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }} />
           </motion.div>
-        ) : (
+        ) : currentPage === "dialogue" ? (
           <motion.div
             key="dialogue-page-content"
             initial={{ opacity: 0, y: 15 }}
@@ -350,6 +381,19 @@ export default function App() {
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <CosmosDialogue onBackToHome={() => {
+              setCurrentPage("home");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }} />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="foundation-page-content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <CosmosFoundation onBackToHome={() => {
               setCurrentPage("home");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }} />
