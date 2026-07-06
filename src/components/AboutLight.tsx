@@ -4,19 +4,19 @@ import LineRevealText from "./LineRevealText";
 export default function AboutLight() {
   const images = [
     {
-      src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&h=600&q=80",
+      src: "/images/about-us-1.jpeg",
       alt: "Cosmos Group leadership discussing future technologies in a modern glass boardroom",
     },
     {
-      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&h=600&q=80",
+      src: "/images/about-us-2.jpg",
       alt: "Professional employees collaborating on advanced technological solutions",
     },
     {
-      src: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&w=800&h=600&q=80",
+      src: "/images/about-us-3.jpg",
       alt: "Corporate associates monitoring global shipping and sustainable power charts in the office",
     },
     {
-      src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&h=600&q=80",
+      src: "/images/about-us-4.jpeg",
       alt: "A presentation on business projections, regional leadership, and international trade in a modern office setup",
     },
   ];

@@ -21,8 +21,7 @@ export default function HeroLight() {
       highlightText: "Sustaining Tomorrow",
       subtitle:
         "Cosmos Group integrates hydrocarbons and renewables, delivering reliable energy solutions with integrity, compliance, and visionary leadership for lasting impact",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuDvX1aTkHfIDVDstPY3et9nDMMynuMx6LxaaOr8hYqVal568LXQbXLFDbUQI1cm551uKBSuXN816wjkElzCCN_e-NtW8FLMrPXXe2Lg5ebpLalV3ZUj6h7Vpg9RqsIVFOsrOvbC3ZGUG4OqR7JhHYXR8hSNAubuJ4i6ighbGDK8EpRjwlsZwED8nYqL4GCCeCLj1fsqd6rx_jWi0xa9M0e5Uot-MgA7juwAepZ2JIUbQdf7pl9B6wXHfnrPatUgCrn5Jm7cbxqFS-E",
+      image: "/images/header-1.jpg",
       ctaText: "Discover Our Strategy",
       ctaLink: "#about",
     },
