@@ -25,12 +25,11 @@ import { motion, AnimatePresence } from "motion/react";
 import CosmosLogo from "./CosmosLogo";
 
 interface NavbarProps {
-  onInvestorClick: () => void;
   currentPage: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation";
   onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation") => void;
 }
 
-export default function Navbar({ onInvestorClick, currentPage, onPageChange }: NavbarProps) {
+export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -338,11 +337,11 @@ export default function Navbar({ onInvestorClick, currentPage, onPageChange }: N
           {/* Desktop CTA / Mobile Trigger */}
           <div className="flex items-center space-x-4">
             <button
-              onClick={onInvestorClick}
+              onClick={(e) => handleHashLink(e, "#contact")}
               className={ctaClasses}
-              aria-label="Open Investor Hub"
+              aria-label="Go to Contact section"
             >
-              Investor Hub
+              Contact Us
             </button>
 
             {/* Mobile Hamburger Button */}
@@ -556,7 +555,16 @@ export default function Navbar({ onInvestorClick, currentPage, onPageChange }: N
               <button
                 onClick={() => {
                   setIsOpen(false);
-                  onInvestorClick();
+                  const targetHomePage = currentPage === "home2" ? "home2" : "home";
+                  onPageChange(targetHomePage);
+                  setTimeout(() => {
+                    const element = document.getElementById("contact");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth", block: "start" });
+                    } else {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                  }, 120);
                 }}
                 className={`w-full font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 ${
                   isLight
@@ -564,7 +572,7 @@ export default function Navbar({ onInvestorClick, currentPage, onPageChange }: N
                     : "bg-red-700 hover:bg-red-600 text-white"
                 }`}
               >
-                Investor Hub
+                Contact Us
               </button>
             </div>
           </motion.div>
