@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 
+import DivisionBrandBanner from "./DivisionBrandBanner";
+
 interface EnergyServicesProps {
   onBackToHome: () => void;
 }
@@ -68,6 +70,10 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
           <ArrowLeft className="w-4 h-4" />
           Back to Portal Home
         </button>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+        <DivisionBrandBanner name="Cosmos Energy Services" logo="/logos/Cosmos Energy Services.png" descriptor="Oil, Gas & Power" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6">

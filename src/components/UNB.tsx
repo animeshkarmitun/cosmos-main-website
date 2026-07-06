@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 
+import DivisionBrandBanner from "./DivisionBrandBanner";
+
 interface UNBProps {
   onBackToHome: () => void;
 }
@@ -55,6 +57,10 @@ export default function UNB({ onBackToHome }: UNBProps) {
           <ArrowLeft className="w-4 h-4" />
           Back to Portal Home
         </button>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+        <DivisionBrandBanner name="United News of Bangladesh" logo="/logos/United News of Bangladesh.png" descriptor="News Agency" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">

@@ -11,6 +11,8 @@ import {
   Settings
 } from "lucide-react";
 
+import DivisionBrandBanner from "./DivisionBrandBanner";
+
 interface CosmosGlobalProps {
   onBackToHome: () => void;
 }
@@ -46,6 +48,10 @@ export default function CosmosGlobal({ onBackToHome }: CosmosGlobalProps) {
           <ArrowLeft className="w-4 h-4" />
           Back to Portal Home
         </button>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+        <DivisionBrandBanner name="Cosmos Global" logo="/logos/Cosmos Resources Pte Ltd.png" descriptor="Global Resources" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">

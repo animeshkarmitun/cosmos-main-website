@@ -1,6 +1,8 @@
 import React from "react";
 import { ArrowLeft, MessageSquare } from "lucide-react";
 
+import DivisionBrandBanner from "./DivisionBrandBanner";
+
 interface CosmosDialogueProps {
   onBackToHome: () => void;
 }
@@ -17,6 +19,10 @@ export default function CosmosDialogue({ onBackToHome }: CosmosDialogueProps) {
           <ArrowLeft className="w-4 h-4" />
           Back to Portal Home
         </button>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+        <DivisionBrandBanner name="Cosmos Dialogue" logo="/logos/Cosmos Logo-01.png" descriptor="Policy Dialogue" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">

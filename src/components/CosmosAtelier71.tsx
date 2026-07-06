@@ -7,6 +7,8 @@ import {
   BookOpen,
 } from "lucide-react";
 
+import DivisionBrandBanner from "./DivisionBrandBanner";
+
 interface CosmosAtelier71Props {
   onBackToHome: () => void;
 }
@@ -24,6 +26,10 @@ export default function CosmosAtelier71({ onBackToHome }: CosmosAtelier71Props) 
           <ArrowLeft className="w-4 h-4" />
           Back to Portal Home
         </button>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+        <DivisionBrandBanner name="Cosmos Atelier 71" logo="/logos/Cosmos Atelier 71.png" descriptor="Printmaking Studio" />
       </div>
 
     <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">

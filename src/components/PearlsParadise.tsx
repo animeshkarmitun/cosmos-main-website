@@ -11,6 +11,8 @@ import {
   Anchor
 } from "lucide-react";
 
+import DivisionBrandBanner from "./DivisionBrandBanner";
+
 interface PearlsParadiseProps {
   onBackToHome: () => void;
 }
@@ -46,6 +48,10 @@ export default function PearlsParadise({ onBackToHome }: PearlsParadiseProps) {
           <ArrowLeft className="w-4 h-4" />
           Back to Portal Home
         </button>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+        <DivisionBrandBanner name="Pearls Paradise" logo="/logos/Pearls Paradise.png" descriptor="Jewelry & Gems" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">

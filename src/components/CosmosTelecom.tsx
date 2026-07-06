@@ -12,6 +12,8 @@ import {
   Server
 } from "lucide-react";
 
+import DivisionBrandBanner from "./DivisionBrandBanner";
+
 interface CosmosTelecomProps {
   onBackToHome: () => void;
 }
@@ -47,6 +49,10 @@ export default function CosmosTelecom({ onBackToHome }: CosmosTelecomProps) {
           <ArrowLeft className="w-4 h-4" />
           Back to Portal Home
         </button>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+        <DivisionBrandBanner name="Cosmos Telecom" logo="/logos/Cosmos Technologies.png" descriptor="Telecommunications" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">
