@@ -575,19 +575,11 @@ export default function CosmosStats() {
                 </div>
 
                 <div className="space-y-2.5">
-                  {[
-                    { country: "Singapore", role: "Regional hub" },
-                    { country: "United Kingdom", role: "European operations" },
-                    { country: "United States", role: "North America" },
-                    { country: "Canada", role: "North America" }
-                  ].map((office) => (
-                    <div key={office.country} className="flex items-center justify-between text-xs font-mono">
+                  {["Singapore", "United Kingdom", "United States", "Canada"].map((country) => (
+                    <div key={country} className="flex items-center text-xs font-mono">
                       <span className="text-slate-200 hover:text-cyan-400 transition-colors flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                        {office.country}
-                      </span>
-                      <span className="text-[9px] text-slate-500 uppercase">
-                        {office.role}
+                        {country}
                       </span>
                     </div>
                   ))}
