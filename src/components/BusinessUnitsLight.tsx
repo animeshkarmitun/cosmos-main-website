@@ -92,7 +92,7 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 font-display"
           >
-            Diverse Divisions, One Vision
+            Our Companies
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

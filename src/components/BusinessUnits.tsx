@@ -279,7 +279,7 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
             Our Enterprise Spheres
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-            Conglomerate Pillars
+            Our Companies
           </h2>
           <p className="text-slate-400 mt-3 text-sm md:text-base max-w-xl font-light">
             Each business division is operated by leading sector professionals, working with international standards to deliver industrial excellence.
