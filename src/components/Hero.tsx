@@ -93,14 +93,14 @@ export default function Hero() {
 
   const cards = [
     {
-      title: "Mission",
+      title: "Mission Statement",
       icon: <Compass className="w-5 h-5 text-white" aria-hidden="true" />,
-      text: "To pioneer breakthrough industrial solutions, supplying critical corporate assets with operational excellence, dynamic frameworks, and compliance.",
+      text: "To strengthen our leadership profile by providing the most efficient and cost effective services to our clients, be it in energy, mining, shipping, information technology, media, or any endeavour to benefit our future.",
     },
     {
-      title: "Vision",
+      title: "Our Vision",
       icon: <Eye className="w-5 h-5 text-white" aria-hidden="true" />,
-      text: "To lead regional integration as Bangladesh's foremost conglomerate, fueling resilient infrastructure, clean energy systems, and advanced technologies.",
+      text: "To serve as the preferred partner in providing quality services & solutions to our stakeholders & clients.",
     },
     {
       title: "Values",

@@ -13,6 +13,8 @@ import {
   Palette,
   Globe2,
   PawPrint,
+  MessageSquare,
+  HandHeart,
   Image as ImageIcon,
   ArrowUpRight,
 } from "lucide-react";
@@ -23,10 +25,11 @@ interface BusinessUnitsLightProps {
 
 export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightProps) {
   const companies = [
-    { name: "Cosmos Energy", subtitle: "Leading the transition to sustainable energy solutions across the region.", icon: Zap, page: "energy", image: "/images/energy.jpg" },
+    { name: "Cosmos Energy", subtitle: "Leading the transition to sustainable energy solutions across the region.", icon: Zap, page: "energy", image: "/images/cosmos-energy-card.png" },
+    { name: "Cosmos Power", subtitle: "Delivering dependable power solutions with modern generation and grid reliability.", icon: Zap, page: "energy", image: "/images/cosmos-power-card.png" },
     { name: "Cosmos Holdings", subtitle: "Investment and holding management driving diverse portfolios.", icon: Building, page: "holdings", image: "/images/cosmos-holdings-card.jpg" },
-    { name: "Cosmos Marketing", subtitle: "Comprehensive consultation and marketing strategies.", icon: TrendingUp, page: "marketing", image: "/images/marketing.jpg" },
-    { name: "Cosmos Telecom", subtitle: "Connecting the nation with advanced telecommunication infrastructure.", icon: Phone, page: "telecom", image: "/images/telecom.jpg" },
+    { name: "Cosmos Marketing Consultants", subtitle: "Comprehensive consultation and marketing strategies.", icon: TrendingUp, page: "marketing", image: "/images/cosmos-marketing-card.png" },
+    { name: "Cosmos Telecom", subtitle: "Connecting the nation with advanced telecommunication infrastructure.", icon: Phone, page: "telecom", image: "/images/cosmos-telecom-card.png" },
     { name: "Cosmos Apparels", subtitle: "High-quality garment manufacturing with international standards.", icon: Shirt, page: "apparels", image: "/images/apparels.jpg" },
     { name: "Pearls Paradise", subtitle: "Exquisite jewelry and precious gems.", icon: Gem, page: "pearls", image: "/images/pearls.jpg" },
     { name: "Cosmos Printing", subtitle: "Advanced printing and commercial publishing solutions.", icon: Printer, page: "printing", image: "/images/printing.jpg" },
@@ -37,27 +40,32 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
     { name: "Cosmos Global", subtitle: "Global resources and international trade ventures.", icon: Globe, page: "global", image: "/images/global.jpg" },
     { name: "WildTeam", subtitle: "Wildlife conservation initiative protecting Bangladesh's rich biodiversity.", icon: PawPrint, page: "wildteam", image: "/images/wildteam.jpg" },
     { name: "Cosmos Gallery", subtitle: "A premier destination for fine arts and cultural expression.", icon: ImageIcon, page: "gallery", image: "/images/gallery.jpeg" },
+    { name: "Cosmos Dialogue", subtitle: "Thought leadership platform for policy dialogue, diplomacy, and strategic discourse.", icon: MessageSquare, page: "dialogue", image: "/images/cosmos-dialogue-card.png" },
+    { name: "Cosmos Foundation", subtitle: "Social impact initiatives advancing education, public health, and community resilience.", icon: HandHeart, page: "foundation", image: "/images/cosmos-foundation-card.png" },
   ];
 
   const companyOrderRank: Record<string, number> = {
-    energy: 1,
-    shipping: 2,
-    holdings: 3,
-    marketing: 4,
-    "dhaka-courier": 5,
-    unb: 6,
-    wildteam: 7,
-    gallery: 8,
-    telecom: 9,
-    apparels: 10,
-    pearls: 11,
-    printing: 12,
-    atelier: 13,
-    global: 14,
+    "Cosmos Energy": 1,
+    "Cosmos Power": 2,
+    "Cosmos Shipping": 3,
+    "Cosmos Holdings": 4,
+    "Cosmos Marketing Consultants": 5,
+    "Dhaka Courier": 6,
+    UNB: 7,
+    WildTeam: 8,
+    "Cosmos Gallery": 9,
+    "Cosmos Telecom": 10,
+    "Cosmos Apparels": 11,
+    "Pearls Paradise": 12,
+    "Cosmos Printing": 13,
+    "Cosmos Atelier 71": 14,
+    "Cosmos Global": 15,
+    "Cosmos Dialogue": 16,
+    "Cosmos Foundation": 17,
   };
 
   const orderedCompanies = [...companies].sort(
-    (a, b) => (companyOrderRank[a.page] ?? 999) - (companyOrderRank[b.page] ?? 999)
+    (a, b) => (companyOrderRank[a.name] ?? 999) - (companyOrderRank[b.name] ?? 999)
   );
 
   return (
@@ -91,7 +99,7 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-500 text-base md:text-lg font-light mt-5 leading-relaxed"
           >
-            From energy to media, our fourteen divisions operate at the forefront of Bangladesh’s economic growth.
+            From energy to media, our seventeen divisions operate at the forefront of Bangladesh’s economic growth.
           </motion.p>
         </div>
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowUpRight, Zap, Ship, Globe2, Building, TrendingUp, Phone, Shirt, Gem, Printer, Globe, Palette, BookOpen, PawPrint, Image as ImageIcon, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowUpRight, Zap, Ship, Globe2, Building, TrendingUp, Phone, Shirt, Gem, Printer, Globe, Palette, BookOpen, PawPrint, Image as ImageIcon, MessageSquare, HandHeart, ChevronDown, ChevronUp } from "lucide-react";
 
 interface BusinessUnit {
   id: string;
@@ -21,7 +21,7 @@ interface BusinessUnitsProps {
 export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
   const [showAll, setShowAll] = useState(false);
 
-  // 13 Companies & Initiatives based on the Navbar Sectors menu
+  // Core companies and strategic initiatives
   const units: BusinessUnit[] = [
     {
       id: "energy",
@@ -29,10 +29,21 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
       icon: <Zap className="w-5 h-5 text-red-500" />,
       tagline: "Leading the transition to sustainable energy solutions across the region.",
       logo: "/logos/Cosmos Energy Services.png",
-      image: "/images/energy.jpg",
+      image: "/images/cosmos-energy-card.png",
       detailedText: "Cosmos Energy is pioneering highly resilient energy channels, resource development, and regional gas infrastructure to fuel domestic industries and support sustainable growth.",
       metric: "500+ MW",
       metricLabel: "Power Grid Integration Cluster",
+    },
+    {
+      id: "power",
+      title: "Cosmos Power",
+      icon: <Zap className="w-5 h-5 text-red-500" />,
+      tagline: "Delivering dependable power solutions with modern generation and grid reliability.",
+      logo: "/logos/Cosmos Energy Services.png",
+      image: "/images/cosmos-power-card.png",
+      detailedText: "Cosmos Power strengthens industrial and utility operations through dependable generation support, efficient transmission readiness, and resilient power continuity planning.",
+      metric: "Reliable",
+      metricLabel: "Power Continuity",
     },
     {
       id: "holdings",
@@ -47,12 +58,12 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
     },
     {
       id: "marketing",
-      title: "Cosmos Marketing",
+      title: "Cosmos Marketing Consultants",
       icon: <TrendingUp className="w-5 h-5 text-red-500" />,
       tagline: "Comprehensive consultation and marketing strategies.",
       logo: "/logos/Cosmos Logo-01.png",
-      image: "/images/marketing.jpg",
-      detailedText: "Cosmos Marketing provides extensive consultation services, public relations frameworks, and comprehensive market expansion strategies for global clients.",
+      image: "/images/cosmos-marketing-card.png",
+      detailedText: "Cosmos Marketing Consultants provides extensive consultation services, public relations frameworks, and comprehensive market expansion strategies for global clients.",
       metric: "Top Tier",
       metricLabel: "Consultation Services",
     },
@@ -62,7 +73,7 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
       icon: <Phone className="w-5 h-5 text-red-500" />,
       tagline: "Connecting the nation with advanced telecommunication infrastructure.",
       logo: "/logos/Cosmos Logo-01.png",
-      image: "/images/telecom.jpg",
+      image: "/images/cosmos-telecom-card.png",
       detailedText: "Providing cutting-edge telecommunication networks, ensuring seamless connectivity and high-speed data transmission for consumers and enterprises.",
       metric: "99.9%",
       metricLabel: "Network Uptime",
@@ -177,23 +188,48 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
       metric: "Artistic",
       metricLabel: "Cultural Hub",
     },
+    {
+      id: "dialogue",
+      title: "Cosmos Dialogue",
+      icon: <MessageSquare className="w-5 h-5 text-red-500" />,
+      tagline: "Thought leadership platform for policy dialogue, diplomacy, and strategic discourse.",
+      logo: "/logos/Cosmos Logo-01.png",
+      image: "/images/cosmos-dialogue-card.png",
+      detailedText: "Cosmos Dialogue convenes policymakers, diplomats, and experts to shape conversations on regional cooperation, governance, and economic transformation.",
+      metric: "Policy",
+      metricLabel: "Strategic Conversations",
+    },
+    {
+      id: "foundation",
+      title: "Cosmos Foundation",
+      icon: <HandHeart className="w-5 h-5 text-red-500" />,
+      tagline: "Social impact initiatives advancing education, public health, and community resilience.",
+      logo: "/logos/Cosmos Logo-01.png",
+      image: "/images/cosmos-foundation-card.png",
+      detailedText: "Cosmos Foundation leads high-impact philanthropic programs in education, healthcare, and cultural empowerment through long-term partnerships.",
+      metric: "Impact",
+      metricLabel: "Community Programs",
+    },
   ];
 
   const unitOrderRank: Record<string, number> = {
     energy: 1,
-    shipping: 2,
-    holdings: 3,
-    marketing: 4,
-    dhakacourier: 5,
-    unb: 6,
-    wildteam: 7,
-    gallery: 8,
-    telecom: 9,
-    apparels: 10,
-    pearls: 11,
-    printing: 12,
-    atelier: 13,
-    global: 14,
+    power: 2,
+    shipping: 3,
+    holdings: 4,
+    marketing: 5,
+    dhakacourier: 6,
+    unb: 7,
+    wildteam: 8,
+    gallery: 9,
+    telecom: 10,
+    apparels: 11,
+    pearls: 12,
+    printing: 13,
+    atelier: 14,
+    global: 15,
+    dialogue: 16,
+    foundation: 17,
   };
 
   const orderedUnits = [...units].sort(
@@ -202,6 +238,7 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
 
   const unitToPageMap: Record<string, string> = {
     energy: "energy",
+    power: "energy",
     holdings: "holdings",
     marketing: "marketing",
     telecom: "telecom",
@@ -215,6 +252,8 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
     global: "global",
     wildteam: "wildteam",
     gallery: "gallery",
+    dialogue: "dialogue",
+    foundation: "foundation",
   };
 
   const visibleUnits = showAll ? orderedUnits : orderedUnits.slice(0, 6);
@@ -315,11 +354,11 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
               </>
             ) : (
               <>
-                View All 14 Divisions <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+                View All 17 Divisions <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
               </>
             )}
             <span className="bg-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-              14
+              17
             </span>
           </button>
         </div>
