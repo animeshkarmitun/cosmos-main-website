@@ -73,7 +73,6 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
     { name: "Why Us", href: "#why-cosmos" },
     { name: "Founder", href: "#founder" },
     { name: "Careers", href: "#careers" },
-    { name: "Contact", href: "#contact" },
   ];
 
   const homeOptions = [
