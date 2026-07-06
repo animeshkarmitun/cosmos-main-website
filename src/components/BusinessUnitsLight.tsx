@@ -39,6 +39,27 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
     { name: "Cosmos Gallery", subtitle: "A premier destination for fine arts and cultural expression.", icon: ImageIcon, page: "gallery", image: "/images/gallery.jpeg" },
   ];
 
+  const companyOrderRank: Record<string, number> = {
+    energy: 1,
+    shipping: 2,
+    holdings: 3,
+    marketing: 4,
+    "dhaka-courier": 5,
+    unb: 6,
+    wildteam: 7,
+    gallery: 8,
+    telecom: 9,
+    apparels: 10,
+    pearls: 11,
+    printing: 12,
+    atelier: 13,
+    global: 14,
+  };
+
+  const orderedCompanies = [...companies].sort(
+    (a, b) => (companyOrderRank[a.page] ?? 999) - (companyOrderRank[b.page] ?? 999)
+  );
+
   return (
     <section id="businesses" className="py-28 md:py-36 px-6 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto">
@@ -76,7 +97,7 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {companies.map((company, index) => {
+          {orderedCompanies.map((company, index) => {
             const IconComp = company.icon;
             return (
               <motion.button

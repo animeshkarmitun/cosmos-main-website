@@ -179,6 +179,27 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
     },
   ];
 
+  const unitOrderRank: Record<string, number> = {
+    energy: 1,
+    shipping: 2,
+    holdings: 3,
+    marketing: 4,
+    dhakacourier: 5,
+    unb: 6,
+    wildteam: 7,
+    gallery: 8,
+    telecom: 9,
+    apparels: 10,
+    pearls: 11,
+    printing: 12,
+    atelier: 13,
+    global: 14,
+  };
+
+  const orderedUnits = [...units].sort(
+    (a, b) => (unitOrderRank[a.id] ?? 999) - (unitOrderRank[b.id] ?? 999)
+  );
+
   const unitToPageMap: Record<string, string> = {
     energy: "energy",
     holdings: "holdings",
@@ -196,7 +217,7 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
     gallery: "gallery",
   };
 
-  const visibleUnits = showAll ? units : units.slice(0, 6);
+  const visibleUnits = showAll ? orderedUnits : orderedUnits.slice(0, 6);
 
   return (
     <section id="businesses" className="py-20 md:py-28 px-6 bg-[#0B132B]">
