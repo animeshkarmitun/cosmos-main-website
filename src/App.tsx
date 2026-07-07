@@ -3,15 +3,9 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import NewsTicker from "./components/NewsTicker";
 import About from "./components/About";
-import CodeOfGovernance from "./components/CodeOfGovernance";
-import CosmosStats from "./components/CosmosStats";
 import BusinessUnits from "./components/BusinessUnits";
-import PartnershipServices from "./components/PartnershipServices";
 import WhyCosmosGroup from "./components/WhyCosmosGroup";
 import OurCommitment from "./components/OurCommitment";
-import MajorAchievements from "./components/MajorAchievements";
-import FounderMessage from "./components/FounderMessage";
-import WHSPolicy from "./components/WHSPolicy";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import Careers from "./components/Careers";
@@ -34,12 +28,17 @@ import CosmosFoundation from "./components/CosmosFoundation";
 import Home2 from "./components/Home2";
 import CosmosBooks from "./components/CosmosBooks";
 import CSRPage from "./components/CSRPage";
+import AboutPage from "./components/AboutPage";
+import TeamPage from "./components/TeamPage";
+import PoliciesPage from "./components/PoliciesPage";
+import ServicesPage from "./components/ServicesPage";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<
     "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" |
-    "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr"
+    "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" |
+    "about-page" | "team" | "policies" | "services"
   >("home");
 
   // Scroll to hash target whenever returning to the home page
@@ -91,9 +90,6 @@ export default function App() {
             {/* Why Cosmos Group (Trust Section) */}
             <WhyCosmosGroup />
 
-            {/* Code of Governance Section */}
-            <CodeOfGovernance />
-
             {/* Business Conglomerate Grid */}
             <BusinessUnits 
               onNavigate={(page) => {
@@ -102,15 +98,6 @@ export default function App() {
               }}
             />
 
-            {/* Major Achievements */}
-            <MajorAchievements />
-
-            {/* Corporate Infographics Section */}
-            <CosmosStats />
-
-            {/* N-Country Partnership & Services (Bento Grid) */}
-            <PartnershipServices />
-
             {/* Our Commitment (CSR Teaser — links to dedicated CSR page) */}
             <OurCommitment
               onCsrClick={() => {
@@ -118,12 +105,6 @@ export default function App() {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             />
-
-            {/* Founder Address */}
-            <FounderMessage />
-
-            {/* Work Health and Safety (WHS) Policy */}
-            <WHSPolicy />
 
             {/* Dynamic Partner & Contact Section */}
             <ContactSection />
@@ -387,6 +368,58 @@ export default function App() {
               }}
             />
           </motion.div>
+        ) : currentPage === "about-page" ? (
+          <motion.div
+            key="about-page-content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <AboutPage onBackToHome={() => {
+              setCurrentPage("home");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }} />
+          </motion.div>
+        ) : currentPage === "team" ? (
+          <motion.div
+            key="team-page-content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <TeamPage onBackToHome={() => {
+              setCurrentPage("home");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }} />
+          </motion.div>
+        ) : currentPage === "policies" ? (
+          <motion.div
+            key="policies-page-content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <PoliciesPage onBackToHome={() => {
+              setCurrentPage("home");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }} />
+          </motion.div>
+        ) : currentPage === "services" ? (
+          <motion.div
+            key="services-page-content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <ServicesPage onBackToHome={() => {
+              setCurrentPage("home");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }} />
+          </motion.div>
         ) : (
           <motion.div
             key="foundation-page-content"
@@ -411,6 +444,10 @@ export default function App() {
         }}
         onCsrClick={() => {
           setCurrentPage("csr");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+        onPoliciesClick={() => {
+          setCurrentPage("policies");
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
       />

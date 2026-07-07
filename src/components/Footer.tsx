@@ -27,9 +27,10 @@ type DocType = "privacy" | "terms" | "careers" | "news" | "investor" | "disclaim
 interface FooterProps {
   onCareersClick?: () => void;
   onCsrClick?: () => void;
+  onPoliciesClick?: () => void;
 }
 
-export default function Footer({ onCareersClick, onCsrClick }: FooterProps) {
+export default function Footer({ onCareersClick, onCsrClick, onPoliciesClick }: FooterProps) {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const [activeDoc, setActiveDoc] = useState<DocType | null>(null);
@@ -447,6 +448,16 @@ export default function Footer({ onCareersClick, onCsrClick }: FooterProps) {
                 Investor Relations
               </button>
             </li>
+            <li>
+              <button
+                onClick={() => onPoliciesClick && onPoliciesClick()}
+                disabled={!onPoliciesClick}
+                className={`hover:text-red-400 transition-colors focus-visible:outline-none text-left font-light flex items-center gap-2 ${onPoliciesClick ? "cursor-pointer" : "cursor-default opacity-70"}`}
+              >
+                <span>Governance & Policies</span>
+                <span className="text-[8px] bg-slate-800 border border-slate-700/30 text-slate-400 px-1.5 py-0.2 rounded font-mono font-bold uppercase">Hub</span>
+              </button>
+            </li>
           </ul>
         </div>
 
@@ -519,7 +530,7 @@ export default function Footer({ onCareersClick, onCsrClick }: FooterProps) {
       <div className="max-w-7xl mx-auto border-t border-slate-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-slate-500 text-xs">
         <p>Copyright © {new Date().getFullYear()} Cosmos Group of Bangladesh. All rights reserved.</p>
         <div className="flex flex-wrap gap-4 md:gap-6 justify-center sm:justify-end">
-          <a href="#whs-policy" className="hover:text-slate-300 transition-colors">WHS Policy</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); onPoliciesClick && onPoliciesClick(); }} className={`hover:text-slate-300 transition-colors ${onPoliciesClick ? 'cursor-pointer' : 'cursor-default opacity-70'}`}>Governance & Policies</a>
           <button
             onClick={() => onCsrClick && onCsrClick()}
             disabled={!onCsrClick}

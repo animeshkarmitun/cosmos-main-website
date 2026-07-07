@@ -25,8 +25,8 @@ import { motion, AnimatePresence } from "motion/react";
 import CosmosLogo from "./CosmosLogo";
 
 interface NavbarProps {
-  currentPage: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "csr";
-  onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "csr") => void;
+  currentPage: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "csr" | "about-page" | "team" | "policies" | "services";
+  onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "csr" | "about-page" | "team" | "policies" | "services") => void;
 }
 
 export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
@@ -69,11 +69,11 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
 
   const navLinks = [
     { name: "Home", href: "#home", hasDropdown: true, isHome: true },
-    { name: "About", href: "#about" },
+    { name: "About", href: "#about", page: "about-page" as const },
     { name: "Companies", href: "#businesses", hasDropdown: true },
-    { name: "Services", href: "#services" },
+    { name: "Services", href: "#services", page: "services" as const },
     { name: "Why Us", href: "#why-cosmos" },
-    { name: "Team", href: "#founder" },
+    { name: "Team", href: "#founder", page: "team" as const },
     { name: "Careers", href: "#careers" },
   ];
 
@@ -327,18 +327,24 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
                 );
               }
 
+              const isPageLink = 'page' in link && link.page;
               const isCareersActive = link.name === "Careers" && currentPage === "careers";
+              const isPageActive = isPageLink && currentPage === link.page;
               return (
                 <a
                   key={link.name}
                   className={`nav-variable-hover focus-visible:outline-none focus-visible:ring-2 rounded px-1 py-1 whitespace-nowrap transition-colors ${
-                    isCareersActive ? activeClasses : linkTextClasses
+                    (isCareersActive || isPageActive) ? activeClasses : linkTextClasses
                   } ${isLight ? "focus-visible:ring-sky-600" : "focus-visible:ring-red-600"}`}
                   href={link.href}
                   onClick={(e) => {
                     if (link.name === "Careers") {
                       e.preventDefault();
                       onPageChange("careers");
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    } else if (isPageLink) {
+                      e.preventDefault();
+                      onPageChange(link.page!);
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     } else {
                       handleHashLink(e, link.href);
@@ -539,7 +545,9 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
                     );
                   }
 
+                  const isPageLink = 'page' in link && link.page;
                   const isCareersActive = link.name === "Careers" && currentPage === "careers";
+                  const isPageActive = isPageLink && currentPage === link.page;
                   return (
                     <a
                       key={link.name}
@@ -550,6 +558,10 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
                           e.preventDefault();
                           onPageChange("careers");
                           window.scrollTo({ top: 0, behavior: "smooth" });
+                        } else if (isPageLink) {
+                          e.preventDefault();
+                          onPageChange(link.page!);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
                         } else {
                           handleHashLink(e, link.href);
                         }
@@ -557,13 +569,13 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
                       className={`font-medium py-2 border-b text-base flex items-center justify-between transition-colors ${
                         isLight ? "border-stone-200" : "border-slate-800/50"
                       } ${
-                        isCareersActive
+                        (isCareersActive || isPageActive)
                           ? activeClasses
                           : (isLight ? "text-slate-700 hover:text-sky-700" : "text-white hover:text-red-500")
                       }`}
                     >
                       {link.name}
-                      <ArrowRight className={`w-4 h-4 ${isCareersActive ? (isLight ? "text-sky-700" : "text-red-500") : (isLight ? "text-slate-400" : "text-slate-500")}`} />
+                      <ArrowRight className={`w-4 h-4 ${(isCareersActive || isPageActive) ? (isLight ? "text-sky-700" : "text-red-500") : (isLight ? "text-slate-400" : "text-slate-500")}`} />
                     </a>
                   );
                 })}
