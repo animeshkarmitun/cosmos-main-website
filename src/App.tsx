@@ -32,6 +32,8 @@ import AboutPage from "./components/AboutPage";
 import TeamPage from "./components/TeamPage";
 import PoliciesPage from "./components/PoliciesPage";
 import ServicesPage from "./components/ServicesPage";
+import ExploreTeaser from "./components/ExploreTeaser";
+import { Zap, Ship, Cpu, Shield, Scale } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
@@ -91,11 +93,90 @@ export default function App() {
             <WhyCosmosGroup />
 
             {/* Business Conglomerate Grid */}
-            <BusinessUnits 
+            <BusinessUnits
               onNavigate={(page) => {
                 setCurrentPage(page as typeof currentPage);
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
+            />
+
+            {/* Teaser → AboutPage (stats/achievements deep-dive) */}
+            <ExploreTeaser
+              id="impact-teaser"
+              theme="dark"
+              variant="stats"
+              eyebrow="By the Numbers"
+              title="Five Decades of Impact"
+              summary="From a single venture founded in 1973 to a multi-sector conglomerate — the scale, milestones and achievements that define Cosmos Group."
+              ctaLabel="Explore Our Story"
+              onExplore={() => {
+                setCurrentPage("about-page");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              stats={[
+                { value: "52+", label: "Years of Excellence" },
+                { value: "12", label: "Business Units" },
+                { value: "9", label: "Core Sectors" },
+                { value: "64", label: "Districts Covered" },
+              ]}
+            />
+
+            {/* Teaser → ServicesPage (partnership & services bento) */}
+            <ExploreTeaser
+              id="services-teaser"
+              theme="dark"
+              variant="cards"
+              eyebrow="What We Do"
+              title="Partnership & Services"
+              summary="Advisory, project management, and in-country representation — delivering end-to-end solutions across industries and borders."
+              ctaLabel="Explore Services"
+              onExplore={() => {
+                setCurrentPage("services");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              cards={[
+                { icon: Zap, title: "Energy & Power", desc: "Utility-scale generation, renewables integration and grid infrastructure." },
+                { icon: Ship, title: "Shipping & Logistics", desc: "Deep-sea cargo pathways, customs brokering and nationwide delivery." },
+                { icon: Cpu, title: "Advanced Technologies", desc: "Secure networks, enterprise systems and specialised software." },
+              ]}
+            />
+
+            {/* Teaser → PoliciesPage (governance + WHS) */}
+            <ExploreTeaser
+              id="governance-teaser"
+              theme="dark"
+              variant="dual"
+              eyebrow="Compliance & Standards"
+              title="Governance & Safety"
+              summary="Ethical conduct, transparency and rigorous workplace safety standards across every operation in the Cosmos ecosystem."
+              ctaLabel="Explore Policies"
+              onExplore={() => {
+                setCurrentPage("policies");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              cards={[
+                { icon: Shield, title: "Code of Governance", desc: "The framework of ethics, accountability and board-level oversight." },
+                { icon: Scale, title: "WHS Policy", desc: "Workplace health & safety protocols protecting every associate." },
+              ]}
+            />
+
+            {/* Teaser → TeamPage (leadership / founder) */}
+            <ExploreTeaser
+              id="leadership-teaser"
+              theme="dark"
+              variant="portrait"
+              imageSide="right"
+              eyebrow="Leadership"
+              title="The Minds Behind Cosmos"
+              summary="Visionary stewardship driving a five-decade legacy across nine sectors — built from the dawn of Bangladesh's independence."
+              ctaLabel="Meet the Team"
+              onExplore={() => {
+                setCurrentPage("team");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              imageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi_mLNS0l4Na3bFGLtJC-BQevcb-gHMhPELGF38SGivw&s=10"
+              imageAlt="Enayetullah Khan, Chairman of Cosmos Group"
+              caption={{ line1: "Enayetullah Khan", line2: "Chairman · Cosmos Group" }}
             />
 
             {/* Our Commitment (CSR Teaser — links to dedicated CSR page) */}

@@ -91,7 +91,7 @@ export default function OurCommitment({ onCsrClick }: OurCommitmentProps) {
             <motion.div variants={fadeUp} className="pt-2">
               <button
                 onClick={onCsrClick}
-                className={`group inline-flex items-center gap-3 px-8 py-3.5 bg-slate-900 text-white text-sm font-bold uppercase tracking-wider rounded-full shadow-lg hover:bg-red-700 hover:shadow-red-900/20 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 ${
+                className={`group inline-flex items-center gap-3 px-8 py-3.5 bg-gradient-to-r from-red-700 to-red-600 border border-red-500/40 text-white text-sm font-bold uppercase tracking-wider rounded-full shadow-lg shadow-red-950/20 transition-all duration-300 hover:from-red-600 hover:to-red-500 hover:shadow-red-950/30 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 ${
                   onCsrClick ? "cursor-pointer" : "cursor-default"
                 }`}
               >

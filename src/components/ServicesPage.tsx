@@ -7,20 +7,20 @@ interface ServicesPageProps {
   onBackToHome: () => void;
 }
 
-const placeholderServices = [
+const upcomingServices = [
   {
     icon: Globe2,
-    title: "Coming Soon",
+    title: "International Trade Advisory",
     description: "International trade facilitation and cross-border advisory services.",
   },
   {
     icon: Briefcase,
-    title: "Coming Soon",
+    title: "Strategic Consulting",
     description: "Corporate restructuring and strategic management consulting.",
   },
   {
     icon: Handshake,
-    title: "Coming Soon",
+    title: "Joint Ventures & Partnerships",
     description: "Joint venture partnerships and investment matchmaking services.",
   },
 ];
@@ -113,7 +113,7 @@ export default function ServicesPage({ onBackToHome }: ServicesPageProps) {
       {/* ── Partnership Services Component ───────────────────────── */}
       <PartnershipServices />
 
-      {/* ── More Services Coming Soon ────────────────────────────── */}
+      {/* ── Expanding Service Portfolio ──────────────────────────── */}
       <section className="px-6 py-20">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -125,18 +125,21 @@ export default function ServicesPage({ onBackToHome }: ServicesPageProps) {
             className="text-center mb-14"
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-white/[0.03] border border-white/[0.06] rounded-full mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
-              <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+              <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-slate-400 uppercase">
                 Expanding Portfolio
               </span>
             </div>
             <h2 className="text-2xl md:text-4xl font-bold font-display tracking-tight uppercase text-white">
-              More Services{" "}
-              <span className="text-slate-500">Coming Soon</span>
+              Additional{" "}
+              <span className="text-red-500">Capabilities</span>
             </h2>
+            <p className="text-slate-500 text-xs md:text-sm font-light mt-3 max-w-xl mx-auto">
+              Adjacent service lines under active development as we broaden our advisory footprint.
+            </p>
           </motion.div>
 
-          {/* Placeholder Cards */}
+          {/* Capability Cards */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -144,29 +147,36 @@ export default function ServicesPage({ onBackToHome }: ServicesPageProps) {
             viewport={{ once: true, amount: 0.1 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
-            {placeholderServices.map((service, index) => {
+            {upcomingServices.map((service, index) => {
               const Icon = service.icon;
               return (
                 <motion.div
                   key={index}
                   variants={cardVariants}
-                  className="group relative rounded-2xl border border-dashed border-slate-700 bg-gradient-to-b from-slate-900 to-slate-800/60 p-8 text-center overflow-hidden hover:border-slate-600 transition-colors duration-500"
+                  className="group relative rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-900/40 p-8 overflow-hidden hover:border-slate-700 transition-colors duration-500"
                 >
                   {/* Subtle hover glow */}
-                  <div className="absolute inset-0 bg-red-600/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 bg-red-600/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                   <div className="relative">
-                    <div className="mx-auto mb-5 w-14 h-14 rounded-2xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-slate-500 group-hover:text-slate-400 transition-colors duration-500">
+                    <div className="mx-auto mb-5 w-14 h-14 rounded-2xl bg-red-950/40 border border-red-900/30 flex items-center justify-center text-red-500 group-hover:bg-red-950/60 transition-colors duration-500">
                       <Icon className="w-7 h-7" />
                     </div>
 
-                    <h3 className="text-white font-bold text-lg mb-2">
+                    <h3 className="text-white font-bold text-lg mb-2 text-center">
                       {service.title}
                     </h3>
 
-                    <p className="text-slate-500 text-sm font-light leading-relaxed">
+                    <p className="text-slate-400 text-sm font-light leading-relaxed text-center">
                       {service.description}
                     </p>
+
+                    <div className="mt-5 pt-4 border-t border-slate-800/60 text-center">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500">
+                        <span className="w-1 h-1 rounded-full bg-amber-500" />
+                        In Development
+                      </span>
+                    </div>
                   </div>
                 </motion.div>
               );

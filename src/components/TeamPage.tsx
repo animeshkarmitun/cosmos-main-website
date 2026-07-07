@@ -1,19 +1,19 @@
 import React from "react";
 import { motion } from "motion/react";
-import { ArrowLeft, Users, Linkedin, Mail } from "lucide-react";
+import { ArrowLeft, Linkedin, Mail, UserCircle2 } from "lucide-react";
 import FounderMessage from "./FounderMessage";
 
 interface TeamPageProps {
   onBackToHome: () => void;
 }
 
-const teamMembers = [
-  { name: "Coming Soon", title: "Chairman & CEO" },
-  { name: "Coming Soon", title: "Managing Director" },
-  { name: "Coming Soon", title: "Chief Financial Officer" },
-  { name: "Coming Soon", title: "Director of Operations" },
-  { name: "Coming Soon", title: "Director of Energy" },
-  { name: "Coming Soon", title: "Head of Corporate Affairs" },
+const leadershipRoles = [
+  "Chairman & CEO",
+  "Managing Director",
+  "Chief Financial Officer",
+  "Director of Operations",
+  "Director of Energy",
+  "Head of Corporate Affairs",
 ];
 
 const containerVariants = {
@@ -100,8 +100,29 @@ export default function TeamPage({ onBackToHome }: TeamPageProps) {
         </div>
       </section>
 
-      {/* ── Team Members Grid ────────────────────────────────────── */}
+      {/* ── Leadership Roster ─────────────────────────────────────── */}
       <section className="px-6 py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-6xl mx-auto mb-12 text-center"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-white/[0.03] border border-white/[0.06] rounded-full mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+            <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-slate-400 uppercase">
+              Leadership Roster
+            </span>
+          </div>
+          <h2 className="text-2xl md:text-4xl font-bold font-display tracking-tight uppercase text-white">
+            Executive Leadership
+          </h2>
+          <p className="text-slate-500 text-xs md:text-sm font-light mt-3 max-w-xl mx-auto">
+            Portraits and full biographies will be published as each profile is confirmed.
+          </p>
+        </motion.div>
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -109,36 +130,56 @@ export default function TeamPage({ onBackToHome }: TeamPageProps) {
           viewport={{ once: true, amount: 0.1 }}
           className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {teamMembers.map((member, index) => (
+          {leadershipRoles.map((role, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
               className="group bg-slate-900/50 border border-slate-800/60 rounded-2xl overflow-hidden hover:border-red-500/20 transition-colors duration-500"
             >
-              {/* Avatar Placeholder */}
-              <div className="h-[200px] bg-gradient-to-b from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
-                {/* Subtle grid pattern */}
-                <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] bg-[size:24px_24px]" />
-                <Users className="w-16 h-16 text-slate-600 group-hover:text-slate-500 transition-colors duration-500" />
+              {/* Branded Portrait Placeholder */}
+              <div className="relative aspect-[4/3] bg-gradient-to-br from-slate-800/80 via-slate-900 to-[#0B132B] flex items-center justify-center overflow-hidden">
+                {/* Subtle dot grid */}
+                <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle,rgba(255,255,255,0.4)_1px,transparent_1px)] bg-[size:18px_18px]" />
+                {/* Soft accent glow on hover */}
+                <div className="absolute inset-0 bg-red-600/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <UserCircle2
+                  className="relative w-20 h-20 text-slate-700 group-hover:text-slate-600 transition-colors duration-500"
+                  strokeWidth={1}
+                />
+
+                {/* Forthcoming badge */}
+                <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-slate-950/70 backdrop-blur-sm border border-slate-700/60">
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-slate-400">
+                    Portrait Forthcoming
+                  </span>
+                </div>
               </div>
 
               {/* Info */}
               <div className="p-6">
-                <h3 className="text-white font-bold text-lg mb-1">
-                  {member.name}
+                {/* Name slot (refined placeholder) */}
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="h-px flex-1 bg-gradient-to-r from-slate-700 to-transparent max-w-[40%]" />
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-slate-600">
+                    Name to be announced
+                  </span>
+                </div>
+                <h3 className="text-white font-bold text-base md:text-lg tracking-tight">
+                  {role}
                 </h3>
-                <p className="text-[11px] font-mono font-bold text-red-400/80 uppercase tracking-wider mb-5">
-                  {member.title}
+                <p className="text-[11px] font-mono font-bold text-red-400/80 uppercase tracking-wider mt-1.5">
+                  Cosmos Group
                 </p>
 
-                {/* Social Icons */}
-                <div className="flex items-center gap-2">
-                  <button className="w-9 h-9 rounded-lg bg-slate-800/80 border border-slate-700/50 flex items-center justify-center text-slate-500 hover:text-red-500 hover:border-red-500/30 transition-all cursor-pointer">
+                {/* Muted social actions */}
+                <div className="flex items-center gap-2 mt-5">
+                  <span className="w-9 h-9 rounded-lg bg-slate-800/50 border border-slate-700/40 flex items-center justify-center text-slate-600">
                     <Linkedin className="w-4 h-4" />
-                  </button>
-                  <button className="w-9 h-9 rounded-lg bg-slate-800/80 border border-slate-700/50 flex items-center justify-center text-slate-500 hover:text-red-500 hover:border-red-500/30 transition-all cursor-pointer">
+                  </span>
+                  <span className="w-9 h-9 rounded-lg bg-slate-800/50 border border-slate-700/40 flex items-center justify-center text-slate-600">
                     <Mail className="w-4 h-4" />
-                  </button>
+                  </span>
                 </div>
               </div>
             </motion.div>
