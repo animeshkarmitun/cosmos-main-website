@@ -14,3 +14,6 @@ brochures/
 .nextjs-migration/
 
 docs/
+
+# Generated screenshot output (regenerable via take-*-screenshots.js scripts)
+screenshots/

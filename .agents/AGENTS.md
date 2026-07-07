@@ -109,3 +109,31 @@ The rules below supplement Sections 1–7 when AI tools generate or modify code.
 - [ ] AI output was run and works perfectly in the browser.
 - [ ] No hallucinated dependencies (check `package.json`).
 - [ ] `git diff` is focused; split large changes into multiple reviewed commits.
+
+---
+
+## 9. Commit Hygiene & Repository Cleanliness
+
+Source code lives in git. Generated artifacts and working notes do not.
+
+### 9.1 Never commit generated artifacts
+
+| Type | Examples | Why |
+|------|----------|-----|
+| Screenshots / image captures | `screenshots/**/*.png`, puppeteer output | Reproducible binaries that bloat repo size; regenerable on demand |
+| Build output | `dist/`, `build/`, `coverage/` | Already gitignored; never bypass |
+| Planning / scratch docs | `docs/**`, `*.plan.md`, `HOME2_*.md`, `*_UIUX_PLAN.md` | Local working material, not product source |
+| Logs & temp files | `*.log`, `dev-server.log`, temp scratch files | Machine/session specific |
+
+### 9.2 Rules
+
+- **Review `git status` before staging.** Never `git add .` or `git add -A` blindly. Stage only the files your change actually requires.
+- **One concern per commit.** If untracked binaries, notes, or logs appear alongside your source change, they do not belong in the same commit — leave them untracked (or gitignored).
+- **Keep reusable dev tooling scripts** (e.g. `take-*-screenshots.js`, debug helpers) when they help others reproduce output — but never commit the *output* they produce.
+- **If a folder is meant for output, gitignore it** (`screenshots/`, `docs/`). Add the rule to `.gitignore` in the same change that introduces the output-producing tool.
+- **Planning docs go in `docs/`** (gitignored). They inform the work but are not part of the shipped product.
+- **When you realize an artifact was committed by mistake** and the commit is still local/unpushed, fix it by amending or removing it before pushing — do not leave binaries in history.
+
+### 9.3 Quick pre-commit check
+
+Before `git commit`, ask: *"Is every staged file source code or a hand-written config the task required?"* If any answer is "no, it's output/notes/logs," unstage it.
