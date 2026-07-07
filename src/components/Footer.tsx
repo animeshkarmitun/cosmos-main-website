@@ -26,9 +26,10 @@ type DocType = "privacy" | "terms" | "careers" | "news" | "investor" | "disclaim
 
 interface FooterProps {
   onCareersClick?: () => void;
+  onCsrClick?: () => void;
 }
 
-export default function Footer({ onCareersClick }: FooterProps) {
+export default function Footer({ onCareersClick, onCsrClick }: FooterProps) {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const [activeDoc, setActiveDoc] = useState<DocType | null>(null);
@@ -422,6 +423,16 @@ export default function Footer({ onCareersClick }: FooterProps) {
             </li>
             <li>
               <button
+                onClick={() => onCsrClick && onCsrClick()}
+                disabled={!onCsrClick}
+                className={`hover:text-red-400 transition-colors focus-visible:outline-none text-left font-light flex items-center gap-2 ${onCsrClick ? "cursor-pointer" : "cursor-default opacity-70"}`}
+              >
+                <span>CSR &amp; Responsibility</span>
+                <span className="text-[8px] bg-amber-950 border border-amber-900/30 text-amber-400 px-1.5 py-0.2 rounded font-mono font-bold uppercase">Hub</span>
+              </button>
+            </li>
+            <li>
+              <button
                 onClick={() => openDocModal("news")}
                 className="hover:text-red-400 transition-colors focus-visible:outline-none text-left cursor-pointer font-light"
               >
@@ -509,6 +520,13 @@ export default function Footer({ onCareersClick }: FooterProps) {
         <p>Copyright © {new Date().getFullYear()} Cosmos Group of Bangladesh. All rights reserved.</p>
         <div className="flex flex-wrap gap-4 md:gap-6 justify-center sm:justify-end">
           <a href="#whs-policy" className="hover:text-slate-300 transition-colors">WHS Policy</a>
+          <button
+            onClick={() => onCsrClick && onCsrClick()}
+            disabled={!onCsrClick}
+            className={`hover:text-slate-300 transition-colors ${onCsrClick ? "cursor-pointer" : "cursor-default opacity-70"}`}
+          >
+            CSR &amp; Responsibility
+          </button>
           <button onClick={() => openDocModal("privacy")} className="hover:text-slate-300 transition-colors cursor-pointer">Privacy Charter</button>
           <button onClick={() => openDocModal("disclaimer")} className="hover:text-slate-300 transition-colors cursor-pointer">Security Disclaimers</button>
           <button onClick={() => openDocModal("audit")} className="hover:text-slate-300 transition-colors cursor-pointer">Audit Dispatches</button>

@@ -33,12 +33,13 @@ import CosmosDialogue from "./components/CosmosDialogue";
 import CosmosFoundation from "./components/CosmosFoundation";
 import Home2 from "./components/Home2";
 import CosmosBooks from "./components/CosmosBooks";
+import CSRPage from "./components/CSRPage";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<
     "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" |
-    "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books"
+    "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr"
   >("home");
 
   // Scroll to hash target whenever returning to the home page
@@ -110,16 +111,12 @@ export default function App() {
             {/* N-Country Partnership & Services (Bento Grid) */}
             <PartnershipServices />
 
-            {/* Our Commitment (CSR & Philanthropy Section) */}
-            <OurCommitment 
-              onDialogueClick={() => {
-                setCurrentPage("dialogue");
+            {/* Our Commitment (CSR Teaser — links to dedicated CSR page) */}
+            <OurCommitment
+              onCsrClick={() => {
+                setCurrentPage("csr");
                 window.scrollTo({ top: 0, behavior: "smooth" });
-              }} 
-              onFoundationClick={() => {
-                setCurrentPage("foundation");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }} 
+              }}
             />
 
             {/* Founder Address */}
@@ -144,12 +141,8 @@ export default function App() {
                 setCurrentPage(page as typeof currentPage);
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              onDialogueClick={() => {
-                setCurrentPage("dialogue");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              onFoundationClick={() => {
-                setCurrentPage("foundation");
+              onCsrClick={() => {
+                setCurrentPage("csr");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             />
@@ -375,6 +368,25 @@ export default function App() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }} />
           </motion.div>
+        ) : currentPage === "csr" ? (
+          <motion.div
+            key="csr-page-content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <CSRPage
+              onBackToHome={() => {
+                setCurrentPage("home");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              onNavigate={(page) => {
+                setCurrentPage(page as typeof currentPage);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            />
+          </motion.div>
         ) : (
           <motion.div
             key="foundation-page-content"
@@ -392,10 +404,16 @@ export default function App() {
       </AnimatePresence>
 
       {/* Footer */}
-      <Footer onCareersClick={() => {
-        setCurrentPage("careers");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }} />
+      <Footer
+        onCareersClick={() => {
+          setCurrentPage("careers");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+        onCsrClick={() => {
+          setCurrentPage("csr");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      />
     </div>
   );
 }

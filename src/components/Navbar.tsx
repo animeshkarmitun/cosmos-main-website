@@ -25,8 +25,8 @@ import { motion, AnimatePresence } from "motion/react";
 import CosmosLogo from "./CosmosLogo";
 
 interface NavbarProps {
-  currentPage: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation";
-  onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation") => void;
+  currentPage: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "csr";
+  onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "csr") => void;
 }
 
 export default function Navbar({ currentPage, onPageChange }: NavbarProps) {

@@ -13,11 +13,10 @@ import ContactLight from "./ContactLight";
 
 interface Home2Props {
   onNavigate: (page: string) => void;
-  onDialogueClick: () => void;
-  onFoundationClick: () => void;
+  onCsrClick: () => void;
 }
 
-export default function Home2({ onNavigate, onDialogueClick, onFoundationClick }: Home2Props) {
+export default function Home2({ onNavigate, onCsrClick }: Home2Props) {
   return (
     <main className="bg-[#FAF8F5] min-h-screen">
       <div className="relative z-40 pt-24 md:pt-28 -mb-24 md:-mb-28">
@@ -30,7 +29,7 @@ export default function Home2({ onNavigate, onDialogueClick, onFoundationClick }
       <BusinessUnitsLight onNavigate={onNavigate} />
       <StatsLight />
       <ServicesLight />
-      <OurCommitment onDialogueClick={onDialogueClick} onFoundationClick={onFoundationClick} />
+      <OurCommitment onCsrClick={onCsrClick} />
       <FounderLight />
       <WHSPolicy />
       <ContactLight />
