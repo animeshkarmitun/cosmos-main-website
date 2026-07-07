@@ -7,6 +7,7 @@ interface SlideData {
   subtitle: string;
   highlightText: string;
   image: string;
+  imagePosition?: string;
   ctaText: string;
   ctaLink: string;
 }
@@ -22,6 +23,7 @@ export default function Hero() {
       highlightText: "Sustaining Tomorrow",
       subtitle: "Cosmos Group integrates hydrocarbons and renewables, delivering reliable energy solutions with integrity, compliance, and visionary leadership for lasting impact",
       image: "/images/header-1.jpg",
+      imagePosition: "72% center",
       ctaText: "Discover Our Strategy",
       ctaLink: "#about",
     },
@@ -138,7 +140,8 @@ export default function Hero() {
                     <img
                       src={slide.image}
                       alt=""
-                      className="w-full h-full object-cover object-center select-none"
+                      className="w-full h-full object-cover select-none"
+                      style={{ objectPosition: slide.imagePosition ?? "center" }}
                       referrerPolicy="no-referrer"
                     />
 

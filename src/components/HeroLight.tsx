@@ -7,6 +7,7 @@ interface SlideData {
   subtitle: string;
   highlightText: string;
   image: string;
+  imagePosition?: string;
   ctaText: string;
   ctaLink: string;
 }
@@ -22,6 +23,7 @@ export default function HeroLight() {
       subtitle:
         "Cosmos Group integrates hydrocarbons and renewables, delivering reliable energy solutions with integrity, compliance, and visionary leadership for lasting impact",
       image: "/images/header-1.jpg",
+      imagePosition: "72% center",
       ctaText: "Discover Our Strategy",
       ctaLink: "#about",
     },
@@ -104,7 +106,8 @@ export default function HeroLight() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="absolute inset-0 w-full h-full object-cover object-center"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: activeSlide.imagePosition ?? "center" }}
               referrerPolicy="no-referrer"
             />
           </AnimatePresence>

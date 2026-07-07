@@ -32,12 +32,13 @@ import CosmosGallery from "./components/CosmosGallery";
 import CosmosDialogue from "./components/CosmosDialogue";
 import CosmosFoundation from "./components/CosmosFoundation";
 import Home2 from "./components/Home2";
+import CosmosBooks from "./components/CosmosBooks";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<
     "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" |
-    "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation"
+    "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books"
   >("home");
 
   // Scroll to hash target whenever returning to the home page
@@ -357,6 +358,19 @@ export default function App() {
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <CosmosDialogue onBackToHome={() => {
+              setCurrentPage("home");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }} />
+          </motion.div>
+        ) : currentPage === "books" ? (
+          <motion.div
+            key="books-page-content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <CosmosBooks onBackToHome={() => {
               setCurrentPage("home");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }} />

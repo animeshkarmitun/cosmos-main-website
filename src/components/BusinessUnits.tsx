@@ -259,7 +259,7 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
     printing: "printing",
     shipping: "shipping",
     dhakacourier: "dhaka-courier",
-    books: "home",
+    books: "books",
     unb: "unb",
     atelier: "atelier",
     global: "global",
