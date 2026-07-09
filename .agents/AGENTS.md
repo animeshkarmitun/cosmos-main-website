@@ -6,6 +6,14 @@ These rules bias toward simplicity, shipping, and robustness over architectural 
 
 ---
 
+## Design System Reference (Mandatory)
+
+- For any UI, styling, section-order, background, or visual-consistency change, read `DESIGN.md` first.
+- Treat `DESIGN.md` as the visual source of truth for landing-page color rhythm, section separation, and palette consistency.
+- If a request conflicts with `DESIGN.md`, follow the user request and then update `DESIGN.md` in the same change so future agents stay aligned.
+
+---
+
 ## 1. Think Before Coding
 
 - **State assumptions explicitly.** If the requirements are unclear, ask before implementing.

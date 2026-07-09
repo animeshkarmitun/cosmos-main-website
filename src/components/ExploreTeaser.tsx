@@ -1,12 +1,14 @@
 import { useRef } from "react";
 import { ArrowRight, type LucideIcon } from "lucide-react";
 import { motion, useInView } from "motion/react";
+import AnimatedCounter from "./AnimatedCounter";
 
 type Theme = "dark" | "light";
 type Variant = "stats" | "cards" | "dual" | "portrait";
 
 interface StatItem {
-  value: string;
+  value: number;
+  suffix?: string;
   label: string;
 }
 interface CardItem {
@@ -62,13 +64,32 @@ export default function ExploreTeaser({
   const summaryColor = isDark ? "text-slate-300" : "text-slate-600";
   const accentBar = isDark ? "bg-red-500" : "bg-red-600";
 
+  const darkShade =
+    variant === "cards" || variant === "portrait" ? "#081A36" : "#07142E";
+
   const sectionBg = isDark
-    ? "bg-[#0B132B]"
+    ? variant === "cards" || variant === "portrait"
+      ? "bg-[#07122B]"
+      : "bg-[#061026]"
     : "bg-slate-50";
 
-  // Light theme bridges to neighbouring dark sections; dark theme is seamless.
-  const bridgeTop = !isDark ? <div className="h-16 md:h-24 bg-gradient-to-b from-[#0B132B] to-slate-100" /> : null;
-  const bridgeBottom = !isDark ? <div className="h-16 md:h-24 bg-gradient-to-b from-slate-50 to-[#0B132B]" /> : null;
+  // Consistent shade-only transitions between dark landing sections.
+  const bridgeTop = isDark ? (
+    <div
+      className="h-10 md:h-12"
+      style={{ background: `linear-gradient(to bottom, #0B132B 0%, ${darkShade} 100%)` }}
+    />
+  ) : (
+    <div className="h-16 md:h-24 bg-gradient-to-b from-[#0B132B] to-slate-100" />
+  );
+  const bridgeBottom = isDark ? (
+    <div
+      className="h-10 md:h-12"
+      style={{ background: `linear-gradient(to bottom, ${darkShade} 0%, #0B132B 100%)` }}
+    />
+  ) : (
+    <div className="h-16 md:h-24 bg-gradient-to-b from-slate-50 to-[#0B132B]" />
+  );
 
   // ── Variant visuals ──────────────────────────────────────────
   const renderStats = () => (
@@ -83,7 +104,7 @@ export default function ExploreTeaser({
           }`}
         >
           <div className={`text-3xl md:text-4xl font-black font-display ${isDark ? "text-red-500" : "text-red-600"} leading-none`}>
-            {s.value}
+            <AnimatedCounter value={s.value} suffix={s.suffix} />
           </div>
           <div className={`mt-2 text-[10px] md:text-xs font-mono font-bold uppercase tracking-widest ${isDark ? "text-slate-400" : "text-slate-500"}`}>
             {s.label}
@@ -166,7 +187,9 @@ export default function ExploreTeaser({
       <div className={`${sectionBg} relative`}>
         {isDark && (
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] bg-red-600/5 rounded-full blur-[150px]" />
+            <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-white/[0.035] to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/18 to-transparent" />
+            <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] bg-sky-400/4 rounded-full blur-[150px]" />
           </div>
         )}
         <motion.div

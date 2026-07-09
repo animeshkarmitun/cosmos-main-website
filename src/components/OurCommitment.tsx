@@ -111,7 +111,7 @@ export default function OurCommitment({ onCsrClick }: OurCommitmentProps) {
           >
             <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-white/80 aspect-[4/3] md:aspect-[5/4]">
               <img
-                src="/images/cosmos-foundation-1.png"
+                src="/images/our-commitment-main.jpeg"
                 alt="Cosmos Foundation community engagement"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"

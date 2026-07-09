@@ -33,6 +33,7 @@ import TeamPage from "./components/TeamPage";
 import PoliciesPage from "./components/PoliciesPage";
 import ServicesPage from "./components/ServicesPage";
 import ExploreTeaser from "./components/ExploreTeaser";
+import LogoMarquee from "./components/LogoMarquee";
 import { Zap, Ship, Cpu, Shield, Scale } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -86,6 +87,9 @@ export default function App() {
             {/* Hero Slide & Overlapping Cards */}
             <Hero />
 
+            {/* Infinite logo marquee — conglomerate breadth at a glance */}
+            <LogoMarquee />
+
             {/* About Section */}
             <About />
 
@@ -114,10 +118,10 @@ export default function App() {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
               stats={[
-                { value: "52+", label: "Years of Excellence" },
-                { value: "12", label: "Business Units" },
-                { value: "9", label: "Core Sectors" },
-                { value: "64", label: "Districts Covered" },
+                { value: 52, suffix: "+", label: "Years of Excellence" },
+                { value: 12, label: "Business Units" },
+                { value: 9, label: "Core Sectors" },
+                { value: 64, label: "Districts Covered" },
               ]}
             />
 

@@ -44,7 +44,7 @@ export default function ContactSection() {
 
 
   return (
-    <section id="contact" className="relative py-28 px-6 md:px-8 bg-[#04060f] border-t border-slate-950 overflow-hidden">
+    <section id="contact" className="relative py-28 px-6 md:px-8 bg-[#07122B] border-t border-[#0D1E3D] overflow-hidden">
       
       {/* Visual Section Divider & Demarcation Line */}
       <div className="absolute top-0 inset-x-0 flex items-center justify-center pointer-events-none">
@@ -131,7 +131,7 @@ export default function ContactSection() {
                           placeholder="Your Full Name"
                           value={formState.name}
                           onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                          className="w-full bg-slate-950 border border-slate-800/80 rounded-xl px-4 py-3 text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-red-500 transition-colors"
+                          className="w-full bg-[#081730] border border-slate-800/80 rounded-xl px-4 py-3 text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-red-500 transition-colors"
                         />
                       </div>
 
@@ -146,7 +146,7 @@ export default function ContactSection() {
                           placeholder="name@company.com"
                           value={formState.email}
                           onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                          className="w-full bg-slate-950 border border-slate-800/80 rounded-xl px-4 py-3 text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-red-500 transition-colors"
+                          className="w-full bg-[#081730] border border-slate-800/80 rounded-xl px-4 py-3 text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-red-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -162,7 +162,7 @@ export default function ContactSection() {
                         placeholder="Subject of your inquiry"
                         value={formState.subject}
                         onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
-                        className="w-full bg-slate-950 border border-slate-800/80 rounded-xl px-4 py-3 text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-red-500 transition-colors"
+                        className="w-full bg-[#081730] border border-slate-800/80 rounded-xl px-4 py-3 text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-red-500 transition-colors"
                       />
                     </div>
 
@@ -177,7 +177,7 @@ export default function ContactSection() {
                         placeholder="How can we help you?"
                         value={formState.message}
                         onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                        className="w-full bg-slate-950 border border-slate-800/80 rounded-xl px-4 py-3 text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-red-500 transition-colors resize-none"
+                        className="w-full bg-[#081730] border border-slate-800/80 rounded-xl px-4 py-3 text-xs md:text-sm text-white placeholder-slate-600 focus:outline-none focus:border-red-500 transition-colors resize-none"
                       />
                     </div>
 
@@ -254,7 +254,7 @@ export default function ContactSection() {
                     World Headquarters
                   </h3>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-400 group-hover:text-white transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#081730] border border-slate-800 flex items-center justify-center text-slate-400 group-hover:text-white transition-colors">
                   <Building className="w-5 h-5" />
                 </div>
               </div>
@@ -268,7 +268,7 @@ export default function ContactSection() {
                   </p>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-950 border border-slate-900 rounded-full text-[9px] font-mono text-slate-400">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#081730] border border-slate-900 rounded-full text-[9px] font-mono text-slate-400">
                   <MapPin className="w-3.5 h-3.5 text-red-500" />
                   Coordinates: 23.7461° N, 90.4131° E
                 </div>
@@ -288,7 +288,7 @@ export default function ContactSection() {
                     Direct Connections
                   </h3>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-400 group-hover:text-white transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#081730] border border-slate-800 flex items-center justify-center text-slate-400 group-hover:text-white transition-colors">
                   <Sparkles className="w-5 h-5" />
                 </div>
               </div>

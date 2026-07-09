@@ -330,12 +330,13 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
               const isPageLink = 'page' in link && link.page;
               const isCareersActive = link.name === "Careers" && currentPage === "careers";
               const isPageActive = isPageLink && currentPage === link.page;
+              const isActive = isCareersActive || isPageActive;
               return (
                 <a
                   key={link.name}
-                  className={`nav-variable-hover focus-visible:outline-none focus-visible:ring-2 rounded px-1 py-1 whitespace-nowrap transition-colors ${
-                    (isCareersActive || isPageActive) ? activeClasses : linkTextClasses
-                  } ${isLight ? "focus-visible:ring-sky-600" : "focus-visible:ring-red-600"}`}
+                  className={`nav-variable-hover relative focus-visible:outline-none focus-visible:ring-2 rounded px-1 py-1 whitespace-nowrap transition-colors after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
+                    isActive ? `${activeClasses} after:scale-x-100` : linkTextClasses
+                  } ${isLight ? "focus-visible:ring-sky-600 after:bg-sky-700" : "focus-visible:ring-red-600 after:bg-red-500"}`}
                   href={link.href}
                   onClick={(e) => {
                     if (link.name === "Careers") {

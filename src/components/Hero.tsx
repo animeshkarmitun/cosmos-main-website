@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Eye, Compass, ShieldCheck, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useSpring, useReducedMotion } from "motion/react";
 
 interface SlideData {
   title: string;
@@ -16,6 +16,25 @@ export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Subtle mouse parallax for depth (disabled when reduced motion is preferred)
+  const reduceMotion = useReducedMotion();
+  const parallaxX = useSpring(0, { damping: 40, stiffness: 150 });
+  const parallaxY = useSpring(0, { damping: 40, stiffness: 150 });
+
+  const handleParallax = (e: React.MouseEvent<HTMLElement>) => {
+    if (reduceMotion) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const nx = (e.clientX - rect.left) / rect.width - 0.5;
+    const ny = (e.clientY - rect.top) / rect.height - 0.5;
+    parallaxX.set(nx * 24);
+    parallaxY.set(ny * 24);
+  };
+
+  const resetParallax = () => {
+    parallaxX.set(0);
+    parallaxY.set(0);
+  };
 
   const slides: SlideData[] = [
     {
@@ -114,15 +133,19 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative mb-16 md:mb-24 overflow-hidden focus:outline-none bg-slate-950"
+      className="relative mb-16 md:mb-24 overflow-hidden focus:outline-none bg-[#07122B]"
       onKeyDown={handleKeyDown}
       tabIndex={0}
       aria-label="Cosmos Group Corporate Showcase Slider"
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        resetParallax();
+      }}
+      onMouseMove={handleParallax}
     >
       {/* Dynamic Animated Slides Block */}
-      <div className="relative min-h-[780px] xs:min-h-[700px] sm:min-h-[750px] md:min-h-[800px] lg:min-h-[850px] flex items-center bg-slate-950">
+      <div className="relative min-h-[780px] xs:min-h-[700px] sm:min-h-[750px] md:min-h-[800px] lg:min-h-[850px] flex items-center bg-[#07122B]">
         <AnimatePresence mode="wait">
           {slides.map(
             (slide, idx) =>
@@ -137,11 +160,16 @@ export default function Hero() {
                 >
                   {/* Background display featuring image with sturdy fallbacks */}
                   <div className="absolute inset-0 overflow-hidden">
-                    <img
+                    <motion.img
                       src={slide.image}
                       alt=""
                       className="w-full h-full object-cover select-none"
-                      style={{ objectPosition: slide.imagePosition ?? "center" }}
+                      style={{
+                        objectPosition: slide.imagePosition ?? "center",
+                        x: parallaxX,
+                        y: parallaxY,
+                        scale: 1.08,
+                      }}
                       referrerPolicy="no-referrer"
                     />
 
@@ -150,8 +178,8 @@ export default function Hero() {
                     <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-red-500 to-orange-400 blur-3xl opacity-80 animate-orb-two pointer-events-none mix-blend-screen" />
 
                     {/* Dark gradient mapping designed to maximize white text legibility 100% */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-900/40"></div>
-                    <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-slate-950 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#07122B] via-[#07122B]/85 to-[#081730]/45"></div>
+                    <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#07122B] to-transparent"></div>
                   </div>
 
                   {/* Text panel overlay aligned left for ideal readability */}
@@ -203,7 +231,7 @@ export default function Hero() {
                         </a>
                         <a
                           href="#contact"
-                          className="inline-flex items-center bg-slate-900/60 hover:bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-100 font-bold text-sm px-6 py-3.5 rounded-xl transition-all duration-300 focus-visible:ring-4 focus-visible:ring-slate-500"
+                          className="inline-flex items-center bg-[#081730]/70 hover:bg-[#081730] border border-slate-700 hover:border-slate-500 text-slate-100 font-bold text-sm px-6 py-3.5 rounded-xl transition-all duration-300 focus-visible:ring-4 focus-visible:ring-slate-500"
                         >
                           Contact Us
                         </a>
@@ -234,14 +262,14 @@ export default function Hero() {
         <div className="absolute left-6 bottom-16 xs:bottom-20 sm:bottom-24 z-30 flex gap-3">
           <button
             onClick={handlePrev}
-            className="w-12 h-12 rounded-xl bg-slate-950/40 hover:bg-slate-900/80 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-red-600"
+            className="w-12 h-12 rounded-xl bg-[#081730]/55 hover:bg-[#081730]/85 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-red-600"
             aria-label="Previous corporate slide"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={handleNext}
-            className="w-12 h-12 rounded-xl bg-slate-950/40 hover:bg-slate-900/80 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-red-600"
+            className="w-12 h-12 rounded-xl bg-[#081730]/55 hover:bg-[#081730]/85 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-red-600"
             aria-label="Next corporate slide"
           >
             <ChevronRight className="w-5 h-5" />
@@ -251,7 +279,7 @@ export default function Hero() {
 
       {/* Corporate Overlapping Cards (Mission/Vision/Values) */}
       <div className="relative -mt-10 xs:-mt-14 sm:-mt-16 md:-mt-20 lg:-mt-24 z-20 w-full px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-slate-950/70 backdrop-blur-xl border border-white/10 p-6 md:p-6 rounded-3xl shadow-2xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-[#081730]/72 backdrop-blur-xl border border-white/10 p-6 md:p-6 rounded-3xl shadow-2xl">
           {cards.map((card, index) => (
             <div
               key={card.title}

@@ -27,7 +27,7 @@ export default function NewsTicker() {
   return (
     <div 
       id="news-ticker"
-      className="relative z-30 w-full bg-slate-950 border-y border-slate-800 flex items-center h-11 overflow-hidden select-none"
+      className="relative z-30 w-full bg-[#081730] border-y border-[#13294A] flex items-center h-11 overflow-hidden select-none"
     >
       {/* Fixed Label on the Left */}
       <div className="relative z-10 bg-red-700 text-white font-display text-xs font-extrabold tracking-wider px-4 md:px-6 h-full flex items-center uppercase shrink-0 select-none shadow-[6px_0_15px_rgba(0,0,0,0.6)]">
