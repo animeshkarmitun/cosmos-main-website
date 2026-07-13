@@ -8,7 +8,7 @@ interface TeamPageProps {
 }
 
 const leadershipRoles = [
-  "Chairman & CEO",
+  "Group President & CEO",
   "Group President & CEO",
   "Chief Financial Officer",
   "Director of Operations",
