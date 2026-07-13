@@ -4,22 +4,12 @@ import {
   X,
   ArrowRight,
   Zap,
-  Building,
   TrendingUp,
-  Phone,
-  Shirt,
-  Gem,
-  Printer,
   Ship,
   BookOpen,
-  Globe,
-  Palette,
   Globe2,
   ChevronDown,
-  PawPrint,
-  MessageSquare,
-  HandHeart,
-  Image as ImageIcon,
+  Cpu,
   Home,
   Sun
 } from "lucide-react";
@@ -27,8 +17,8 @@ import { motion, AnimatePresence } from "motion/react";
 import CosmosLogo from "./CosmosLogo";
 
 interface NavbarProps {
-  currentPage: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services";
-  onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services") => void;
+  currentPage: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services";
+  onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services") => void;
 }
 
 export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
@@ -86,44 +76,20 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
 
   const companies = [
     { name: "Cosmos Energy", subtitle: "Leading the transition to sustainable energy solutions across the region.", icon: Zap, href: "#businesses" },
-    { name: "Cosmos Power", subtitle: "Delivering dependable power solutions with modern generation and grid reliability.", icon: Zap, href: "#businesses" },
-    { name: "Cosmos Shipping", subtitle: "Global logistics and freight management with unparalled efficiency.", icon: Ship, href: "#businesses" },
-    { name: "Cosmos Holdings", subtitle: "Investment & Holdings", icon: Building, href: "#businesses" },
-    { name: "Cosmos Marketing Consultants", subtitle: "Comprehensive consultation and marketing strategies.", icon: TrendingUp, href: "#businesses" },
-    { name: "Dhaka Courier", subtitle: "The premier English-language news weekly.", icon: BookOpen, href: "#businesses" },
-    { name: "Cosmos Books", subtitle: "Publishing meaningful titles that enrich thought, culture, and knowledge.", icon: BookOpen, href: "#businesses" },
+    { name: "Cosmos Marketing", subtitle: "Comprehensive consultation and marketing strategies.", icon: TrendingUp, href: "#businesses" },
+    { name: "Cosmos Shipping & Logistics", subtitle: "Global logistics and freight management with unparalleled efficiency.", icon: Ship, href: "#businesses" },
+    { name: "Cosmos Technology", subtitle: "Advanced telecommunication and technology infrastructure.", icon: Cpu, href: "#businesses" },
     { name: "UNB", subtitle: "United News of Bangladesh - the leading news agency.", icon: Globe2, href: "#businesses" },
-    { name: "WildTeam", subtitle: "Wildlife conservation initiative protecting Bangladesh's rich biodiversity.", icon: PawPrint, href: "#businesses" },
-    { name: "Cosmos Gallery", subtitle: "A premier destination for fine arts and cultural expression.", icon: ImageIcon, href: "#businesses" },
-    { name: "Cosmos Telecom", subtitle: "Telecommunications", icon: Phone, href: "#businesses" },
-    { name: "Cosmos Apparels", subtitle: "Garment Manufacturing", icon: Shirt, href: "#businesses" },
-    { name: "Pearls Paradise", subtitle: "Jewelry & Gems", icon: Gem, href: "#businesses" },
-    { name: "Cosmos Printing", subtitle: "Printing & Publishing", icon: Printer, href: "#businesses" },
-    { name: "Cosmos Atelier 71", subtitle: "Printmaking Studio", icon: Palette, href: "#businesses" },
-    { name: "Cosmos Global", subtitle: "Global Resources", icon: Globe, href: "#businesses" },
-    { name: "Cosmos Dialogue", subtitle: "Thought leadership platform for policy dialogue, diplomacy, and strategic discourse.", icon: MessageSquare, href: "#businesses" },
-    { name: "Cosmos Foundation", subtitle: "Social impact initiatives advancing education, public health, and community resilience.", icon: HandHeart, href: "#businesses" },
+    { name: "Dhaka Courier", subtitle: "The premier English-language news weekly.", icon: BookOpen, href: "#businesses" },
   ];
 
-  const companyToPageMap: Record<string, "energy" | "shipping" | "unb" | "dhaka-courier" | "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books"> = {
+  const companyToPageMap: Record<string, "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology"> = {
     "Cosmos Energy": "energy",
-    "Cosmos Power": "energy",
-    "Cosmos Shipping": "shipping",
+    "Cosmos Marketing": "marketing",
+    "Cosmos Shipping & Logistics": "shipping",
+    "Cosmos Technology": "technology",
     "UNB": "unb",
     "Dhaka Courier": "dhaka-courier",
-    "Cosmos Holdings": "holdings",
-    "Cosmos Marketing Consultants": "marketing",
-    "Cosmos Books": "books",
-    "Cosmos Telecom": "telecom",
-    "Cosmos Apparels": "apparels",
-    "Pearls Paradise": "pearls",
-    "Cosmos Printing": "printing",
-    "Cosmos Atelier 71": "atelier",
-    "Cosmos Global": "global",
-    "WildTeam": "wildteam",
-    "Cosmos Gallery": "gallery",
-    "Cosmos Dialogue": "dialogue",
-    "Cosmos Foundation": "foundation",
   };
 
   // Theme-aware class sets
@@ -283,7 +249,7 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
                     }`}>
                       <div className={`flex items-center justify-between border-b pb-3 mb-4 ${isLight ? "border-stone-200" : "border-slate-800/40"}`}>
                         <span className={`text-[10px] font-mono tracking-[0.2em] uppercase font-bold ${isLight ? "text-slate-500" : "text-slate-400"}`}>
-                          Cosmos Conglomerate Portfolio - 18 Divisions
+                          Cosmos Conglomerate Portfolio - 6 Divisions
                         </span>
                         <span className={`text-[9px] font-mono ${isLight ? "text-sky-700" : "text-red-500"}`}>
                           ESTABLISHED 1972
@@ -494,7 +460,7 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
                             <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded uppercase ${
                               isLight ? "bg-sky-50 text-sky-700 border border-sky-100" : "bg-red-950/40 border border-red-900/30 text-red-400"
                             }`}>
-                              18 Units
+                              6 Units
                             </span>
                           </span>
                           <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileMenuOpen ? "rotate-180" : ""} ${isLight ? "text-slate-400" : "text-slate-400"}`} />

@@ -13,10 +13,8 @@ import EnergyServices from "./components/EnergyServices";
 import ShippingLogistics from "./components/ShippingLogistics";
 import UNB from "./components/UNB";
 import DhakaCourier from "./components/DhakaCourier";
-import CosmosHoldings from "./components/CosmosHoldings";
 import CosmosMarketing from "./components/CosmosMarketing";
-import CosmosTelecom from "./components/CosmosTelecom";
-import CosmosApparels from "./components/CosmosApparels";
+import CosmosTechnology from "./components/CosmosTechnology";
 import PearlsParadise from "./components/PearlsParadise";
 import CosmosPrinting from "./components/CosmosPrinting";
 import CosmosAtelier71 from "./components/CosmosAtelier71";
@@ -40,7 +38,7 @@ import { motion, AnimatePresence } from "motion/react";
 export default function App() {
   const [currentPage, setCurrentPage] = useState<
     "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" |
-    "holdings" | "marketing" | "telecom" | "apparels" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" |
+    "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" |
     "about-page" | "team" | "policies" | "services"
   >("home");
 
@@ -278,19 +276,6 @@ export default function App() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }} />
           </motion.div>
-        ) : currentPage === "holdings" ? (
-          <motion.div
-            key="holdings-page-content"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 15 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
-            <CosmosHoldings onBackToHome={() => {
-              setCurrentPage("home");
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }} />
-          </motion.div>
         ) : currentPage === "marketing" ? (
           <motion.div
             key="marketing-page-content"
@@ -304,28 +289,15 @@ export default function App() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }} />
           </motion.div>
-        ) : currentPage === "telecom" ? (
+        ) : currentPage === "technology" ? (
           <motion.div
-            key="telecom-page-content"
+            key="technology-page-content"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 15 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <CosmosTelecom onBackToHome={() => {
-              setCurrentPage("home");
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }} />
-          </motion.div>
-        ) : currentPage === "apparels" ? (
-          <motion.div
-            key="apparels-page-content"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 15 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
-            <CosmosApparels onBackToHome={() => {
+            <CosmosTechnology onBackToHome={() => {
               setCurrentPage("home");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }} />
