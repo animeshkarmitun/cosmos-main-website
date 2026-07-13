@@ -71,7 +71,7 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
 
   const navLinks = [
     { name: "Home", href: "#home", hasDropdown: true, isHome: true },
-    { name: "About", href: "#about", page: "about-page" as const },
+    { name: "About Us", href: "#about", page: "about-page" as const },
     { name: "Companies", href: "#businesses", hasDropdown: true },
     { name: "Services", href: "#services", page: "services" as const },
     { name: "Why Us", href: "#why-cosmos" },

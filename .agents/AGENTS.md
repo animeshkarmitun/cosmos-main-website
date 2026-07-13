@@ -145,3 +145,42 @@ Source code lives in git. Generated artifacts and working notes do not.
 ### 9.3 Quick pre-commit check
 
 Before `git commit`, ask: *"Is every staged file source code or a hand-written config the task required?"* If any answer is "no, it's output/notes/logs," unstage it.
+
+### 9.4 Commit message structure
+
+Use the following format so future agents and reviewers can scan history quickly:
+
+```
+type(scope): short imperative description
+
+[optional body: why the change was needed, any tradeoffs]
+```
+
+**Types**
+
+| Type | Use for |
+|------|---------|
+| `feat` | New feature or behavior |
+| `fix` | Bug fix |
+| `ui` | Visual / copy change with no logic change (e.g. label text, spacing) |
+| `docs` | Documentation, README, AGENTS.md, comments |
+| `style` | Code formatting, semicolons, lint fixes only |
+| `refactor` | Code change that neither fixes a bug nor adds a feature |
+| `chore` | Tooling, dependency updates, config changes |
+
+**Rules**
+
+- Keep the summary line under 72 characters.
+- Use present tense and imperative mood: `add`, `fix`, `update` — not `added` or `fixes`.
+- Use a scope in parentheses when it clarifies the area: `(navbar)`, `(hero)`, `(deps)`.
+- If the change is purely visual/copy, prefer `ui` over `feat`.
+
+**Examples**
+
+```
+fix(navbar): close mobile menu on route change
+
+ui(hero): update headline copy per brand review
+
+docs(agents): add commit message structure
+```
