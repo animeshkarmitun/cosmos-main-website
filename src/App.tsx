@@ -177,8 +177,8 @@ export default function App() {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
               imageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi_mLNS0l4Na3bFGLtJC-BQevcb-gHMhPELGF38SGivw&s=10"
-              imageAlt="Enayetullah Khan, Chairman of Cosmos Group"
-              caption={{ line1: "Enayetullah Khan", line2: "Chairman · Cosmos Group" }}
+              imageAlt="Enayetullah Khan, Group President & CEO of Cosmos Group"
+              caption={{ line1: "Enayetullah Khan", line2: "Group President & CEO · Cosmos Group" }}
             />
 
             {/* Our Commitment (CSR Teaser — links to dedicated CSR page) */}

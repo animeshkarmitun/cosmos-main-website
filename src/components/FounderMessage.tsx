@@ -39,7 +39,7 @@ export default function FounderMessage() {
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-slate-800 to-transparent" />
         <div className="absolute flex items-center gap-2 px-4 py-1.5 bg-slate-950 border border-slate-800/80 rounded-full text-[9px] font-mono tracking-[0.25em] text-slate-500 uppercase translate-y-[13px]">
           <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-          Message from the Chairman
+          Message from the Group President & CEO
         </div>
       </div>
 
@@ -70,7 +70,7 @@ export default function FounderMessage() {
               >
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi_mLNS0l4Na3bFGLtJC-BQevcb-gHMhPELGF38SGivw&s=10"
-                  alt="Enayetullah Khan, founder of Cosmos Group, presenting a business vision"
+                  alt="Enayetullah Khan, Group President & CEO of Cosmos Group, presenting a business vision"
                   className="w-full h-full object-cover filter grayscale contrast-125 hover:grayscale-0 transition-all duration-700 hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
@@ -95,7 +95,7 @@ export default function FounderMessage() {
             ) : (
               <iframe
                 src="https://www.youtube.com/embed/6_Z4r5A-F5Q?autoplay=1&mute=1&rel=0&modestbranding=1"
-                title="Enayetullah Khan, Chairman of Cosmos Group Interview / Corporate presentation"
+                title="Enayetullah Khan, Group President & CEO of Cosmos Group Interview / Corporate presentation"
                 className="w-full h-full border-none"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -116,7 +116,7 @@ export default function FounderMessage() {
               <h3 className="text-2xl md:text-4xl font-extrabold font-display text-white tracking-tight uppercase">
                 ENAYETULLAH KHAN, <br />
                 <span className="text-sm md:text-base text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-rose-500 to-amber-500 font-mono font-bold tracking-widest block mt-1 uppercase">
-                  Chairman – Cosmos Group
+                  Group President & CEO – Cosmos Group
                 </span>
               </h3>
             </motion.div>
