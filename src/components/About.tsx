@@ -30,7 +30,7 @@ export default function About() {
             tag="h2"
             className="text-2xl md:text-3xl font-bold tracking-widest text-slate-900 border-l-4 border-red-700 pl-4 uppercase mb-8"
           />
-          <div className="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+          <div className="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light text-justify">
             <p>
               <span className="font-semibold text-slate-900">Cosmos Group</span> is one of Bangladesh’s{" "}
               <span className="font-medium text-slate-900">foremost conglomerates</span>, with a{" "}

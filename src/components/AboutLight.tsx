@@ -71,7 +71,7 @@ export default function AboutLight() {
               className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-8 font-display"
             />
 
-            <div className="space-y-5 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+            <div className="space-y-5 text-slate-600 text-sm md:text-base leading-relaxed font-light text-justify">
               <p>
                 <span className="font-semibold text-slate-900">Cosmos Group</span> is one of Bangladesh’s{" "}
                 <span className="font-medium text-slate-900">foremost conglomerates</span>, with a{" "}
