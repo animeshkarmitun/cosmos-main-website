@@ -1,5 +1,21 @@
 import { motion } from "motion/react";
-import { Zap, TrendingUp, Ship, Cpu, Globe2, BookOpen, ArrowUpRight } from "lucide-react";
+import {
+  Zap,
+  TrendingUp,
+  Ship,
+  Cpu,
+  Globe2,
+  BookOpen,
+  PawPrint,
+  Image as ImageIcon,
+  Gem,
+  Printer,
+  Globe,
+  Palette,
+  MessageSquare,
+  HandHeart,
+  ArrowUpRight,
+} from "lucide-react";
 
 interface BusinessUnitsLightProps {
   onNavigate: (page: string) => void;
@@ -13,6 +29,16 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
     { name: "Cosmos Technology", subtitle: "Connecting the nation with advanced telecommunication and technology infrastructure.", icon: Cpu, page: "technology", image: "/images/cosmos-telecom-card.png" },
     { name: "UNB", subtitle: "United News of Bangladesh - the leading news agency.", icon: Globe2, page: "unb", image: "/images/unb.jpeg" },
     { name: "Dhaka Courier", subtitle: "The premier English-language news weekly.", icon: BookOpen, page: "dhaka-courier", image: "/images/brochure_extracts/Dhaka-courier.jpeg" },
+    { name: "Cosmos Power", subtitle: "Delivering dependable power solutions with modern generation and grid reliability.", icon: Zap, page: "energy", image: "/images/cosmos-power-card.png" },
+    { name: "Cosmos Books", subtitle: "Publishing meaningful titles that enrich thought, culture, and knowledge.", icon: BookOpen, page: "books", image: "/images/cosmos-books-card.png" },
+    { name: "WildTeam", subtitle: "Wildlife conservation initiative protecting Bangladesh's rich biodiversity.", icon: PawPrint, page: "wildteam", image: "/images/wildteam.jpg" },
+    { name: "Cosmos Gallery", subtitle: "A premier destination for fine arts and cultural expression.", icon: ImageIcon, page: "gallery", image: "/images/gallery.jpeg" },
+    { name: "Pearls Paradise", subtitle: "Exquisite jewelry and precious gems.", icon: Gem, page: "pearls", image: "/images/pearls.jpg" },
+    { name: "Cosmos Printing", subtitle: "Advanced printing and commercial publishing solutions.", icon: Printer, page: "printing", image: "/images/printing.jpg" },
+    { name: "Cosmos Atelier 71", subtitle: "A premier printmaking studio promoting fine arts.", icon: Palette, page: "atelier", image: "/images/atelier.jpeg" },
+    { name: "Cosmos Global", subtitle: "Global resources and international trade ventures.", icon: Globe, page: "global", image: "/images/global.jpg" },
+    { name: "Cosmos Dialogue", subtitle: "Thought leadership platform for policy dialogue, diplomacy, and strategic discourse.", icon: MessageSquare, page: "dialogue", image: "/images/cosmos-dialogue-card.png" },
+    { name: "Cosmos Foundation", subtitle: "Social impact initiatives advancing education, public health, and community resilience.", icon: HandHeart, page: "foundation", image: "/images/cosmos-foundation-card.png" },
   ];
 
   return (
@@ -46,7 +72,7 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-500 text-base md:text-lg font-light mt-5 leading-relaxed"
           >
-            From energy to media, our six divisions operate at the forefront of Bangladesh’s economic growth.
+            From energy to media, our sixteen divisions operate at the forefront of Bangladesh’s economic growth.
           </motion.p>
         </div>
 
