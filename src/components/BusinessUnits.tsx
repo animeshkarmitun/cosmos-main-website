@@ -90,17 +90,6 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
       metricLabel: "Of Journalism",
     },
     {
-      id: "power",
-      title: "Cosmos Power",
-      icon: <Zap className="w-5 h-5 text-red-500" />,
-      tagline: "Delivering dependable power solutions with modern generation and grid reliability.",
-      logo: "/logos/Cosmos Energy Services.png",
-      image: "/images/cosmos-power-card.png",
-      detailedText: "Cosmos Power strengthens industrial and utility operations through dependable generation support, efficient transmission readiness, and resilient power continuity planning.",
-      metric: "Reliable",
-      metricLabel: "Power Continuity",
-    },
-    {
       id: "books",
       title: "Cosmos Books",
       icon: <BookOpen className="w-5 h-5 text-red-500" />,
@@ -208,16 +197,15 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
     technology: 4,
     unb: 5,
     dhakacourier: 6,
-    power: 7,
-    books: 8,
-    wildteam: 9,
-    gallery: 10,
-    pearls: 11,
-    printing: 12,
-    atelier: 13,
-    global: 14,
-    dialogue: 15,
-    foundation: 16,
+    books: 7,
+    wildteam: 8,
+    gallery: 9,
+    pearls: 10,
+    printing: 11,
+    atelier: 12,
+    global: 13,
+    dialogue: 14,
+    foundation: 15,
   };
 
   const orderedUnits = [...units].sort(
@@ -226,7 +214,6 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
 
   const unitToPageMap: Record<string, string> = {
     energy: "energy",
-    power: "energy",
     marketing: "marketing",
     shipping: "shipping",
     technology: "technology",
@@ -341,11 +328,11 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
               </>
             ) : (
               <>
-                View All 16 Divisions <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+                View All 15 Divisions <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
               </>
             )}
             <span className="bg-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-              16
+              15
             </span>
           </button>
         </div>

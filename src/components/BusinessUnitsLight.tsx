@@ -29,7 +29,6 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
     { name: "Cosmos Technology", subtitle: "Connecting the nation with advanced telecommunication and technology infrastructure.", icon: Cpu, page: "technology", image: "/images/cosmos-telecom-card.png" },
     { name: "UNB", subtitle: "United News of Bangladesh - the leading news agency.", icon: Globe2, page: "unb", image: "/images/unb.jpeg" },
     { name: "Dhaka Courier", subtitle: "The premier English-language news weekly.", icon: BookOpen, page: "dhaka-courier", image: "/images/brochure_extracts/Dhaka-courier.jpeg" },
-    { name: "Cosmos Power", subtitle: "Delivering dependable power solutions with modern generation and grid reliability.", icon: Zap, page: "energy", image: "/images/cosmos-power-card.png" },
     { name: "Cosmos Books", subtitle: "Publishing meaningful titles that enrich thought, culture, and knowledge.", icon: BookOpen, page: "books", image: "/images/cosmos-books-card.png" },
     { name: "WildTeam", subtitle: "Wildlife conservation initiative protecting Bangladesh's rich biodiversity.", icon: PawPrint, page: "wildteam", image: "/images/wildteam.jpg" },
     { name: "Cosmos Gallery", subtitle: "A premier destination for fine arts and cultural expression.", icon: ImageIcon, page: "gallery", image: "/images/gallery.jpeg" },
@@ -72,7 +71,7 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-500 text-base md:text-lg font-light mt-5 leading-relaxed"
           >
-            From energy to media, our sixteen divisions operate at the forefront of Bangladesh’s economic growth.
+            From energy to media, our fifteen divisions operate at the forefront of Bangladesh’s economic growth.
           </motion.p>
         </div>
 

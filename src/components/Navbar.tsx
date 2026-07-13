@@ -89,7 +89,6 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
     { name: "Cosmos Technology", subtitle: "Advanced telecommunication and technology infrastructure.", icon: Cpu, href: "#businesses" },
     { name: "UNB", subtitle: "United News of Bangladesh - the leading news agency.", icon: Globe2, href: "#businesses" },
     { name: "Dhaka Courier", subtitle: "The premier English-language news weekly.", icon: BookOpen, href: "#businesses" },
-    { name: "Cosmos Power", subtitle: "Delivering dependable power solutions.", icon: Zap, href: "#businesses" },
     { name: "Cosmos Books", subtitle: "Publishing meaningful titles that enrich thought, culture, and knowledge.", icon: BookOpen, href: "#businesses" },
     { name: "WildTeam", subtitle: "Wildlife conservation initiative.", icon: PawPrint, href: "#businesses" },
     { name: "Cosmos Gallery", subtitle: "A premier destination for fine arts and cultural expression.", icon: ImageIcon, href: "#businesses" },
@@ -103,7 +102,6 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
 
   const companyToPageMap: Record<string, "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "books" | "wildteam" | "gallery" | "pearls" | "printing" | "atelier" | "global" | "dialogue" | "foundation"> = {
     "Cosmos Energy": "energy",
-    "Cosmos Power": "energy",
     "Cosmos Marketing": "marketing",
     "Cosmos Shipping & Logistics": "shipping",
     "Cosmos Technology": "technology",
@@ -277,7 +275,7 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
                     }`}>
                       <div className={`flex items-center justify-between border-b pb-3 mb-4 ${isLight ? "border-stone-200" : "border-slate-800/40"}`}>
                         <span className={`text-[10px] font-mono tracking-[0.2em] uppercase font-bold ${isLight ? "text-slate-500" : "text-slate-400"}`}>
-                          Cosmos Conglomerate Portfolio - 16 Divisions
+                          Cosmos Conglomerate Portfolio - 15 Divisions
                         </span>
                         <span className={`text-[9px] font-mono ${isLight ? "text-sky-700" : "text-red-500"}`}>
                           ESTABLISHED 1972
@@ -488,7 +486,7 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
                             <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded uppercase ${
                               isLight ? "bg-sky-50 text-sky-700 border border-sky-100" : "bg-red-950/40 border border-red-900/30 text-red-400"
                             }`}>
-                              16 Units
+                              15 Units
                             </span>
                           </span>
                           <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileMenuOpen ? "rotate-180" : ""} ${isLight ? "text-slate-400" : "text-slate-400"}`} />
