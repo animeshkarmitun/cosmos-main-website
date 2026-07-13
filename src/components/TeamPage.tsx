@@ -7,13 +7,10 @@ interface TeamPageProps {
   onBackToHome: () => void;
 }
 
-const leadershipRoles = [
-  "Group President & CEO",
-  "Group President & CEO",
-  "Chief Financial Officer",
-  "Director of Operations",
-  "Director of Energy",
-  "Head of Corporate Affairs",
+const teamMembers = [
+  { role: "Group President & CEO", name: null, image: null },
+  { role: "Vice President", name: "Shawkat Hossain", image: "/images/teams/Shawkat Hossain - Vice President - Cosmos Group.jpeg" },
+  { role: "General Manager", name: "G.M. Giasuddin Shahin", image: "/images/teams/G M Giasuddin Shahin - General Manager - Cosmos Group.jpeg" },
 ];
 
 const containerVariants = {
@@ -130,7 +127,7 @@ export default function TeamPage({ onBackToHome }: TeamPageProps) {
           viewport={{ once: true, amount: 0.1 }}
           className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {leadershipRoles.map((role, index) => (
+          {teamMembers.map((member, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
@@ -138,22 +135,28 @@ export default function TeamPage({ onBackToHome }: TeamPageProps) {
             >
               {/* Branded Portrait Placeholder */}
               <div className="relative aspect-[4/3] bg-gradient-to-br from-slate-800/80 via-slate-900 to-[#0B132B] flex items-center justify-center overflow-hidden">
-                {/* Subtle dot grid */}
-                <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle,rgba(255,255,255,0.4)_1px,transparent_1px)] bg-[size:18px_18px]" />
-                {/* Soft accent glow on hover */}
-                <div className="absolute inset-0 bg-red-600/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {member.image ? (
+                  <img src={member.image} alt={member.name || member.role} className="w-full h-full object-cover object-[center_25%] transition-transform duration-700 group-hover:scale-105" />
+                ) : (
+                  <>
+                    {/* Subtle dot grid */}
+                    <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle,rgba(255,255,255,0.4)_1px,transparent_1px)] bg-[size:18px_18px]" />
+                    {/* Soft accent glow on hover */}
+                    <div className="absolute inset-0 bg-red-600/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <UserCircle2
-                  className="relative w-20 h-20 text-slate-700 group-hover:text-slate-600 transition-colors duration-500"
-                  strokeWidth={1}
-                />
+                    <UserCircle2
+                      className="relative w-20 h-20 text-slate-700 group-hover:text-slate-600 transition-colors duration-500"
+                      strokeWidth={1}
+                    />
 
-                {/* Forthcoming badge */}
-                <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-slate-950/70 backdrop-blur-sm border border-slate-700/60">
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-slate-400">
-                    Portrait Forthcoming
-                  </span>
-                </div>
+                    {/* Forthcoming badge */}
+                    <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-slate-950/70 backdrop-blur-sm border border-slate-700/60">
+                      <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-slate-400">
+                        Portrait Forthcoming
+                      </span>
+                    </div>
+                  </>
+                )}
               </div>
 
               {/* Info */}
@@ -162,11 +165,11 @@ export default function TeamPage({ onBackToHome }: TeamPageProps) {
                 <div className="flex items-center gap-2 mb-1.5">
                   <span className="h-px flex-1 bg-gradient-to-r from-slate-700 to-transparent max-w-[40%]" />
                   <span className="text-[10px] font-mono uppercase tracking-widest text-slate-600">
-                    Name to be announced
+                    {member.name || "Name to be announced"}
                   </span>
                 </div>
                 <h3 className="text-white font-bold text-base md:text-lg tracking-tight">
-                  {role}
+                  {member.role}
                 </h3>
                 <p className="text-[11px] font-mono font-bold text-red-400/80 uppercase tracking-wider mt-1.5">
                   Cosmos Group
