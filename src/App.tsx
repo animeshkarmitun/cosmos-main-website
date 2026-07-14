@@ -30,6 +30,9 @@ import AboutPage from "./components/AboutPage";
 import TeamPage from "./components/TeamPage";
 import PoliciesPage from "./components/PoliciesPage";
 import ServicesPage from "./components/ServicesPage";
+import WhyUsPage from "./components/WhyUsPage";
+import EventsPage from "./components/EventsPage";
+import EventDetail from "./components/EventDetail";
 import ExploreTeaser from "./components/ExploreTeaser";
 import LogoMarquee from "./components/LogoMarquee";
 import { Zap, Ship, Cpu, Shield, Scale } from "lucide-react";
@@ -39,8 +42,10 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<
     "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" |
     "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" |
-    "about-page" | "team" | "policies" | "services"
+    "about-page" | "team" | "policies" | "services" | "why-us" | "events" | "event-detail"
   >("home");
+
+  const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
 
   // Scroll to hash target whenever returning to the home page
   useEffect(() => {
@@ -162,24 +167,7 @@ export default function App() {
               ]}
             />
 
-            {/* Teaser → TeamPage (leadership / founder) */}
-            <ExploreTeaser
-              id="leadership-teaser"
-              theme="dark"
-              variant="portrait"
-              imageSide="right"
-              eyebrow="Leadership"
-              title="The Minds Behind Cosmos"
-              summary="Visionary stewardship driving a five-decade legacy across nine sectors — built from the dawn of Bangladesh's independence."
-              ctaLabel="Meet the Team"
-              onExplore={() => {
-                setCurrentPage("team");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              imageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi_mLNS0l4Na3bFGLtJC-BQevcb-gHMhPELGF38SGivw&s=10"
-              imageAlt="Enayetullah Khan, Group President & CEO of Cosmos Group"
-              caption={{ line1: "Enayetullah Khan", line2: "Group President & CEO · Cosmos Group" }}
-            />
+
 
             {/* Our Commitment (CSR Teaser — links to dedicated CSR page) */}
             <OurCommitment
@@ -476,6 +464,63 @@ export default function App() {
               setCurrentPage("home");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }} />
+          </motion.div>
+        ) : currentPage === "why-us" ? (
+          <motion.div
+            key="why-us-page-content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <WhyUsPage onBackToHome={() => {
+              setCurrentPage("home");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }} />
+          </motion.div>
+        ) : currentPage === "events" ? (
+          <motion.div
+            key="events-page-content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <EventsPage
+              onBackToHome={() => {
+                setCurrentPage("home");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              onEventSelect={(id) => {
+                setSelectedEventId(id);
+                setCurrentPage("event-detail");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            />
+          </motion.div>
+        ) : currentPage === "event-detail" ? (
+          <motion.div
+            key="event-detail-page-content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <EventDetail
+              eventId={selectedEventId ?? ""}
+              onBackToEvents={() => {
+                setCurrentPage("events");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              onBackToHome={() => {
+                setCurrentPage("home");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              onEventSelect={(id) => {
+                setSelectedEventId(id);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            />
           </motion.div>
         ) : (
           <motion.div
