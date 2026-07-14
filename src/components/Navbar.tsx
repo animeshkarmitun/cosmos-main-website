@@ -25,8 +25,8 @@ import { motion, AnimatePresence } from "motion/react";
 import CosmosLogo from "./CosmosLogo";
 
 interface NavbarProps {
-  currentPage: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services";
-  onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services") => void;
+  currentPage: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services" | "why-us" | "events" | "event-detail";
+  onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services" | "why-us" | "events" | "event-detail") => void;
 }
 
 export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
@@ -72,8 +72,9 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
     { name: "About Us", href: "#about", page: "about-page" as const },
     { name: "Companies", href: "#businesses", hasDropdown: true },
     { name: "Services", href: "#services", page: "services" as const },
-    { name: "Why Us", href: "#why-cosmos" },
+    { name: "Why Us", href: "#why-cosmos", page: "why-us" as const },
     { name: "Team", href: "#founder", page: "team" as const },
+    { name: "Events", href: "#events", page: "events" as const },
     { name: "Careers", href: "#careers" },
   ];
 
