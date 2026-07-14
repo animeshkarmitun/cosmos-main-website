@@ -184,6 +184,68 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
           </div>
         </div>
 
+        {/* Image Gallery (Masonry Grid) */}
+        <div className="space-y-6 pt-6">
+          <div className="space-y-2">
+            <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block px-1">
+              Field Action
+            </span>
+            <h2 className="text-2xl md:text-3.5xl font-black text-slate-900 uppercase tracking-tight">
+              In The Wild
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+            {/* Featured Image - Spans 8 cols */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="md:col-span-8 h-64 md:h-[500px] rounded-3xl overflow-hidden relative group shadow-sm"
+            >
+              <img 
+                src="/images/wildteam/dd55b2_bea383b5cdc54422913780973ec2bd49~mv2.avif" 
+                alt="WildTeam Conservation Work" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </motion.div>
+
+            {/* Side Stack - Spans 4 cols */}
+            <div className="md:col-span-4 flex flex-col gap-4 md:gap-6">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="flex-1 rounded-3xl overflow-hidden relative group shadow-sm h-48 md:h-auto"
+              >
+                <img 
+                  src="/images/wildteam/HTC demonstration 2_JPG.avif" 
+                  alt="HTC Demonstration" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="flex-1 rounded-3xl overflow-hidden relative group shadow-sm h-48 md:h-auto"
+              >
+                <img 
+                  src="/images/wildteam/VTRT rally_JPG.avif" 
+                  alt="VTRT Rally" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
         {/* Commitment Banner */}
         <div className="bg-gradient-to-r from-red-700 to-red-600 rounded-3xl p-8 md:p-12 text-white shadow-xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
