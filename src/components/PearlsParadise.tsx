@@ -118,8 +118,8 @@ export default function PearlsParadise({ onBackToHome }: PearlsParadiseProps) {
         >
           <div className="absolute inset-0">
             <img
-              src="/images/pearls-paradise/image-1.jpg"
-              alt="Pearls Paradise Banner"
+              src="/images/pearls-paradise/sv-pp-updatev1.jpg"
+              alt="Pearls Paradise"
               className="w-full h-full object-cover opacity-40"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#04060f] via-[#04060f]/60 to-transparent" />

@@ -122,9 +122,16 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
       <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">
         {/* Editorial Hero Section */}
         <div className="bg-[#0B132B] text-white rounded-3xl overflow-hidden border border-slate-900 shadow-2xl relative">
-          <div className="absolute inset-0 bg-radial-gradient from-red-950/20 via-transparent to-transparent opacity-60 pointer-events-none" />
+          <div className="absolute inset-0">
+            <img
+              src="/images/dhaka-courier/sv-dc-updatev1.jpg"
+              alt="Dhaka Courier"
+              className="w-full h-full object-cover opacity-40"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/60 to-transparent" />
+          </div>
           
-          <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-6">
+          <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-6 mt-24 md:mt-32">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-950/60 border border-red-900/40 rounded-full">
               <BookOpen className="w-3.5 h-3.5 text-red-500" />
               <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-red-400 uppercase">
