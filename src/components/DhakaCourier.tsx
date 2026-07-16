@@ -61,6 +61,45 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
     }
   ];
 
+  const recentIssues = [
+    {
+      title: "DhakaCourier Vol 42 Issue 51",
+      date: "July 10, 2026",
+      image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/F4ZVUPr0LYTO00aaZTaRSA5SqFfg5G9Yi4bA72y2.jpg",
+      link: "https://drive.google.com/file/d/1TkPqxZniCiqdN4xRCSmp00cpERP2Vrm2/view?usp=drive_link"
+    },
+    {
+      title: "DhakaCourier Vol 42 Issue 50",
+      date: "July 03, 2026",
+      image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/1tPlR856QMJaHISq1lQXubnBKWFFO0zrg77ksUDg.jpg",
+      link: "https://drive.google.com/file/d/1Wq76pOuODL9r3HpNnIkV4ih9fvsQTGXa/view?usp=drive_link"
+    },
+    {
+      title: "DhakaCourier Vol 42 Issue 49",
+      date: "June 26, 2026",
+      image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/WfOiv2lXbu2Opxl7TZduuXpZJwK4lhp7XYtmmWHt.jpg",
+      link: "https://drive.google.com/file/d/1i4pnvwgfnADzN6Zv9O2CalE8Ae3_NTtu/view?usp=drive_link"
+    },
+    {
+      title: "DhakaCourier Vol 42 Issue 48",
+      date: "June 19, 2026",
+      image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/jXIQkTDcrryco0JhlUkAPKiNw8dDr0w4GnCRTl7e.jpg",
+      link: "https://drive.google.com/file/d/1yVUuRMvLDZHxoYOcob4RHDZSoRhARLmU/view?usp=drive_link"
+    },
+    {
+      title: "DhakaCourier Vol 42 Issue 47",
+      date: "June 12, 2026",
+      image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/nMcsyonrG1Ga7DnGHyldGEwoJAGAd1U7PAN1DUSt.jpg",
+      link: "https://drive.google.com/file/d/1sqxFThLkE94jMd66SYkYW7NhfHGuGIpA/view?usp=drive_link"
+    },
+    {
+      title: "DhakaCourier Vol 42 Issue 36",
+      date: "June 05, 2026",
+      image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/v1DIE2GUqc2oGWo9hCnkL7JVkuWeXscOAyxFDSRR.jpg",
+      link: "https://drive.google.com/file/d/1_qbXBq1ZKf5gl_3M-3Hhph-hphDT0egb/view?usp=sharing"
+    }
+  ];
+
   return (
     <div id="dhaka-courier-portal-page" className="pt-24 pb-20 bg-slate-50 min-h-screen text-slate-800 font-sans">
       {/* Back Navigation Bar */}
@@ -198,6 +237,71 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
           </div>
         </div>
 
+      </div>
+
+      {/* Recent Issues / Magazine Archive */}
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mt-16 mb-8">
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block px-1">
+              Magazine Archive
+            </span>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <h2 className="text-2xl md:text-3.5xl font-black text-slate-900 uppercase tracking-tight">
+                Recent Issues
+              </h2>
+              <a 
+                href="https://www.dhakacourier.com.bd/archive" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-bold font-mono uppercase tracking-wider text-red-600 hover:text-red-700 transition-colors"
+              >
+                View Full Archive
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recentIssues.map((issue, idx) => (
+              <motion.a
+                key={idx}
+                href={issue.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-red-200 transition-all duration-300 flex flex-col"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+              >
+                <div className="relative aspect-[3/4] overflow-hidden bg-slate-100">
+                  <img 
+                    src={issue.image} 
+                    alt={issue.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                </div>
+                <div className="p-5 flex flex-col flex-grow justify-between space-y-4">
+                  <div className="space-y-1">
+                    <span className="text-[10px] md:text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
+                      {issue.date}
+                    </span>
+                    <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight line-clamp-2">
+                      {issue.title}
+                    </h3>
+                  </div>
+                  <div className="pt-3 border-t border-slate-100/60 flex items-center gap-1.5 text-xs text-slate-600 group-hover:text-red-600 font-mono font-bold uppercase tracking-wider transition-colors">
+                    <span>Read Issue</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Corporate Brochure Download */}
