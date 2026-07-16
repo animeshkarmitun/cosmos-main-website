@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowLeft, BookOpen, ExternalLink, Library, Globe, Bookmark, Feather } from "lucide-react";
 import { motion } from "motion/react";
 import DivisionBrandBanner from "./DivisionBrandBanner";
+import CompanyBrochureCTA from "./CompanyBrochureCTA";
 
 interface CosmosBooksProps {
   onBackToHome: () => void;
@@ -225,6 +226,11 @@ export default function CosmosBooks({ onBackToHome }: CosmosBooksProps) {
           </div>
         </div>
 
+      </div>
+
+      {/* Corporate Brochure Download */}
+      <div className="mt-12 md:mt-16">
+        <CompanyBrochureCTA companyId="books" />
       </div>
     </div>
   );

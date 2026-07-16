@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowLeft, Globe, Heart, BookOpen, Brush, Image as ImageIcon } from "lucide-react";
 import { motion } from "motion/react";
+import CompanyBrochureCTA from "./CompanyBrochureCTA";
 import DivisionBrandBanner from "./DivisionBrandBanner";
 
 interface CosmosFoundationProps {
@@ -225,6 +226,11 @@ export default function CosmosFoundation({ onBackToHome }: CosmosFoundationProps
               <p className="text-sm text-slate-400 font-light">Sponsoring cultural exchange cycling events to promote tourism and showcase the indigenous beauty of Bangladesh.</p>
             </div>
           </motion.div>
+        </div>
+
+        {/* Corporate Brochure Download */}
+        <div className="mt-12 md:mt-16">
+          <CompanyBrochureCTA companyId="foundation" />
         </div>
 
       </motion.div>

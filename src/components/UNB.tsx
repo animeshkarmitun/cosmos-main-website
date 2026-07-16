@@ -15,6 +15,7 @@ import {
 import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
+import CompanyBrochureCTA from "./CompanyBrochureCTA";
 
 interface UNBProps {
   onBackToHome: () => void;
@@ -210,6 +211,11 @@ export default function UNB({ onBackToHome }: UNBProps) {
           </div>
         </div>
 
+      </div>
+
+      {/* Corporate Brochure Download */}
+      <div className="mt-12 md:mt-16">
+        <CompanyBrochureCTA companyId="unb" />
       </div>
     </div>
   );

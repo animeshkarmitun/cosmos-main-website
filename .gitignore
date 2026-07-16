@@ -8,7 +8,8 @@ coverage/
 !.env.example
 logos/
 *.octet-stream
-brochures/
+/brochures/
+!public/brochures/
 
 # Local-only Next.js migration planning workspace (not part of the product)
 .nextjs-migration/

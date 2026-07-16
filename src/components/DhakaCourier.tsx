@@ -15,6 +15,7 @@ import {
 import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
+import CompanyBrochureCTA from "./CompanyBrochureCTA";
 
 interface DhakaCourierProps {
   onBackToHome: () => void;
@@ -197,6 +198,11 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
           </div>
         </div>
 
+      </div>
+
+      {/* Corporate Brochure Download */}
+      <div className="mt-12 md:mt-16">
+        <CompanyBrochureCTA companyId="dhaka-courier" />
       </div>
     </div>
   );

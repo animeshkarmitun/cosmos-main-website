@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowLeft, MessageSquare } from "lucide-react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
+import CompanyBrochureCTA from "./CompanyBrochureCTA";
 
 interface CosmosDialogueProps {
   onBackToHome: () => void;
@@ -66,6 +67,11 @@ export default function CosmosDialogue({ onBackToHome }: CosmosDialogueProps) {
              </p>
            </div>
         </div>
+      </div>
+
+      {/* Corporate Brochure Download */}
+      <div className="mt-12 md:mt-16">
+        <CompanyBrochureCTA companyId="dialogue" />
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ import {
 import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
+import CompanyBrochureCTA from "./CompanyBrochureCTA";
 
 interface EnergyServicesProps {
   onBackToHome: () => void;
@@ -26,6 +27,7 @@ interface Achievement {
   title: string;
   description: string;
   isRecent?: boolean;
+  images?: { url: string; caption: string }[];
 }
 
 export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
@@ -38,12 +40,19 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
     {
       id: "ach-2",
       title: "First Oil Field Discovery",
-      description: "Haripur Oil Field - Provided all third-party services and materials"
+      description: "Haripur Oil Field - Provided all third-party services and materials",
+      images: [
+        { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdyL-f6A7Gdo_upfeEAkx1L-LnTiqYSrCtDl_sVVdgeQ&s=10", caption: "Haripur Oil Field" }
+      ]
     },
     {
       id: "ach-3",
       title: "Major Gas Field Projects",
-      description: "Sangu Gas Field for Cairn Energy, Lakatura 300 MMSCFD Plant, Silica Gel 90 MMCFD Plant"
+      description: "Sangu Gas Field for Cairn Energy, Lakatura 300 MMSCFD Plant, Silica Gel 90 MMCFD Plant",
+      images: [
+        { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkWuqYMu9FpPR7G4KuUfTCk6d3RJBauP7ibLE_hmQfjg&s=10", caption: "Sangu Gas Field" },
+        { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxU4Jsqidquq9tNuSvhzhx04H8oRJxxP4HlWm8tSHzzQ&s=10", caption: "Lakatura Plant" }
+      ]
     },
     {
       id: "ach-4",
@@ -183,24 +192,46 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
                   </div>
 
                   {/* Right Column Details */}
-                  <div className="space-y-1.5 flex-1">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <h4 className={`text-base font-bold tracking-tight uppercase ${
-                        ach.isRecent ? "text-red-950" : "text-slate-900"
+                  <div className="space-y-3 flex-1">
+                    <div className="space-y-1.5">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h4 className={`text-base font-bold tracking-tight uppercase ${
+                          ach.isRecent ? "text-red-950" : "text-slate-900"
+                        }`}>
+                          {ach.title}
+                        </h4>
+                        {ach.isRecent && (
+                          <span className="text-[9px] bg-red-200 text-red-800 font-mono font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                            Key Highlight
+                          </span>
+                        )}
+                      </div>
+                      <p className={`text-xs md:text-sm font-light leading-relaxed ${
+                        ach.isRecent ? "text-red-900/80" : "text-slate-600"
                       }`}>
-                        {ach.title}
-                      </h4>
-                      {ach.isRecent && (
-                        <span className="text-[9px] bg-red-200 text-red-800 font-mono font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                          Key Highlight
-                        </span>
-                      )}
+                        {ach.description}
+                      </p>
                     </div>
-                    <p className={`text-xs md:text-sm font-light leading-relaxed ${
-                      ach.isRecent ? "text-red-900/80" : "text-slate-600"
-                    }`}>
-                      {ach.description}
-                    </p>
+                    {ach.images && ach.images.length > 0 && (
+                      <div className={`mt-4 grid gap-3 ${ach.images.length === 1 ? 'grid-cols-1' : 'grid-cols-2'}`}>
+                        {ach.images.map((img, idx) => (
+                          <div key={idx} className={`rounded-xl overflow-hidden border border-slate-200 shadow-sm relative group ${ach.images && ach.images.length === 1 ? 'max-h-56' : 'h-36 md:h-44'}`}>
+                            <img 
+                              src={img.url} 
+                              alt={img.caption} 
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                              loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                            <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                              <span className="text-[10px] font-mono text-white/90 uppercase tracking-widest bg-black/40 px-2 py-1 rounded backdrop-blur-sm">
+                                {img.caption}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -228,6 +259,11 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
           </div>
 
         </div>
+      </div>
+
+      {/* Corporate Brochure Download */}
+      <div className="mt-12 md:mt-16">
+        <CompanyBrochureCTA companyId="energy" />
       </div>
     </div>
   );

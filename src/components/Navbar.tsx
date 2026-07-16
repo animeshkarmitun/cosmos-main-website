@@ -75,6 +75,7 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
     { name: "Why Us", href: "#why-cosmos", page: "why-us" as const },
     { name: "Team", href: "#founder", page: "team" as const },
     { name: "Events", href: "#events", page: "events" as const },
+    { name: "Resources", href: "#resources" },
     { name: "Careers", href: "#careers" },
   ];
 

@@ -12,6 +12,7 @@ import {
 import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
+import CompanyBrochureCTA from "./CompanyBrochureCTA";
 
 interface CosmosGalleryProps {
   onBackToHome: () => void;
@@ -147,6 +148,11 @@ export default function CosmosGallery({ onBackToHome }: CosmosGalleryProps) {
           </div>
         </div>
 
+      </div>
+
+      {/* Corporate Brochure Download */}
+      <div className="mt-12 md:mt-16">
+        <CompanyBrochureCTA companyId="gallery" />
       </div>
     </div>
   );

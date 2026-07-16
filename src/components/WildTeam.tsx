@@ -14,6 +14,7 @@ import {
 import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
+import CompanyBrochureCTA from "./CompanyBrochureCTA";
 
 interface WildTeamProps {
   onBackToHome: () => void;
@@ -80,7 +81,14 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
       <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">
         {/* Hero Section */}
         <div className="bg-[#0B132B] text-white rounded-3xl overflow-hidden border border-slate-900 shadow-2xl relative">
-          <div className="absolute inset-0 bg-radial-gradient from-red-950/20 via-transparent to-transparent opacity-60 pointer-events-none" />
+          <div className="absolute inset-0">
+            <img 
+              src="/images/wildteam/dd55b2_bea383b5cdc54422913780973ec2bd49~mv2.avif" 
+              alt="WildTeam Banner" 
+              className="w-full h-full object-cover opacity-40 mix-blend-overlay"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/60 to-transparent" />
+          </div>
           
           <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-950/60 border border-red-900/40 rounded-full">
@@ -268,6 +276,11 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
           </div>
         </div>
 
+      </div>
+
+      {/* Corporate Brochure Download */}
+      <div className="mt-12 md:mt-16">
+        <CompanyBrochureCTA companyId="wildteam" />
       </div>
     </div>
   );

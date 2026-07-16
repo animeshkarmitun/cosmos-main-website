@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
+import CompanyBrochureCTA from "./CompanyBrochureCTA";
 
 interface CosmosGlobalProps {
   onBackToHome: () => void;
@@ -171,6 +172,11 @@ export default function CosmosGlobal({ onBackToHome }: CosmosGlobalProps) {
           </div>
         </div>
 
+      </div>
+
+      {/* Corporate Brochure Download */}
+      <div className="mt-12 md:mt-16">
+        <CompanyBrochureCTA companyId="global" />
       </div>
     </div>
   );

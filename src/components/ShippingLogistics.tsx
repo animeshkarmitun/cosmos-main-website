@@ -16,6 +16,7 @@ import {
 import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
+import CompanyBrochureCTA from "./CompanyBrochureCTA";
 
 interface ShippingLogisticsProps {
   onBackToHome: () => void;
@@ -243,6 +244,11 @@ export default function ShippingLogistics({ onBackToHome }: ShippingLogisticsPro
           </div>
 
         </div>
+      </div>
+
+      {/* Corporate Brochure Download */}
+      <div className="mt-12 md:mt-16">
+        <CompanyBrochureCTA companyId="shipping" />
       </div>
     </div>
   );

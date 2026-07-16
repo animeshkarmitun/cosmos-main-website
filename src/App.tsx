@@ -35,6 +35,7 @@ import EventsPage from "./components/EventsPage";
 import EventDetail from "./components/EventDetail";
 import ExploreTeaser from "./components/ExploreTeaser";
 import LogoMarquee from "./components/LogoMarquee";
+import ResourcesSection from "./components/ResourcesSection";
 import { Zap, Ship, Cpu, Shield, Scale } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -176,6 +177,9 @@ export default function App() {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             />
+
+            {/* Corporate Resources / Brochure Downloads */}
+            <ResourcesSection id="resources" />
 
             {/* Dynamic Partner & Contact Section */}
             <ContactSection />

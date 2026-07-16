@@ -176,6 +176,18 @@ export default function FounderMessage() {
                     </p>
                   </div>
                 </li>
+
+                <li className="flex items-start gap-4 group">
+                  <div className="w-5 h-5 rounded bg-slate-900 border border-slate-800 flex items-center justify-center shrink-0 mt-0.5 group-hover:border-red-500/30 transition-colors">
+                    <CheckCircle className="w-3 h-3 text-red-500" />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-xs font-mono text-slate-500 uppercase tracking-wider">PUBLIC PROFILE</p>
+                    <p className="text-sm text-slate-300 leading-relaxed font-light">
+                      Learn more about Enayetullah Khan on <a href="https://en.wikipedia.org/wiki/Enayetullah_Khan" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-400 font-medium underline underline-offset-4 decoration-red-500/30 hover:decoration-red-400 transition-all">Wikipedia</a>.
+                    </p>
+                  </div>
+                </li>
               </ul>
             </motion.div>
 

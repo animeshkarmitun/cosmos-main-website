@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, Zap, Ship, Globe2, Building, TrendingUp, Phone, Shirt, Gem, Printer, Globe, Palette, BookOpen, PawPrint, Image as ImageIcon, MessageSquare, HandHeart, ChevronDown, ChevronUp, Cpu } from "lucide-react";
+import BrochureDownloadButton from "./BrochureDownloadButton";
 
 interface BusinessUnit {
   id: string;
@@ -235,16 +236,25 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
   return (
     <section id="businesses" className="py-20 md:py-28 px-6 bg-[#0B132B]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center md:text-left mb-12">
-          <div className="inline-block bg-red-950/40 border border-red-500/30 px-3 py-1 rounded-full text-red-400 text-xs font-semibold tracking-wider uppercase mb-4">
-            Our Enterprise Spheres
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <div className="text-center md:text-left">
+            <div className="inline-block bg-red-950/40 border border-red-500/30 px-3 py-1 rounded-full text-red-400 text-xs font-semibold tracking-wider uppercase mb-4">
+              Our Enterprise Spheres
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+              Our Companies
+            </h2>
+            <p className="text-slate-400 mt-3 text-sm md:text-base max-w-xl font-light">
+              Each business division is operated by leading sector professionals, working with international standards to deliver industrial excellence.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-            Our Companies
-          </h2>
-          <p className="text-slate-400 mt-3 text-sm md:text-base max-w-xl font-light">
-            Each business division is operated by leading sector professionals, working with international standards to deliver industrial excellence.
-          </p>
+          <div className="flex justify-center md:justify-end shrink-0">
+            <BrochureDownloadButton
+              brochureId="cosmos-group"
+              label="Cosmos Group Brochure"
+              variant="secondary"
+            />
+          </div>
         </div>
 
         <motion.div 

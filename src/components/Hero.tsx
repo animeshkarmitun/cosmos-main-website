@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Eye, Compass, ShieldCheck, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import BrochureDownloadButton from "./BrochureDownloadButton";
 import { motion, AnimatePresence, useSpring, useReducedMotion } from "motion/react";
 
 interface SlideData {
@@ -235,6 +236,11 @@ export default function Hero() {
                         >
                           Contact Us
                         </a>
+                        <BrochureDownloadButton
+                          brochureId="cosmos-group"
+                          label="Download Brochure"
+                          variant="secondary"
+                        />
                       </motion.div>
                     </div>
                   </div>
