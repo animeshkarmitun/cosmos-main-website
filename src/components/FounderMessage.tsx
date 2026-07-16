@@ -132,8 +132,8 @@ export default function FounderMessage() {
                   “
                 </span>
                 <p className="text-lg md:text-xl font-light italic text-slate-100 font-serif leading-relaxed">
-                  "Pioneering localized solutions of global standard while driving Bangladesh towards
-                  industrial progress."
+                  ‘Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum
+                  auctor, nisi elit consequat ipsum, nec sagittis.’
                 </p>
                 <span className="block text-[10px] uppercase tracking-widest text-cyan-400 font-mono mt-1 font-bold">
                   Executive Vision
