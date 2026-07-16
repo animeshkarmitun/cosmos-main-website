@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, Compass, Eye, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface SlideData {
   title: string;
@@ -59,24 +59,6 @@ export default function HeroLight() {
     },
   ];
 
-  const cards = [
-    {
-      title: "Mission Statement",
-      icon: <Compass className="w-5 h-5 text-white" aria-hidden="true" />,
-      text: "To strengthen our leadership profile by providing the most efficient and cost effective services to our clients, be it in energy, mining, shipping, information technology, media, or any endeavour to benefit our future.",
-    },
-    {
-      title: "Our Vision",
-      icon: <Eye className="w-5 h-5 text-white" aria-hidden="true" />,
-      text: "To serve as the preferred partner in providing quality services & solutions to our stakeholders & clients.",
-    },
-    {
-      title: "Values",
-      icon: <ShieldCheck className="w-5 h-5 text-white" aria-hidden="true" />,
-      text: "Uncompromising integrity, environmental standards, deep-rooted commitment to quality, and enriching regional technical capacity.",
-    },
-  ];
-
   useEffect(() => {
     if (timerRef.current) {
       clearInterval(timerRef.current);
@@ -95,7 +77,7 @@ export default function HeroLight() {
 
   return (
     <section id="home" className="relative overflow-hidden bg-[#FAF8F5]">
-      <div className="relative min-h-[780px] md:min-h-[830px] flex items-center pt-24 pb-32">
+      <div className="relative min-h-[780px] md:min-h-[830px] flex items-center pt-24 pb-16 md:pb-20">
         <div className="absolute inset-0">
           <AnimatePresence mode="wait">
             <motion.img
@@ -174,30 +156,6 @@ export default function HeroLight() {
           >
             <ChevronRight className="w-5 h-5" />
           </button>
-        </div>
-      </div>
-
-      <div className="relative -mt-12 sm:-mt-16 md:-mt-20 z-20 w-full px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-white border border-stone-200/80 p-6 md:p-8 rounded-3xl shadow-xl shadow-stone-200/40">
-          {cards.map((card, index) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + index * 0.08, duration: 0.5 }}
-              className={`p-6 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg rounded-2xl ${
-                index !== cards.length - 1 ? "border-b md:border-b-0 md:border-r border-stone-100" : ""
-              }`}
-            >
-              <div className="w-12 h-12 bg-sky-700 rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-sky-900/20">
-                {card.icon}
-              </div>
-              <div className="space-y-1.5">
-                <h3 className="text-lg font-bold tracking-wide text-slate-900 uppercase">{card.title}</h3>
-                <p className="text-slate-500 text-xs leading-relaxed font-light">{card.text}</p>
-              </div>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>

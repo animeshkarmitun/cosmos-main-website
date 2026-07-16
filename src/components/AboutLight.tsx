@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import LineRevealText from "./LineRevealText";
+import MissionVisionValues from "./MissionVisionValues";
 
 export default function AboutLight() {
   const images = [
@@ -111,6 +112,12 @@ export default function AboutLight() {
             </div>
           </motion.div>
         </div>
+
+        <MissionVisionValues
+          id="mission-vision-values"
+          variant="light"
+          className="mt-16 md:mt-20"
+        />
       </div>
     </section>
   );

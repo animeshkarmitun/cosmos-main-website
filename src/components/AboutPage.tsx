@@ -4,6 +4,7 @@ import { ArrowLeft, Building2, TrendingUp, Globe } from "lucide-react";
 import CosmosStats from "./CosmosStats";
 import MajorAchievements from "./MajorAchievements";
 import ExploreTeaser from "./ExploreTeaser";
+import MissionVisionValues from "./MissionVisionValues";
 
 interface AboutPageProps {
   onBackToHome: () => void;
@@ -128,6 +129,13 @@ export default function AboutPage({ onBackToHome }: AboutPageProps) {
               </div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── Mission / Vision / Values ───────────────────────────── */}
+      <section className="px-4 md:px-6 pb-8 md:pb-12">
+        <div className="max-w-7xl mx-auto">
+          <MissionVisionValues id="mission-vision-values" variant="dark" />
         </div>
       </section>
 

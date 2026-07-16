@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Eye, Compass, ShieldCheck, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import BrochureDownloadButton from "./BrochureDownloadButton";
 import { motion, AnimatePresence, useSpring, useReducedMotion } from "motion/react";
 
@@ -113,28 +113,10 @@ export default function Hero() {
     }
   };
 
-  const cards = [
-    {
-      title: "Mission Statement",
-      icon: <Compass className="w-5 h-5 text-white" aria-hidden="true" />,
-      text: "To strengthen our leadership profile by providing the most efficient and cost effective services to our clients, be it in energy, mining, shipping, information technology, media, or any endeavour to benefit our future.",
-    },
-    {
-      title: "Our Vision",
-      icon: <Eye className="w-5 h-5 text-white" aria-hidden="true" />,
-      text: "To serve as the preferred partner in providing quality services & solutions to our stakeholders & clients.",
-    },
-    {
-      title: "Values",
-      icon: <ShieldCheck className="w-5 h-5 text-white" aria-hidden="true" />,
-      text: "Uncompromising integrity, environmental standards, deep-rooted commitment to quality, and enriching regional technical capacity.",
-    },
-  ];
-
   return (
     <section
       id="home"
-      className="relative mb-16 md:mb-24 overflow-hidden focus:outline-none bg-[#07122B]"
+      className="relative overflow-hidden focus:outline-none bg-[#07122B]"
       onKeyDown={handleKeyDown}
       tabIndex={0}
       aria-label="Cosmos Group Corporate Showcase Slider"
@@ -280,30 +262,6 @@ export default function Hero() {
           >
             <ChevronRight className="w-5 h-5" />
           </button>
-        </div>
-      </div>
-
-      {/* Corporate Overlapping Cards (Mission/Vision/Values) */}
-      <div className="relative -mt-10 xs:-mt-14 sm:-mt-16 md:-mt-20 lg:-mt-24 z-20 w-full px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-[#081730]/72 backdrop-blur-xl border border-white/10 p-6 md:p-6 rounded-3xl shadow-2xl">
-          {cards.map((card, index) => (
-            <div
-              key={card.title}
-              className={`p-6 text-white flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 transition-all duration-300 hover:bg-white/5 rounded-2xl ${
-                index !== cards.length - 1 ? "border-b md:border-b-0 md:border-r border-white/10 pb-6 sm:pb-0" : ""
-              }`}
-            >
-              <div className="w-12 h-12 bg-red-700 rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-red-900/40">
-                {card.icon}
-              </div>
-              <div className="space-y-1.5">
-                <h3 className="text-lg font-bold tracking-wide text-slate-100 uppercase">{card.title}</h3>
-                <p className="text-slate-400 text-xs leading-relaxed font-light">
-                  {card.text}
-                </p>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
