@@ -1,17 +1,16 @@
 import React from "react";
-import { 
-  ArrowLeft, 
-  Ship, 
-  Settings, 
-  Handshake, 
-  MapPin, 
-  Check, 
-  Anchor, 
-  Clock, 
-  Globe2, 
+import {
+  ArrowLeft,
+  Ship,
+  Anchor,
+  MapPin,
+  Clock,
+  Globe2,
   Layers,
-  ChevronRight,
-  Shield
+  Check,
+  Warehouse,
+  Container,
+  Handshake,
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -23,23 +22,97 @@ interface ShippingLogisticsProps {
   onBackToHome: () => void;
 }
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const } },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+};
+
 export default function ShippingLogistics({ onBackToHome }: ShippingLogisticsProps) {
-  const locations = ["Chattogram", "Khulna", "Matarbari"];
-  const tags = ["EPC", "Security", "Gas Fields", "Terminals", "LPG Plants", "Power Plants"];
-  const checklist = [
+  const locations = ["Chittagong", "Khulna / Mongla"];
+
+  const servicePillars = [
+    {
+      title: "Logistics",
+      icon: Warehouse,
+      items: [
+        "Warehousing",
+        "Bulk Cargo Operations",
+        "Project Logistics",
+        "Engineering & Equipment",
+        "Container Logistics Management",
+        "Stevedoring",
+        "International Freight Forwarding",
+        "Logistics Management Application",
+      ],
+    },
+    {
+      title: "Infrastructure",
+      icon: Container,
+      items: [
+        "Surface Transportation",
+        "Cargo Terminals",
+        "Terminal Management",
+        "Container Rail Operations",
+        "Container Depots",
+        "Port Development",
+      ],
+    },
+    {
+      title: "Agency & Services",
+      icon: Handshake,
+      items: [
+        "Support Services for Oil & Gas Industry",
+        "Support Services for Power Industry",
+        "Chartering Broker",
+        "Crew Recruitment",
+        "Ship Management",
+        "Shipping Agency",
+        "Clearing & Forwarding",
+        "Support Services for Dredging Operations",
+      ],
+    },
+  ];
+
+  const clientSegments = [
     "Ship operators/owners agents",
     "Charterers' agents/brokers",
     "Freight forwarders",
-    "Ship breakers"
+    "Ship breakers",
+  ];
+
+  const capabilities = [
+    {
+      icon: Clock,
+      title: "On-Time Delivery",
+      description:
+        "Efficient transportation and freight management services delivered safely, on time, and within budget.",
+    },
+    {
+      icon: Globe2,
+      title: "Global Partnerships",
+      description:
+        "Outbound shipments supported through overseas partners, extending CSL's reach across global supply chains.",
+    },
+    {
+      icon: Layers,
+      title: "Project Cargo Expertise",
+      description:
+        "Expediting break-bulk, containers, dry bulk, liquid bulk, steel, and project cargos from vessel to inland consignees.",
+    },
   ];
 
   return (
-    <div id="shipping-logistics-page" className="pt-24 pb-20 bg-slate-50 min-h-screen text-slate-800 font-sans">
+    <div id="shipping-logistics-page" className="bg-[#04060f] min-h-screen text-white font-sans selection:bg-red-500/30">
       {/* Back Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 pt-24 pb-6">
         <button
           onClick={onBackToHome}
-          className="inline-flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider text-slate-600 hover:text-red-700 bg-white border border-slate-200 hover:border-red-600/30 rounded-xl transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-400 bg-white/[0.04] border border-white/[0.06] rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-red-600 cursor-pointer"
           id="back-home-button-shipping"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -47,210 +120,217 @@ export default function ShippingLogistics({ onBackToHome }: ShippingLogisticsPro
         </button>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
-        <DivisionBrandBanner name="Cosmos Shipping & Logistics" logo="/logos/Cosmos Shipping and Logistics.png" descriptor="Shipping & Logistics" />
-      </div>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeUp}
+        className="max-w-7xl mx-auto px-4 md:px-6 mb-12"
+      >
+        <DivisionBrandBanner
+          name="Cosmos Shipping & Logistics"
+          logo="/logos/Cosmos Shipping and Logistics.png"
+          descriptor="Shipping & Logistics"
+          theme="dark"
+        />
+      </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        {/* Header - Top Left */}
-        <div className="mb-10 space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-950/40 border border-red-900/40 rounded-full">
-            <Anchor className="w-3.5 h-3.5 text-red-500" />
-            <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-red-500 uppercase">
-              Maritime Division
-            </span>
-          </div>
-          <h1 className="text-3xl md:text-4.5xl font-black font-display tracking-tight text-slate-900 uppercase">
-            Shipping & Logistics
-          </h1>
-          <p className="text-slate-500 font-mono font-bold text-xs md:text-sm uppercase tracking-widest">
-            Maritime Excellence Since 1980
-          </p>
-        </div>
-
-        {/* Asymmetric Split Screen 60/40 Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Left Column (Detailed Cards - 60% width on desktop) */}
-          {/* order-2 puts it below the sidebar on mobile, lg:order-1 puts it first on desktop */}
-          <div className="lg:col-span-7 space-y-6 order-2 lg:order-1">
-            
-            {/* Card 1: Cosmos Shipping & Logistics (CSL) */}
-            <GlowCard theme="light" className="bg-white border border-slate-200/80 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-all space-y-6">
-              <div className="flex items-center gap-3.5 pb-4 border-b border-slate-100">
-                <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100">
-                  <Ship className="w-5 h-5" />
-                </div>
-                <h2 className="text-lg md:text-xl font-bold text-slate-900 uppercase tracking-tight">
-                  Cosmos Shipping & Logistics (CSL)
-                </h2>
-              </div>
-              
-              <p className="text-slate-650 text-sm md:text-base font-light leading-relaxed">
-                The maritime arm of Cosmos Group, providing logistics support to prestigious projects in Power, Oil & Gas, and infrastructure sectors.
-              </p>
-
-              <div className="space-y-2.5">
-                <span className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
-                  Strategic Port Hubs
-                </span>
-                <div className="flex flex-wrap gap-2.5">
-                  {locations.map((loc) => (
-                    <span 
-                      key={loc}
-                      className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 border border-slate-200/65 text-slate-700 text-xs font-bold uppercase tracking-wider rounded-full shadow-sm"
-                    >
-                      <MapPin className="w-3 h-3 text-red-600" />
-                      {loc}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </GlowCard>
-
-            {/* Card 2: Civic Engineering */}
-            <GlowCard theme="light" className="bg-white border border-slate-200/80 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-all space-y-6">
-              <div className="flex items-center gap-3.5 pb-4 border-b border-slate-100">
-                <div className="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200">
-                  <Settings className="w-5 h-5 animate-spin-slow" />
-                </div>
-                <h2 className="text-lg md:text-xl font-bold text-slate-900 uppercase tracking-tight">
-                  Civic Engineering
-                </h2>
-              </div>
-
-              <p className="text-slate-650 text-sm md:text-base font-light leading-relaxed">
-                Operating since 1982, undertaking comprehensive EPC projects across multiple sectors.
-              </p>
-
-              <div className="space-y-2.5">
-                <span className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
-                  EPC Scope & Solutions
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag) => (
-                    <span 
-                      key={tag}
-                      className="px-3 py-1 bg-slate-50 border border-slate-200 text-slate-600 text-[11px] font-semibold uppercase tracking-wider rounded-lg"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </GlowCard>
-
-            {/* Card 3: Service Portfolio (Dark Navy Blue) */}
-            <div className="bg-[#0B132B] text-white p-6 md:p-8 rounded-3xl shadow-lg border border-slate-900 space-y-6">
-              <div className="flex items-center gap-3.5 pb-4 border-b border-slate-800">
-                <div className="w-10 h-10 rounded-xl bg-red-950 text-red-400 flex items-center justify-center border border-red-900/30">
-                  <Handshake className="w-5 h-5" />
-                </div>
-                <h2 className="text-lg md:text-xl font-bold text-white uppercase tracking-tight">
-                  Service Portfolio
-                </h2>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {checklist.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-3.5 bg-slate-900/40 border border-slate-800/60 rounded-2xl hover:border-red-900/30 transition-colors">
-                    <div className="w-5 h-5 rounded-md bg-red-950 text-red-500 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3.5 h-3.5" />
-                    </div>
-                    <span className="text-xs md:text-sm text-slate-200 font-light leading-tight">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className="max-w-7xl mx-auto px-4 md:px-6 space-y-16 md:space-y-24 pb-24"
+      >
+        {/* Hero Section */}
+        <motion.div
+          variants={fadeUp}
+          className="bg-white/[0.03] border border-slate-800/60 rounded-3xl overflow-hidden relative shadow-2xl"
+        >
+          <div className="absolute inset-0">
+            <img
+              src="/images/cosmos-shipping/csl.jpg"
+              alt="Cosmos Shipping and Logistics"
+              className="w-full h-full object-cover opacity-40"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f] via-[#04060f]/60 to-transparent" />
           </div>
 
-          {/* Right Column (Sticky Sidebar - 40% width on desktop) */}
-          {/* order-1 puts it on top on mobile, lg:order-2 puts it second on desktop */}
-          <div className="lg:col-span-5 bg-[#0B132B] text-white p-8 md:p-10 rounded-3xl lg:sticky lg:top-24 h-auto space-y-8 shadow-xl border border-slate-900 order-1 lg:order-2">
-            
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-red-950 border border-red-900/40 text-red-400 flex items-center justify-center shadow-lg">
-                <Anchor className="w-6 h-6 animate-pulse" />
-              </div>
-              <div>
-                <h3 className="text-lg md:text-xl font-black uppercase tracking-tight text-white leading-none">
-                  Comprehensive Maritime Solutions
-                </h3>
-                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block mt-1">
-                  Global Integration Hub
-                </span>
-              </div>
-            </div>
-
-            {/* Feature List */}
-            <div className="space-y-6 pt-4 border-t border-slate-800">
-              
-              {/* Feature 1 */}
-              <div className="flex gap-4">
-                <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 text-red-500 flex items-center justify-center shrink-0">
-                  <Clock className="w-4 h-4" />
-                </div>
-                <div className="space-y-1">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                    On-Time Delivery
-                  </h4>
-                  <p className="text-xs text-slate-400 font-light leading-relaxed">
-                    Efficient transportation and freight management services delivered on time and within budget.
-                  </p>
-                </div>
-              </div>
-
-              {/* Feature 2 */}
-              <div className="flex gap-4">
-                <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 text-red-500 flex items-center justify-center shrink-0">
-                  <Globe2 className="w-4 h-4" />
-                </div>
-                <div className="space-y-1">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                    Global Partnerships
-                  </h4>
-                  <p className="text-xs text-slate-400 font-light leading-relaxed">
-                    Association with renowned global companies for world-class logistics solutions.
-                  </p>
-                </div>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="flex gap-4">
-                <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 text-red-500 flex items-center justify-center shrink-0">
-                  <Layers className="w-4 h-4" />
-                </div>
-                <div className="space-y-1">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                    Project Support
-                  </h4>
-                  <p className="text-xs text-slate-400 font-light leading-relaxed">
-                    Specialized logistics for power, oil & gas, and infrastructure projects of all scales.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Footer Quote */}
-            <div className="pt-6 border-t border-slate-800/80 text-center">
-              <span className="block text-sm font-serif italic text-red-400">
-                "Connecting Bangladesh to the World"
+          <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-8 mt-24 md:mt-32">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-950/50 border border-red-900/30 rounded-full">
+              <Anchor className="w-3.5 h-3.5 text-red-500 animate-pulse" />
+              <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-red-500 uppercase">
+                Maritime Division — Estd. 1980
               </span>
             </div>
 
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-6xl font-bold font-display tracking-tight text-white uppercase leading-none">
+                Cosmos Shipping and Logistics (CSL)
+              </h1>
+              <p className="text-red-500 font-mono font-bold text-sm md:text-base uppercase tracking-widest">
+                Bangladesh&apos;s Leading Logistical Support & Transportation Company
+              </p>
+            </div>
+
+            <div className="space-y-5 text-slate-400 text-sm md:text-lg font-light leading-relaxed max-w-3xl">
+              <p>
+                The maritime arm of Cosmos Group, headquartered at Cosmos Centre, CSL delivers efficient agency services to foreign vessels calling at Bangladesh ports and ranks among the country&apos;s largest handlers of cargo by tonnage.
+              </p>
+              <p>
+                We maintain offices at the port cities of Chittagong and Khulna/Mongla, offering full-service agency representation for ship operators, charterers, freight forwarders, and ship breakers — safely, on time, and within budget.
+              </p>
+            </div>
           </div>
+        </motion.div>
 
+        {/* Service Pillars */}
+        <div className="space-y-8">
+          <motion.div variants={fadeUp} className="max-w-3xl space-y-2">
+            <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block">
+              End-to-End Maritime Solutions
+            </span>
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
+              Service Portfolio
+            </h2>
+            <p className="text-slate-400 text-sm md:text-base font-light">
+              CSL values the magnitude of developing efficient global supply chains — good transport logistics can assure the competitive edge for clients across Bangladesh and beyond.
+            </p>
+          </motion.div>
+
+          <motion.div variants={containerVariants} className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {servicePillars.map((pillar) => {
+              const IconComp = pillar.icon;
+              return (
+                <GlowCard
+                  key={pillar.title}
+                  variants={fadeUp}
+                  theme="dark"
+                  className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-6 hover:bg-white/[0.05] transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-red-950/50 text-red-400 flex items-center justify-center border border-red-900/30">
+                      <IconComp className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-bold font-display text-white uppercase tracking-tight">
+                      {pillar.title}
+                    </h3>
+                  </div>
+                  <ul className="space-y-2.5">
+                    {pillar.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-sm text-slate-400 font-light leading-relaxed">
+                        <Check className="w-3.5 h-3.5 text-red-500 shrink-0 mt-1" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </GlowCard>
+              );
+            })}
+          </motion.div>
         </div>
-      </div>
 
-      {/* Corporate Brochure Download */}
-      <div className="mt-12 md:mt-16">
-        <CompanyBrochureCTA companyId="shipping" />
-      </div>
+        {/* Port Presence & Client Segments */}
+        <div className="space-y-8">
+          <motion.div variants={fadeUp} className="max-w-2xl">
+            <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block mb-2">
+              Nationwide Coverage
+            </span>
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
+              Port Hubs & Client Segments
+            </h2>
+          </motion.div>
+
+          <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <GlowCard
+              variants={fadeUp}
+              theme="dark"
+              className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl space-y-6"
+            >
+              <div className="flex items-center gap-3">
+                <MapPin className="w-5 h-5 text-red-500" />
+                <h3 className="text-xl font-bold font-display text-white uppercase tracking-tight">
+                  Strategic Port Hubs
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2.5">
+                {locations.map((loc) => (
+                  <span
+                    key={loc}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/[0.04] border border-slate-700/60 text-slate-300 text-xs font-bold uppercase tracking-wider rounded-full"
+                  >
+                    <Ship className="w-3 h-3 text-red-500" />
+                    {loc}
+                  </span>
+                ))}
+              </div>
+              <p className="text-sm text-slate-400 font-light leading-relaxed">
+                Offices at Chittagong and Khulna/Mongla enable comprehensive coverage of Bangladesh&apos;s primary maritime gateways.
+              </p>
+            </GlowCard>
+
+            <GlowCard
+              variants={fadeUp}
+              theme="dark"
+              className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl space-y-6"
+            >
+              <div className="flex items-center gap-3">
+                <Handshake className="w-5 h-5 text-red-500" />
+                <h3 className="text-xl font-bold font-display text-white uppercase tracking-tight">
+                  Who We Serve
+                </h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {clientSegments.map((segment) => (
+                  <div
+                    key={segment}
+                    className="flex items-start gap-2.5 p-3.5 bg-[#0B132B] border border-slate-800/60 rounded-xl"
+                  >
+                    <Check className="w-3.5 h-3.5 text-red-500 shrink-0 mt-0.5" />
+                    <span className="text-xs text-slate-300 font-light leading-tight">{segment}</span>
+                  </div>
+                ))}
+              </div>
+            </GlowCard>
+          </motion.div>
+        </div>
+
+        {/* Capabilities */}
+        <div className="space-y-8">
+          <motion.div variants={fadeUp} className="max-w-2xl">
+            <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block mb-2">
+              Operational Excellence
+            </span>
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
+              Why CSL
+            </h2>
+          </motion.div>
+
+          <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {capabilities.map((cap) => {
+              const IconComp = cap.icon;
+              return (
+                <GlowCard
+                  key={cap.title}
+                  variants={fadeUp}
+                  theme="dark"
+                  className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl"
+                >
+                  <IconComp className="w-6 h-6 text-red-500 mb-4" />
+                  <h4 className="text-lg font-bold font-display uppercase tracking-tight text-white mb-2">
+                    {cap.title}
+                  </h4>
+                  <p className="text-sm text-slate-400 font-light leading-relaxed">{cap.description}</p>
+                </GlowCard>
+              );
+            })}
+          </motion.div>
+        </div>
+
+        {/* Corporate Brochure Download */}
+        <div className="mt-12 md:mt-16">
+          <CompanyBrochureCTA companyId="shipping" />
+        </div>
+      </motion.div>
     </div>
   );
 }
