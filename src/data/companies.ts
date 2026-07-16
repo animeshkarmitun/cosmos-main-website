@@ -4,6 +4,9 @@ export interface Company {
   tagline: string;
   logo: string;
   image: string;
+  /** "contain" shows the full image; defaults to "cover" for card-style crops. */
+  imageFit?: "cover" | "contain";
+  imagePosition?: string;
   detailedText: string;
   metric: string;
   metricLabel: string;
@@ -66,6 +69,7 @@ export const companies: Company[] = [
     tagline: "United News of Bangladesh - the leading news agency.",
     logo: "/logos/United News of Bangladesh.png",
     image: "/images/unb.jpeg",
+    imageFit: "contain",
     detailedText:
       "UNB is a cornerstone of national news reporting, broadcasting unbiased reportage and hosting cultural galleries with global organizations.",
     metric: "15M+",

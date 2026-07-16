@@ -18,3 +18,5 @@ docs/
 
 # Generated screenshot output (regenerable via take-*-screenshots.js scripts)
 screenshots/
+*_screenshot.png
+*_screenshot*.png

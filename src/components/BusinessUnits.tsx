@@ -97,14 +97,21 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
                   }
                 }}
                 theme="dark"
-                className="group aspect-[4/5] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 transition-all duration-500 transform hover:-translate-y-1"
+                className="group aspect-[4/5] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 transition-all duration-500 transform hover:-translate-y-1 bg-slate-950"
                 role="button"
                 aria-label={`Visit ${unit.title} portal`}
               >
                 <img
                   src={unit.image}
                   alt={`${unit.title} background`}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className={`absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105 ${
+                    unit.imageFit === "contain" ? "object-contain" : "object-cover group-hover:scale-110"
+                  }`}
+                  style={
+                    unit.imagePosition
+                      ? { objectPosition: unit.imagePosition }
+                      : undefined
+                  }
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-900/20 transition-opacity duration-500 group-hover:via-slate-950/70" />
