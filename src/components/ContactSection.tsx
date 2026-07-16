@@ -250,7 +250,7 @@ export default function ContactSection() {
                     Physical Registry
                   </span>
                   <h3 className="text-lg md:text-xl font-extrabold font-display text-white uppercase tracking-tight">
-                    World Headquarters
+                    Corporate Headquarters
                   </h3>
                 </div>
                 <div className="w-10 h-10 rounded-xl bg-[#081730] border border-slate-800 flex items-center justify-center text-slate-400 group-hover:text-white transition-colors">

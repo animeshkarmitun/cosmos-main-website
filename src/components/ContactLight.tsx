@@ -17,7 +17,7 @@ export default function ContactLight() {
     },
     {
       icon: MapPin,
-      label: "World Headquarters",
+      label: "Corporate Headquarters",
       value: "Cosmos Centre, 69/1 New Circular Road, Malibagh, Dhaka-1217, Bangladesh",
       href: "#",
     },
