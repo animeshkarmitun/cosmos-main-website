@@ -41,10 +41,43 @@ export default function CosmosBooks({ onBackToHome }: CosmosBooksProps) {
       author: "Enayetullah Khan",
       price: "Available",
       description: "This book unfolds the story of the biggest mangrove forest in the world, delving into its unique flora and fauna. It gives readers an intimate glimpse into the lifestyle, beliefs, social mores, legendary myths, and the mysterious bond that links the inhabitants with the profound solitude of the forest.",
-      isPlaceholder: true,
+      image: "/images/cosmos-books/sundarbans.png",
       url: "https://cosmosbooks.com.bd/index.php?route=product/product&product_id=120",
       accent: "from-emerald-700 to-green-500",
       bgAccent: "bg-emerald-50 border-emerald-200"
+    },
+    {
+      id: "bangabandhu",
+      title: "Bangabandhu – Epitome of A Nation",
+      author: "Cosmos Books",
+      price: "৳2,500.00",
+      description: "A comprehensive publication honoring the life and legacy of Bangabandhu Sheikh Mujibur Rahman, detailing his monumental role in the creation of Bangladesh.",
+      image: "/images/cosmos-books/bangabandhu.png",
+      url: "https://cosmosbooks.com.bd/index.php?route=product/product&product_id=126",
+      accent: "from-blue-700 to-blue-500",
+      bgAccent: "bg-blue-50 border-blue-200"
+    },
+    {
+      id: "symphony-earth",
+      title: "Symphony Of The Earth",
+      author: "Enayetullah Khan",
+      price: "৳4,000.00",
+      description: "A captivating exploration of the earth's natural beauty, weaving together stunning visuals and insightful commentary to celebrate the wonders of our planet.",
+      image: "/images/cosmos-books/symphonyEarth.png",
+      url: "https://cosmosbooks.com.bd/index.php?route=product/product&product_id=119",
+      accent: "from-indigo-700 to-indigo-500",
+      bgAccent: "bg-indigo-50 border-indigo-200"
+    },
+    {
+      id: "ballads-paintings",
+      title: "Ballads And Paintings: SHAKOOR",
+      author: "Cosmos Books",
+      price: "৳1,000.00",
+      description: "A brilliant collection of artworks and ballads by Shakoor, reflecting the vibrant cultural heritage and artistic expression of Bangladesh.",
+      image: "/images/cosmos-books/shakoor.png",
+      url: "https://cosmosbooks.com.bd/index.php?route=product/product&product_id=127",
+      accent: "from-purple-700 to-purple-500",
+      bgAccent: "bg-purple-50 border-purple-200"
     }
   ];
 
