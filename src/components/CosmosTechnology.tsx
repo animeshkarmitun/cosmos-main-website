@@ -1,15 +1,13 @@
 import React from "react";
-import { 
-  ArrowLeft, 
-  Wifi, 
-  Cpu, 
-  Database, 
-  ShieldCheck, 
-  Network, 
-  Zap,
+import {
+  ArrowLeft,
+  Cpu,
+  Network,
   Radio,
-  Server
+  Server,
+  Zap,
 } from "lucide-react";
+import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
@@ -19,32 +17,62 @@ interface CosmosTechnologyProps {
   onBackToHome: () => void;
 }
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const } },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+};
+
 export default function CosmosTechnology({ onBackToHome }: CosmosTechnologyProps) {
   const technologySolutions = [
     {
       title: "Optical Transmission & Fiber Networks",
       icon: Network,
-      desc: "Deploying high-speed Synchronous Digital Hierarchy (SDH) and Dense Wavelength Division Multiplexing (DWDM) optical terminals nationwide."
+      description:
+        "Deploying high-speed Synchronous Digital Hierarchy (SDH) and Dense Wavelength Division Multiplexing (DWDM) optical terminals nationwide.",
     },
     {
       title: "Microwave Transmission & Wireless Links",
       icon: Radio,
-      desc: "Supplying advanced point-to-point and point-to-multipoint digital microwave systems to bridge geographic and remote connectivity gaps."
+      description:
+        "Supplying advanced point-to-point and point-to-multipoint digital microwave systems to bridge geographic and remote connectivity gaps.",
     },
     {
       title: "Billing & Core Network Systems",
       icon: Server,
-      desc: "Integrating state-of-the-art telecommunications billing infrastructure, subscriber servers, and dynamic cloud databases for top operators."
-    }
+      description:
+        "Integrating state-of-the-art telecommunications billing infrastructure, subscriber servers, and dynamic cloud databases for top operators.",
+    },
+  ];
+
+  const infrastructureMetrics = [
+    {
+      metric: "99.999%",
+      label: "Carrier-Grade Uptime",
+      description: "Delivering resilient telecommunications signaling and terminal equipment.",
+    },
+    {
+      metric: "10K+ KM",
+      label: "Fiber Network Support",
+      description: "Supported through our state-of-the-art SDH / DWDM terminals.",
+    },
+    {
+      metric: "Top Operators",
+      label: "Active Clients",
+      description: "Strategic provider to major mobile telecommunication companies.",
+    },
   ];
 
   return (
-    <div id="technology-portal-page" className="pt-24 pb-20 bg-slate-50 min-h-screen text-slate-800 font-sans">
-      {/* Back Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+    <div id="technology-portal-page" className="bg-[#04060f] min-h-screen text-white font-sans selection:bg-red-500/30">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 pt-24 pb-6">
         <button
           onClick={onBackToHome}
-          className="inline-flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider text-slate-600 hover:text-red-700 bg-white border border-slate-200 hover:border-red-600/30 rounded-xl transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-400 bg-white/[0.04] border border-white/[0.06] rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-red-600 cursor-pointer"
           id="back-home-button-technology"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -52,141 +80,141 @@ export default function CosmosTechnology({ onBackToHome }: CosmosTechnologyProps
         </button>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
-        <DivisionBrandBanner name="Cosmos Technology" logo="/logos/Cosmos Technologies.png" descriptor="Technology & Telecommunications" />
-      </div>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeUp}
+        className="max-w-7xl mx-auto px-4 md:px-6 mb-12"
+      >
+        <DivisionBrandBanner
+          name="Cosmos Technology"
+          logo="/logos/Cosmos Technologies.png"
+          descriptor="Technology & Telecommunications"
+          theme="dark"
+        />
+      </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className="max-w-7xl mx-auto px-4 md:px-6 space-y-16 md:space-y-24 pb-24"
+      >
         {/* Hero Section */}
-        <div className="bg-[#0B132B] text-white rounded-3xl overflow-hidden border border-slate-900 shadow-2xl relative">
+        <motion.div
+          variants={fadeUp}
+          className="bg-white/[0.03] border border-slate-800/60 rounded-3xl overflow-hidden relative shadow-2xl"
+        >
           <div className="absolute inset-0">
             <img
               src="/images/cosmos-technology/service_1004_Tech.jpg"
               alt="Cosmos Technologies"
               className="w-full h-full object-cover opacity-40"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f] via-[#04060f]/60 to-transparent" />
           </div>
-          
-          <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-6 mt-24 md:mt-32">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-950/60 border border-red-900/40 rounded-full">
-              <Cpu className="w-3.5 h-3.5 text-red-500" />
-              <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-red-400 uppercase">
+
+          <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-8 mt-24 md:mt-32">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-950/50 border border-red-900/30 rounded-full">
+              <Cpu className="w-3.5 h-3.5 text-red-500 animate-pulse" />
+              <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-red-500 uppercase">
                 Technology Division — Estd. 1995
               </span>
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-3.5xl md:text-5.5xl font-black font-display tracking-tight text-white uppercase leading-none">
+              <h1 className="text-4xl md:text-6xl font-bold font-display tracking-tight text-white uppercase leading-none">
                 Cosmos Technology
               </h1>
-              <p className="text-red-400 font-mono font-bold text-xs md:text-sm uppercase tracking-widest">
+              <p className="text-red-500 font-mono font-bold text-sm md:text-base uppercase tracking-widest">
                 High-Capacity Infrastructure, Signaling & System Integration
               </p>
             </div>
 
-            <p className="text-slate-300 text-sm md:text-lg font-light leading-relaxed max-w-2xl">
+            <p className="text-slate-400 text-sm md:text-lg font-light leading-relaxed max-w-3xl">
               Driving digital transformation with enterprise-grade telecommunications infrastructure. We supply, integrate, and maintain high-capacity fiber optical terminals and microwave transmission networks for major national operators.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Solutions Section */}
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block px-1">
+        <div className="space-y-8">
+          <motion.div variants={fadeUp} className="max-w-3xl space-y-2">
+            <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block">
               Digital Signal Corridors
             </span>
-            <h2 className="text-2xl md:text-3.5xl font-black text-slate-900 uppercase tracking-tight">
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
               Technology Services & Solutions
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {technologySolutions.map((sol, idx) => {
+          <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {technologySolutions.map((sol) => {
               const IconComp = sol.icon;
               return (
-                <GlowCard 
-                  theme="light"
-                  key={idx}
-                  className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between"
+                <GlowCard
+                  key={sol.title}
+                  variants={fadeUp}
+                  theme="dark"
+                  className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-6 hover:bg-white/[0.05] transition-colors"
                 >
-                  <div className="space-y-4">
-                    <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100">
-                      <IconComp className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">
+                  <div className="w-12 h-12 rounded-xl bg-red-950/50 text-red-400 flex items-center justify-center border border-red-900/30">
+                    <IconComp className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold font-display text-white uppercase tracking-tight mb-3">
                       {sol.title}
                     </h3>
-                    <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
-                      {sol.desc}
+                    <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
+                      {sol.description}
                     </p>
                   </div>
                 </GlowCard>
               );
             })}
-          </div>
+          </motion.div>
         </div>
 
-        {/* Stats Block */}
-        <GlowCard theme="light" className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
-          <div className="max-w-3xl space-y-2">
-            <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
+        {/* Infrastructure Metrics */}
+        <div className="space-y-8">
+          <motion.div variants={fadeUp} className="max-w-3xl space-y-2">
+            <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block">
               Reliable Gridways
             </span>
-            <h2 className="text-2xl md:text-3.5xl font-black text-slate-900 uppercase tracking-tight">
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
               Infrastructure Metrics
             </h2>
-            <p className="text-slate-500 text-sm md:text-base font-light">
+            <p className="text-slate-400 text-sm md:text-base font-light">
               Supplying critical equipment to national networks, keeping millions of subscribers connected round the clock.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
-              <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
-                99.999%
-              </span>
-              <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider font-mono mt-1">
-                Carrier-Grade Uptime
-              </span>
-              <p className="text-xs text-slate-500 font-light mt-2">
-                Delivering resilient telecommunications signaling and terminal equipment.
-              </p>
-            </GlowCard>
+          <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {infrastructureMetrics.map((stat) => (
+              <GlowCard
+                key={stat.label}
+                variants={fadeUp}
+                theme="dark"
+                className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl"
+              >
+                <Zap className="w-6 h-6 text-red-500 mb-4" />
+                <span className="block text-2xl md:text-3xl font-black text-white tracking-tight">
+                  {stat.metric}
+                </span>
+                <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider font-mono mt-1">
+                  {stat.label}
+                </span>
+                <p className="text-sm text-slate-400 font-light mt-3 leading-relaxed">{stat.description}</p>
+              </GlowCard>
+            ))}
+          </motion.div>
+        </div>
 
-            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
-              <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
-                10K+ KM
-              </span>
-              <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider font-mono mt-1">
-                Fiber Network Support
-              </span>
-              <p className="text-xs text-slate-500 font-light mt-2">
-                Supported through our state-of-the-art SDH / DWDM terminals.
-              </p>
-            </GlowCard>
-
-            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
-              <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
-                Top Operators
-              </span>
-              <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider font-mono mt-1">
-                Active Clients
-              </span>
-              <p className="text-xs text-slate-500 font-light mt-2">
-                Strategic provider to major mobile telecommunication companies.
-              </p>
-            </GlowCard>
-          </div>
-        </GlowCard>
-
-      </div>
-
-      {/* Corporate Brochure Download */}
-      <div className="mt-12 md:mt-16">
-        <CompanyBrochureCTA companyId="technology" />
-      </div>
+        <div className="mt-12 md:mt-16">
+          <CompanyBrochureCTA companyId="technology" />
+        </div>
+      </motion.div>
     </div>
   );
 }

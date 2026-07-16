@@ -1,16 +1,14 @@
 import React from "react";
-import { 
-  ArrowLeft, 
-  BookOpen, 
-  TrendingUp, 
-  Globe, 
-  Leaf, 
-  Scale, 
-  Shield, 
-  Link, 
-  CheckCircle, 
+import {
+  ArrowLeft,
+  BookOpen,
+  Leaf,
+  Scale,
+  Shield,
+  Link,
   ArrowUpRight,
-  Bookmark
+  Bookmark,
+  Image as ImageIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -22,44 +20,55 @@ interface DhakaCourierProps {
   onBackToHome: () => void;
 }
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const } },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+};
+
 export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
   const editorialFocus = [
     {
       title: "Political Analysis",
       icon: Shield,
-      description: "Critical, unbiased insights and commentary regarding national governance, political shifts, and policy updates across South Asia.",
-      accent: "text-red-600 bg-red-50 border-red-100"
+      description:
+        "Critical, unbiased insights and commentary regarding national governance, political shifts, and policy updates across South Asia.",
     },
     {
       title: "Environmental Issues",
       icon: Leaf,
-      description: "Pioneering climate reporting, investigating water management, delta challenges, and biodiversity preservation in the subcontinent.",
-      accent: "text-green-650 bg-green-50 border-green-100"
+      description:
+        "Pioneering climate reporting, investigating water management, delta challenges, and biodiversity preservation in the subcontinent.",
     },
     {
       title: "Human Rights Reporting",
       icon: Scale,
-      description: "Defending civic liberties and bringing social justice, equality, community resilience, and grassroots struggles into focal visibility.",
-      accent: "text-blue-600 bg-blue-50 border-blue-100"
-    }
+      description:
+        "Defending civic liberties and bringing social justice, equality, community resilience, and grassroots struggles into focal visibility.",
+    },
   ];
 
   const circulationMetrics = [
     {
       title: "Highest Circulation",
       metric: "Rank #1 Weekly",
-      description: "The most widely read and trusted English language newsweekly in Bangladesh."
+      description: "The most widely read and trusted English language newsweekly in Bangladesh.",
     },
     {
       title: "100K+ Readership",
       metric: "100,000+",
-      description: "Dedicated monthly readership across print editions and online platforms (www.dhakacourier.com.bd)."
+      description: "Dedicated monthly readership across print editions and online platforms (www.dhakacourier.com.bd).",
+      showLink: true,
     },
     {
       title: "Global Distribution",
       metric: "50+ Countries",
-      description: "Reaching diplomatic channels, educational hubs, and global diaspora networks worldwide."
-    }
+      description: "Reaching diplomatic channels, educational hubs, and global diaspora networks worldwide.",
+    },
   ];
 
   const recentIssues = [
@@ -67,47 +76,46 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
       title: "DhakaCourier Vol 42 Issue 51",
       date: "July 10, 2026",
       image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/F4ZVUPr0LYTO00aaZTaRSA5SqFfg5G9Yi4bA72y2.jpg",
-      link: "https://drive.google.com/file/d/1TkPqxZniCiqdN4xRCSmp00cpERP2Vrm2/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1TkPqxZniCiqdN4xRCSmp00cpERP2Vrm2/view?usp=drive_link",
     },
     {
       title: "DhakaCourier Vol 42 Issue 50",
       date: "July 03, 2026",
       image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/1tPlR856QMJaHISq1lQXubnBKWFFO0zrg77ksUDg.jpg",
-      link: "https://drive.google.com/file/d/1Wq76pOuODL9r3HpNnIkV4ih9fvsQTGXa/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1Wq76pOuODL9r3HpNnIkV4ih9fvsQTGXa/view?usp=drive_link",
     },
     {
       title: "DhakaCourier Vol 42 Issue 49",
       date: "June 26, 2026",
       image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/WfOiv2lXbu2Opxl7TZduuXpZJwK4lhp7XYtmmWHt.jpg",
-      link: "https://drive.google.com/file/d/1i4pnvwgfnADzN6Zv9O2CalE8Ae3_NTtu/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1i4pnvwgfnADzN6Zv9O2CalE8Ae3_NTtu/view?usp=drive_link",
     },
     {
       title: "DhakaCourier Vol 42 Issue 48",
       date: "June 19, 2026",
       image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/jXIQkTDcrryco0JhlUkAPKiNw8dDr0w4GnCRTl7e.jpg",
-      link: "https://drive.google.com/file/d/1yVUuRMvLDZHxoYOcob4RHDZSoRhARLmU/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1yVUuRMvLDZHxoYOcob4RHDZSoRhARLmU/view?usp=drive_link",
     },
     {
       title: "DhakaCourier Vol 42 Issue 47",
       date: "June 12, 2026",
       image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/nMcsyonrG1Ga7DnGHyldGEwoJAGAd1U7PAN1DUSt.jpg",
-      link: "https://drive.google.com/file/d/1sqxFThLkE94jMd66SYkYW7NhfHGuGIpA/view?usp=drive_link"
+      link: "https://drive.google.com/file/d/1sqxFThLkE94jMd66SYkYW7NhfHGuGIpA/view?usp=drive_link",
     },
     {
       title: "DhakaCourier Vol 42 Issue 36",
       date: "June 05, 2026",
       image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/v1DIE2GUqc2oGWo9hCnkL7JVkuWeXscOAyxFDSRR.jpg",
-      link: "https://drive.google.com/file/d/1_qbXBq1ZKf5gl_3M-3Hhph-hphDT0egb/view?usp=sharing"
-    }
+      link: "https://drive.google.com/file/d/1_qbXBq1ZKf5gl_3M-3Hhph-hphDT0egb/view?usp=sharing",
+    },
   ];
 
   return (
-    <div id="dhaka-courier-portal-page" className="pt-24 pb-20 bg-slate-50 min-h-screen text-slate-800 font-sans">
-      {/* Back Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+    <div id="dhaka-courier-portal-page" className="bg-[#04060f] min-h-screen text-white font-sans selection:bg-red-500/30">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 pt-24 pb-6">
         <button
           onClick={onBackToHome}
-          className="inline-flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider text-slate-600 hover:text-red-700 bg-white border border-slate-200 hover:border-red-600/30 rounded-xl transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-400 bg-white/[0.04] border border-white/[0.06] rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-red-600 cursor-pointer"
           id="back-home-button-courier"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -115,127 +123,148 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
         </button>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
-        <DivisionBrandBanner name="Dhaka Courier" logo="/logos/Dhaka Courier.png" descriptor="News Weekly" />
-      </div>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeUp}
+        className="max-w-7xl mx-auto px-4 md:px-6 mb-12"
+      >
+        <DivisionBrandBanner
+          name="Dhaka Courier"
+          logo="/logos/Dhaka Courier.png"
+          descriptor="News Weekly"
+          theme="dark"
+        />
+      </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">
-        {/* Editorial Hero Section */}
-        <div className="bg-[#0B132B] text-white rounded-3xl overflow-hidden border border-slate-900 shadow-2xl relative">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className="max-w-7xl mx-auto px-4 md:px-6 space-y-16 md:space-y-24 pb-24"
+      >
+        {/* Hero Section */}
+        <motion.div
+          variants={fadeUp}
+          className="bg-white/[0.03] border border-slate-800/60 rounded-3xl overflow-hidden relative shadow-2xl"
+        >
           <div className="absolute inset-0">
             <img
               src="/images/dhaka-courier/sv-dc-updatev1.jpg"
               alt="Dhaka Courier"
               className="w-full h-full object-cover opacity-40"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f] via-[#04060f]/60 to-transparent" />
           </div>
-          
-          <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-6 mt-24 md:mt-32">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-950/60 border border-red-900/40 rounded-full">
-              <BookOpen className="w-3.5 h-3.5 text-red-500" />
-              <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-red-400 uppercase">
+
+          <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-8 mt-24 md:mt-32">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-950/50 border border-red-900/30 rounded-full">
+              <BookOpen className="w-3.5 h-3.5 text-red-500 animate-pulse" />
+              <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-red-500 uppercase">
                 Publications Division — Estd. 1984
               </span>
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-3.5xl md:text-5.5xl font-black font-display tracking-tight text-white uppercase leading-none">
+              <h1 className="text-4xl md:text-6xl font-bold font-display tracking-tight text-white uppercase leading-none">
                 Dhaka Courier
               </h1>
-              <p className="text-red-400 font-mono font-bold text-xs md:text-sm uppercase tracking-widest">
-                Bangladesh's Leading English Language Newsweekly
+              <p className="text-red-500 font-mono font-bold text-sm md:text-base uppercase tracking-widest">
+                Bangladesh&apos;s Leading English Language Newsweekly
               </p>
             </div>
 
-            <p className="text-slate-300 text-sm md:text-lg font-light leading-relaxed max-w-2xl">
+            <p className="text-slate-400 text-sm md:text-lg font-light leading-relaxed max-w-3xl">
               Maintaining an independent editorial stance and continuous publication since 1984. Dhaka Courier provides depth, context, and rigorous investigative columns on matters that shape the nation.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Editorial Focus (3-Column Layout) */}
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block px-1">
+        {/* Editorial Focus */}
+        <div className="space-y-8">
+          <motion.div variants={fadeUp} className="max-w-3xl space-y-2">
+            <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block">
               Rigorous Journalistic Coverage
             </span>
-            <h2 className="text-2xl md:text-3.5xl font-black text-slate-900 uppercase tracking-tight">
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
               Editorial Focus
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {editorialFocus.map((focus) => {
               const IconComponent = focus.icon;
               return (
-                <GlowCard 
-                  theme="light"
+                <GlowCard
                   key={focus.title}
-                  className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between space-y-6"
+                  variants={fadeUp}
+                  theme="dark"
+                  className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-6 hover:bg-white/[0.05] transition-colors"
                 >
-                  <div className="space-y-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${focus.accent}`}>
-                      <IconComponent className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">
+                  <div className="w-12 h-12 rounded-xl bg-red-950/50 text-red-400 flex items-center justify-center border border-red-900/30">
+                    <IconComponent className="w-5 h-5" />
+                  </div>
+                  <div className="flex-grow">
+                    <h3 className="text-xl font-bold font-display text-white uppercase tracking-tight mb-3">
                       {focus.title}
                     </h3>
-                    <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
+                    <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
                       {focus.description}
                     </p>
                   </div>
-                  <div className="pt-4 border-t border-slate-100/60 flex items-center gap-1.5 text-xs text-red-600 font-mono font-bold uppercase tracking-wider">
+                  <div className="pt-4 border-t border-slate-800/60 flex items-center gap-1.5 text-xs text-red-500 font-mono font-bold uppercase tracking-wider">
                     <span>Read Columns</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
                 </GlowCard>
               );
             })}
-          </div>
+          </motion.div>
         </div>
 
-        {/* Reach & Circulation (Visual Stats Section) */}
-        <GlowCard theme="light" className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
-          <div className="max-w-3xl space-y-2">
-            <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
+        {/* Reach & Circulation */}
+        <div className="space-y-8">
+          <motion.div variants={fadeUp} className="max-w-3xl space-y-2">
+            <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block">
               Influence and Distribution
             </span>
-            <h2 className="text-2xl md:text-3.5xl font-black text-slate-900 uppercase tracking-tight">
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
               Reach & Circulation
             </h2>
-            <p className="text-slate-500 text-sm md:text-base font-light">
-              As Bangladesh's premiere English language newsweekly, Dhaka Courier enjoys broad authority across policy, diplomatic, and public corridors.
+            <p className="text-slate-400 text-sm md:text-base font-light">
+              As Bangladesh&apos;s premiere English language newsweekly, Dhaka Courier enjoys broad authority across policy, diplomatic, and public corridors.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {circulationMetrics.map((item, idx) => (
-              <GlowCard 
-                theme="light"
-                key={idx}
-                className="bg-slate-50 border border-slate-200 p-6 rounded-2xl flex flex-col justify-between space-y-4"
+          <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {circulationMetrics.map((item) => (
+              <GlowCard
+                key={item.title}
+                variants={fadeUp}
+                theme="dark"
+                className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between gap-4"
               >
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-red-50 text-red-600 border border-red-100 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">
+                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-red-950/50 text-red-400 border border-red-900/30 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">
                     <Bookmark className="w-3 h-3" />
                     {item.title}
                   </div>
-                  <span className="block text-2.5xl md:text-3xl font-black text-slate-900 tracking-tight pt-2">
+                  <span className="block text-2xl md:text-3xl font-black text-white tracking-tight pt-2">
                     {item.metric}
                   </span>
-                  <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
+                  <p className="text-sm text-slate-400 font-light leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
-                {item.title === "100K+ Readership" && (
-                  <div className="pt-4 border-t border-slate-200/60">
-                    <a 
-                      href="https://www.dhakacourier.com.bd" 
-                      target="_blank" 
+                {item.showLink && (
+                  <div className="pt-4 border-t border-slate-800/60">
+                    <a
+                      href="https://www.dhakacourier.com.bd"
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-bold font-mono uppercase tracking-wider text-red-600 hover:text-red-700 hover:underline transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-2 text-xs font-bold font-mono uppercase tracking-wider text-red-500 hover:text-red-400 transition-colors cursor-pointer"
                     >
                       <Link className="w-3.5 h-3.5" />
                       Visit Portal
@@ -244,44 +273,47 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
                 )}
               </GlowCard>
             ))}
-          </div>
-        </GlowCard>
+          </motion.div>
+        </div>
 
-      </div>
-
-      {/* Recent Issues / Magazine Archive */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mt-16 mb-8">
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block px-1">
-              Magazine Archive
-            </span>
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-              <h2 className="text-2xl md:text-3.5xl font-black text-slate-900 uppercase tracking-tight">
+        {/* Recent Issues */}
+        <div className="space-y-8">
+          <motion.div
+            variants={fadeUp}
+            className="max-w-full flex flex-col md:flex-row md:items-end justify-between gap-4"
+          >
+            <div className="space-y-2">
+              <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block">
+                Magazine Archive
+              </span>
+              <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
                 Recent Issues
               </h2>
-              <a 
-                href="https://www.dhakacourier.com.bd/archive" 
+            </div>
+            <div className="inline-flex items-center gap-4">
+              <div className="inline-flex items-center gap-2 text-slate-400">
+                <ImageIcon className="w-4 h-4" />
+                <span className="text-xs font-mono uppercase tracking-widest">Latest Editions</span>
+              </div>
+              <a
+                href="https://www.dhakacourier.com.bd/archive"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold font-mono uppercase tracking-wider text-red-600 hover:text-red-700 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold font-mono uppercase tracking-wider text-red-500 hover:text-red-400 transition-colors"
               >
                 View Full Archive
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recentIssues.map((issue, idx) => (
+          <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recentIssues.map((issue) => (
               <GlowCard
-                theme="light"
-                key={idx}
-                className="group bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-red-200 transition-all duration-300 flex flex-col"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                key={issue.title}
+                variants={fadeUp}
+                theme="dark"
+                className="group bg-white/[0.03] border border-slate-800/60 rounded-2xl overflow-hidden hover:border-slate-700 transition-colors flex flex-col"
               >
                 <a
                   href={issue.link}
@@ -289,25 +321,25 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
                   rel="noopener noreferrer"
                   className="flex flex-col h-full"
                 >
-                  <div className="relative aspect-[3/4] overflow-hidden bg-slate-100">
-                    <img 
-                      src={issue.image} 
+                  <div className="relative aspect-[3/4] overflow-hidden bg-slate-900">
+                    <img
+                      src={issue.image}
                       alt={issue.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                   </div>
                   <div className="p-5 flex flex-col flex-grow justify-between space-y-4">
                     <div className="space-y-1">
-                      <span className="text-[10px] md:text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
+                      <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block">
                         {issue.date}
                       </span>
-                      <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight line-clamp-2">
+                      <h3 className="text-lg font-bold text-white uppercase tracking-tight line-clamp-2">
                         {issue.title}
                       </h3>
                     </div>
-                    <div className="pt-3 border-t border-slate-100/60 flex items-center gap-1.5 text-xs text-slate-600 group-hover:text-red-600 font-mono font-bold uppercase tracking-wider transition-colors">
+                    <div className="pt-3 border-t border-slate-800/60 flex items-center gap-1.5 text-xs text-slate-400 group-hover:text-red-500 font-mono font-bold uppercase tracking-wider transition-colors">
                       <span>Read Issue</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </div>
@@ -315,14 +347,13 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
                 </a>
               </GlowCard>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </div>
 
-      {/* Corporate Brochure Download */}
-      <div className="mt-12 md:mt-16">
-        <CompanyBrochureCTA companyId="dhaka-courier" />
-      </div>
+        <div className="mt-12 md:mt-16">
+          <CompanyBrochureCTA companyId="dhaka-courier" />
+        </div>
+      </motion.div>
     </div>
   );
 }
