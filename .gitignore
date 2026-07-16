@@ -11,6 +11,9 @@ logos/
 /brochures/
 !public/brochures/
 
+# Local-only reference data (brochure source files, exports, audits)
+/local-data/
+
 # Local-only Next.js migration planning workspace (not part of the product)
 .nextjs-migration/
 
