@@ -29,7 +29,6 @@ export default function CosmosBooks({ onBackToHome }: CosmosBooksProps) {
       author: "Various Artists",
       price: "৳5,250.00",
       description: "Cosmos Books has earned the distinction of bringing out the first publication on the Rohingya crisis, documenting the ordeal and artistic protests. Published in association with Cosmos Foundation, it features 30 artworks in various mediums derived from Gallery Cosmos and Cox's Bazar Art Club, alongside expert analysis.",
-      // Using a stylized placeholder
       image: "/images/cosmos-books/art-against-genocide.png",
       url: "https://cosmosbooks.com.bd/index.php?route=product/product&product_id=125",
       accent: "from-red-700 to-red-500",
@@ -63,7 +62,7 @@ export default function CosmosBooks({ onBackToHome }: CosmosBooksProps) {
       author: "Enayetullah Khan",
       price: "৳4,000.00",
       description: "A captivating exploration of the earth's natural beauty, weaving together stunning visuals and insightful commentary to celebrate the wonders of our planet.",
-      image: "/images/cosmos-books/symphonyEarth.png",
+      image: "/images/cosmos-books/symphony-earth.png",
       url: "https://cosmosbooks.com.bd/index.php?route=product/product&product_id=119",
       accent: "from-indigo-700 to-indigo-500",
       bgAccent: "bg-indigo-50 border-indigo-200"
