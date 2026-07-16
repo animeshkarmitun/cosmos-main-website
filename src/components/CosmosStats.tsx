@@ -16,6 +16,7 @@ import {
   Flag
 } from "lucide-react";
 import AnimatedCounter from "./AnimatedCounter";
+import GlowCard from "./GlowCard";
 
 export default function CosmosStats() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -38,7 +39,7 @@ export default function CosmosStats() {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.16, 1, 0.3, 1] as const,
       },
     },
   };
@@ -256,20 +257,14 @@ export default function CosmosStats() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {statsData.map((stat, idx) => (
-            <motion.div
+            <GlowCard
               key={stat.id}
               variants={cardVariants}
               onMouseEnter={() => setActiveStat(stat.id)}
               onMouseLeave={() => setActiveStat(null)}
-              className="relative rounded-3xl bg-slate-900/10 backdrop-blur-md border border-slate-800/70 p-8 flex flex-col justify-between overflow-hidden group hover:bg-slate-900/30 hover:border-slate-700/80 transition-all duration-300 shadow-xl hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+              theme="dark"
+              className="rounded-3xl bg-slate-900/10 backdrop-blur-md border border-slate-800/70 p-8 flex flex-col justify-between hover:bg-slate-900/30 hover:border-slate-700/80 transition-all duration-300 shadow-xl hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
             >
-              {/* Animated top spotlight based on active card */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{
-                  background: `radial-gradient(150px circle at 50% 0px, ${stat.accent}15, transparent 80%)`,
-                }}
-              />
 
               <div className="space-y-6">
                 {/* Header Icon Block */}
@@ -314,7 +309,7 @@ export default function CosmosStats() {
               <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-50 transition-opacity duration-300 text-slate-500 hover:text-white">
                 <ArrowUpRight className="w-4 h-4" />
               </div>
-            </motion.div>
+            </GlowCard>
           ))}
         </motion.div>
 

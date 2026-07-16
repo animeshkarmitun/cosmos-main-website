@@ -13,6 +13,7 @@ import {
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
+import GlowCard from "./GlowCard";
 
 interface CosmosPrintingProps {
   onBackToHome: () => void;
@@ -98,7 +99,8 @@ export default function CosmosPrinting({ onBackToHome }: CosmosPrintingProps) {
             {printingPillars.map((pillar, idx) => {
               const IconComp = pillar.icon;
               return (
-                <div 
+                <GlowCard 
+                  theme="light"
                   key={idx}
                   className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between"
                 >
@@ -113,14 +115,14 @@ export default function CosmosPrinting({ onBackToHome }: CosmosPrintingProps) {
                       {pillar.desc}
                     </p>
                   </div>
-                </div>
+                </GlowCard>
               );
             })}
           </div>
         </div>
 
         {/* Operational Excellence Block */}
-        <div className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
+        <GlowCard theme="light" className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
           <div className="max-w-3xl space-y-2">
             <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
               Industrial Print Capacity
@@ -134,7 +136,7 @@ export default function CosmosPrinting({ onBackToHome }: CosmosPrintingProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
               <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 Heidelberg Speed
               </span>
@@ -144,9 +146,9 @@ export default function CosmosPrinting({ onBackToHome }: CosmosPrintingProps) {
               <p className="text-xs text-slate-500 font-light mt-2">
                 Utilizing state-of-the-art high-capacity multi-unit offset presses for impeccable registry accuracy.
               </p>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
               <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 Soy Inks Only
               </span>
@@ -156,9 +158,9 @@ export default function CosmosPrinting({ onBackToHome }: CosmosPrintingProps) {
               <p className="text-xs text-slate-500 font-light mt-2">
                 Pioneering eco-conscious publication prints by replacing lead/petroleum elements.
               </p>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
               <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 100% Certified
               </span>
@@ -168,9 +170,9 @@ export default function CosmosPrinting({ onBackToHome }: CosmosPrintingProps) {
               <p className="text-xs text-slate-500 font-light mt-2">
                 Integrating anti-counterfeit elements, watermarks, and security threads for specialized materials.
               </p>
-            </div>
+            </GlowCard>
           </div>
-        </div>
+        </GlowCard>
 
       </div>
 

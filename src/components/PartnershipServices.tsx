@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion } from "motion/react";
 import { Landmark, FileSignature, Layers, ShieldCheck, ArrowUpRight } from "lucide-react";
+import GlowCard from "./GlowCard";
 
 interface BentoCardProps {
   title: string;
@@ -12,62 +13,25 @@ interface BentoCardProps {
   key?: React.Key;
 }
 
-function BentoCard({ title, description, bullets, icon, className = "", index }: BentoCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setCoords({ x, y });
-  };
-
-  const cardVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1], // cinematic crisp ease-out
-      },
+const cardVariants = {
+  hidden: { y: 50, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1] as const, // cinematic crisp ease-out
     },
-  };
+  },
+};
 
+function BentoCard({ title, description, bullets, icon, className = "", index }: BentoCardProps) {
   return (
-    <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <GlowCard
       variants={cardVariants}
-      className={`relative rounded-3xl bg-slate-900/40 backdrop-blur-xl border border-slate-800/80 p-8 flex flex-col justify-between overflow-hidden group transition-all duration-300 hover:bg-slate-900/60 hover:shadow-2xl hover:shadow-red-950/10 ${className}`}
+      showMesh
+      className={`rounded-3xl bg-slate-900/40 backdrop-blur-xl border border-slate-800/80 p-8 flex flex-col justify-between transition-all duration-300 hover:bg-slate-900/60 hover:shadow-2xl hover:shadow-red-950/10 ${className}`}
     >
-      {/* 1px Illuminated Border Flashlight Mask */}
-      <div
-        className="pointer-events-none absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(350px circle at ${coords.x}px ${coords.y}px, rgba(220, 38, 38, 0.25), transparent 80%)`,
-          padding: "1px",
-          maskImage: "linear-gradient(#fff, #fff) exclude, linear-gradient(#fff, #fff)",
-          WebkitMaskComposite: "source-out",
-          maskComposite: "subtract",
-        }}
-      />
-
-      {/* Subtle Inner Spotlight Glow */}
-      <div
-        className="pointer-events-none absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(280px circle at ${coords.x}px ${coords.y}px, rgba(220, 38, 38, 0.05), transparent 85%)`,
-        }}
-      />
-
-      {/* Subtle Tech grid mesh accent */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none opacity-40" />
 
       <div className="relative z-10 space-y-6">
         {/* Top bar with Icon & index */}
@@ -110,7 +74,7 @@ function BentoCard({ title, description, bullets, icon, className = "", index }:
         </span>
         <span>Cosmos Services</span>
       </div>
-    </motion.div>
+    </GlowCard>
   );
 }
 

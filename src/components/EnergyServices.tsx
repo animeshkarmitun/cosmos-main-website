@@ -18,6 +18,7 @@ import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
+import GlowCard from "./GlowCard";
 
 interface EnergyServicesProps {
   onBackToHome: () => void;
@@ -29,7 +30,7 @@ const fadeUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
@@ -251,9 +252,10 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {capabilities.map((cap) => (
-              <motion.div
+              <GlowCard
                 key={cap.title}
                 variants={fadeUp}
+                theme="dark"
                 className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-5 hover:bg-white/[0.05] transition-colors group"
               >
                 <div className="flex items-center gap-4">
@@ -274,7 +276,7 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
                     {cap.highlight}
                   </span>
                 </div>
-              </motion.div>
+              </GlowCard>
             ))}
           </motion.div>
         </div>
@@ -292,9 +294,10 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
 
           <motion.div variants={containerVariants} className="space-y-4">
             {powerProjects.map((proj) => (
-              <motion.div
+              <GlowCard
                 key={proj.id}
                 variants={fadeUp}
+                theme="dark"
                 className={`rounded-2xl border transition-all duration-300 ${
                   proj.isFeatured
                     ? "bg-red-950/20 border-red-900/30 shadow-lg shadow-red-950/10"
@@ -339,7 +342,7 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </GlowCard>
             ))}
           </motion.div>
 
@@ -348,8 +351,9 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4"
           >
-            <motion.div
+            <GlowCard
               variants={fadeUp}
+              theme="dark"
               className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl"
             >
               <Radio className="w-6 h-6 text-red-500 mb-4" />
@@ -360,10 +364,11 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
                 400kV and 230kV transmission lines including Rooppur-Dhaka,
                 Rooppur-Gopalganj, and Western Zone projects.
               </p>
-            </motion.div>
+            </GlowCard>
 
-            <motion.div
+            <GlowCard
               variants={fadeUp}
+              theme="dark"
               className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl"
             >
               <Factory className="w-6 h-6 text-red-500 mb-4" />
@@ -374,10 +379,11 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
                 Turnkey contracts for 15+ substations under rehabilitation and
                 upgradation projects. First 230KV substation for PGCB.
               </p>
-            </motion.div>
+            </GlowCard>
 
-            <motion.div
+            <GlowCard
               variants={fadeUp}
+              theme="dark"
               className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl"
             >
               <Gauge className="w-6 h-6 text-red-500 mb-4" />
@@ -388,7 +394,7 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
                 Pre-payment metering systems, smart grid solutions, and network
                 automation for modern energy distribution.
               </p>
-            </motion.div>
+            </GlowCard>
           </motion.div>
         </div>
 
@@ -408,9 +414,10 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
 
           <motion.div variants={containerVariants} className="space-y-4">
             {oilGasAchievements.map((ach) => (
-              <motion.div
+              <GlowCard
                 key={ach.id}
                 variants={fadeUp}
+                theme="dark"
                 className={`p-6 md:p-8 rounded-2xl border transition-all duration-300 flex items-start gap-5 ${
                   ach.isRecent
                     ? "bg-red-950/20 border-red-900/30 shadow-lg shadow-red-950/10"
@@ -444,7 +451,7 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
                     {ach.description}
                   </p>
                 </div>
-              </motion.div>
+              </GlowCard>
             ))}
           </motion.div>
         </div>
@@ -455,9 +462,10 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
         >
           {metrics.map((m) => (
-            <motion.div
+            <GlowCard
               key={m.label}
               variants={fadeUp}
+              theme="dark"
               className="bg-[#0B132B] border border-slate-800/60 rounded-2xl p-6 text-center space-y-2"
             >
               <div className="text-3xl md:text-4xl font-bold font-display text-white tracking-tight">
@@ -471,7 +479,7 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
               <p className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">
                 {m.label}
               </p>
-            </motion.div>
+            </GlowCard>
           ))}
         </motion.div>
 

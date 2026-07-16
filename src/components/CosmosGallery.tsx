@@ -13,6 +13,7 @@ import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
+import GlowCard from "./GlowCard";
 
 interface CosmosGalleryProps {
   onBackToHome: () => void;
@@ -101,7 +102,8 @@ export default function CosmosGallery({ onBackToHome }: CosmosGalleryProps) {
             {galleryHighlights.map((highlight) => {
               const IconComponent = highlight.icon;
               return (
-                <div 
+                <GlowCard 
+                  theme="light"
                   key={highlight.title}
                   className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between space-y-6"
                 >
@@ -120,7 +122,7 @@ export default function CosmosGallery({ onBackToHome }: CosmosGalleryProps) {
                     <span>Discover More</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
-                </div>
+                </GlowCard>
               );
             })}
           </div>

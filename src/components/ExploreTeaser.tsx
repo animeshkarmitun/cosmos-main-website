@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { ArrowRight, type LucideIcon } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import AnimatedCounter from "./AnimatedCounter";
+import GlowCard from "./GlowCard";
 
 type Theme = "dark" | "light";
 type Variant = "stats" | "cards" | "dual" | "portrait";
@@ -95,8 +96,9 @@ export default function ExploreTeaser({
   const renderStats = () => (
     <div className="grid grid-cols-2 gap-3 md:gap-4">
       {stats.map((s) => (
-        <div
+        <GlowCard
           key={s.label}
+          theme={isDark ? "dark" : "light"}
           className={`rounded-2xl border p-5 md:p-6 ${
             isDark
               ? "bg-white/[0.03] border-white/[0.06]"
@@ -109,7 +111,7 @@ export default function ExploreTeaser({
           <div className={`mt-2 text-[10px] md:text-xs font-mono font-bold uppercase tracking-widest ${isDark ? "text-slate-400" : "text-slate-500"}`}>
             {s.label}
           </div>
-        </div>
+        </GlowCard>
       ))}
     </div>
   );
@@ -119,9 +121,10 @@ export default function ExploreTeaser({
       {cards.map((c) => {
         const Icon = c.icon;
         return (
-          <div
+          <GlowCard
             key={c.title}
-            className={`group rounded-2xl border p-5 md:p-6 flex items-start gap-4 transition-all ${
+            theme={isDark ? "dark" : "light"}
+            className={`rounded-2xl border p-5 md:p-6 flex items-start gap-4 transition-all ${
               isDark
                 ? "bg-white/[0.03] border-white/[0.06] hover:border-red-500/30"
                 : "bg-white border-slate-200 hover:border-red-500/30"
@@ -138,7 +141,7 @@ export default function ExploreTeaser({
               <h4 className={`text-sm md:text-base font-bold ${titleColor} tracking-tight`}>{c.title}</h4>
               <p className={`text-xs md:text-sm font-light leading-relaxed mt-1 ${summaryColor}`}>{c.desc}</p>
             </div>
-          </div>
+          </GlowCard>
         );
       })}
     </div>

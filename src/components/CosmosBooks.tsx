@@ -3,6 +3,7 @@ import { ArrowLeft, BookOpen, ExternalLink, Library, Globe, Bookmark, Feather } 
 import { motion } from "motion/react";
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
+import GlowCard from "./GlowCard";
 
 interface CosmosBooksProps {
   onBackToHome: () => void;
@@ -29,7 +30,7 @@ export default function CosmosBooks({ onBackToHome }: CosmosBooksProps) {
       price: "৳5,250.00",
       description: "Cosmos Books has earned the distinction of bringing out the first publication on the Rohingya crisis, documenting the ordeal and artistic protests. Published in association with Cosmos Foundation, it features 30 artworks in various mediums derived from Gallery Cosmos and Cox's Bazar Art Club, alongside expert analysis.",
       // Using a stylized placeholder
-      isPlaceholder: true,
+      image: "https://cosmosbooks.com.bd/image/cache/catalog/product/Book/art-against-2-600x695.png",
       url: "https://cosmosbooks.com.bd/index.php?route=product/product&product_id=125",
       accent: "from-red-700 to-red-500",
       bgAccent: "bg-red-50 border-red-200"
@@ -126,7 +127,8 @@ export default function CosmosBooks({ onBackToHome }: CosmosBooksProps) {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {books.map((book, index) => (
-              <motion.div
+              <GlowCard
+                theme="light"
                 key={book.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -195,13 +197,13 @@ export default function CosmosBooks({ onBackToHome }: CosmosBooksProps) {
                     </a>
                   </div>
                 </div>
-              </motion.div>
+              </GlowCard>
             ))}
           </div>
         </div>
 
         {/* Call to Action Banner */}
-        <div className="bg-red-50 border border-red-100 rounded-3xl p-8 md:p-12 text-center space-y-6 relative overflow-hidden">
+        <GlowCard theme="light" className="bg-red-50 border border-red-100 rounded-3xl p-8 md:p-12 text-center space-y-6 relative overflow-hidden">
           <div className="absolute -left-12 -bottom-12 opacity-10">
             <Globe className="w-48 h-48 text-red-600" />
           </div>
@@ -224,7 +226,7 @@ export default function CosmosBooks({ onBackToHome }: CosmosBooksProps) {
               </a>
             </div>
           </div>
-        </div>
+        </GlowCard>
 
       </div>
 

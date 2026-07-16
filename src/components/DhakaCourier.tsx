@@ -16,6 +16,7 @@ import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
+import GlowCard from "./GlowCard";
 
 interface DhakaCourierProps {
   onBackToHome: () => void;
@@ -161,7 +162,8 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
             {editorialFocus.map((focus) => {
               const IconComponent = focus.icon;
               return (
-                <div 
+                <GlowCard 
+                  theme="light"
                   key={focus.title}
                   className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between space-y-6"
                 >
@@ -180,14 +182,14 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
                     <span>Read Columns</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
-                </div>
+                </GlowCard>
               );
             })}
           </div>
         </div>
 
         {/* Reach & Circulation (Visual Stats Section) */}
-        <div className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
+        <GlowCard theme="light" className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
           <div className="max-w-3xl space-y-2">
             <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
               Influence and Distribution
@@ -202,7 +204,8 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {circulationMetrics.map((item, idx) => (
-              <div 
+              <GlowCard 
+                theme="light"
                 key={idx}
                 className="bg-slate-50 border border-slate-200 p-6 rounded-2xl flex flex-col justify-between space-y-4"
               >
@@ -232,10 +235,10 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
                     </a>
                   </div>
                 )}
-              </div>
+              </GlowCard>
             ))}
           </div>
-        </div>
+        </GlowCard>
 
       </div>
 
@@ -264,41 +267,46 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {recentIssues.map((issue, idx) => (
-              <motion.a
+              <GlowCard
+                theme="light"
                 key={idx}
-                href={issue.link}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="group bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-red-200 transition-all duration-300 flex flex-col"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <div className="relative aspect-[3/4] overflow-hidden bg-slate-100">
-                  <img 
-                    src={issue.image} 
-                    alt={issue.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-                </div>
-                <div className="p-5 flex flex-col flex-grow justify-between space-y-4">
-                  <div className="space-y-1">
-                    <span className="text-[10px] md:text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
-                      {issue.date}
-                    </span>
-                    <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight line-clamp-2">
-                      {issue.title}
-                    </h3>
+                <a
+                  href={issue.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col h-full"
+                >
+                  <div className="relative aspect-[3/4] overflow-hidden bg-slate-100">
+                    <img 
+                      src={issue.image} 
+                      alt={issue.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                   </div>
-                  <div className="pt-3 border-t border-slate-100/60 flex items-center gap-1.5 text-xs text-slate-600 group-hover:text-red-600 font-mono font-bold uppercase tracking-wider transition-colors">
-                    <span>Read Issue</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  <div className="p-5 flex flex-col flex-grow justify-between space-y-4">
+                    <div className="space-y-1">
+                      <span className="text-[10px] md:text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
+                        {issue.date}
+                      </span>
+                      <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight line-clamp-2">
+                        {issue.title}
+                      </h3>
+                    </div>
+                    <div className="pt-3 border-t border-slate-100/60 flex items-center gap-1.5 text-xs text-slate-600 group-hover:text-red-600 font-mono font-bold uppercase tracking-wider transition-colors">
+                      <span>Read Issue</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </div>
                   </div>
-                </div>
-              </motion.a>
+                </a>
+              </GlowCard>
             ))}
           </div>
         </div>

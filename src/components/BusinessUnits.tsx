@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, Zap, Ship, Globe2, Building, TrendingUp, Phone, Shirt, Gem, Printer, Globe, Palette, BookOpen, PawPrint, Image as ImageIcon, MessageSquare, HandHeart, ChevronDown, ChevronUp, Cpu } from "lucide-react";
 import BrochureDownloadButton from "./BrochureDownloadButton";
+import GlowCard from "./GlowCard";
 
 interface BusinessUnit {
   id: string;
@@ -263,7 +264,7 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
         >
           <AnimatePresence mode="popLayout">
             {visibleUnits.map((unit, index) => (
-              <motion.div
+              <GlowCard
                 key={unit.id}
                 layout
                 initial={{ opacity: 0, y: 24, scale: 0.96 }}
@@ -272,7 +273,7 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
                 transition={{ 
                   duration: 0.35, 
                   delay: showAll && index >= 6 ? (index - 6) * 0.06 : index * 0.05,
-                  ease: [0.25, 0.46, 0.45, 0.94]
+                  ease: [0.25, 0.46, 0.45, 0.94] as const
                 }}
                 tabIndex={0}
                 onClick={() => onNavigate(unitToPageMap[unit.id] || "home")}
@@ -282,7 +283,8 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
                     onNavigate(unitToPageMap[unit.id] || "home");
                   }
                 }}
-                className="group relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 transition-all duration-500 transform hover:-translate-y-1"
+                theme="dark"
+                className="group aspect-[4/5] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 transition-all duration-500 transform hover:-translate-y-1"
                 role="button"
                 aria-label={`Visit ${unit.title} portal`}
               >
@@ -320,7 +322,7 @@ export default function BusinessUnits({ onNavigate }: BusinessUnitsProps) {
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
                 </div>
-              </motion.div>
+              </GlowCard>
             ))}
           </AnimatePresence>
         </motion.div>

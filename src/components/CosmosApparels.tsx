@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
+import GlowCard from "./GlowCard";
 
 interface CosmosApparelsProps {
   onBackToHome: () => void;
@@ -97,7 +98,8 @@ export default function CosmosApparels({ onBackToHome }: CosmosApparelsProps) {
             {apparelPillars.map((pillar, idx) => {
               const IconComp = pillar.icon;
               return (
-                <div 
+                <GlowCard
+                  theme="light"
                   key={idx}
                   className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between"
                 >
@@ -112,14 +114,14 @@ export default function CosmosApparels({ onBackToHome }: CosmosApparelsProps) {
                       {pillar.desc}
                     </p>
                   </div>
-                </div>
+                </GlowCard>
               );
             })}
           </div>
         </div>
 
         {/* Growth Statistics Block */}
-        <div className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
+        <GlowCard theme="light" className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
           <div className="max-w-3xl space-y-2">
             <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
               Ethical Production
@@ -133,7 +135,7 @@ export default function CosmosApparels({ onBackToHome }: CosmosApparelsProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
               <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 3M+ Pieces
               </span>
@@ -143,9 +145,9 @@ export default function CosmosApparels({ onBackToHome }: CosmosApparelsProps) {
               <p className="text-xs text-slate-500 font-light mt-2">
                 Delivering high-quality apparel units directly to the European & North American markets.
               </p>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
               <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 100% Green
               </span>
@@ -155,9 +157,9 @@ export default function CosmosApparels({ onBackToHome }: CosmosApparelsProps) {
               <p className="text-xs text-slate-500 font-light mt-2">
                 Pioneering eco-friendly manufacturing with complete water recycling systems.
               </p>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
               <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 LEED Certified
               </span>
@@ -167,9 +169,9 @@ export default function CosmosApparels({ onBackToHome }: CosmosApparelsProps) {
               <p className="text-xs text-slate-500 font-light mt-2">
                 Operating modern, energy-efficient manufacturing units in key export zones.
               </p>
-            </div>
+            </GlowCard>
           </div>
-        </div>
+        </GlowCard>
 
       </div>
     </div>

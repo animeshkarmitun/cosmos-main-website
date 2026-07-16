@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
+import GlowCard from "./GlowCard";
 
 interface CosmosTelecomProps {
   onBackToHome: () => void;
@@ -98,7 +99,8 @@ export default function CosmosTelecom({ onBackToHome }: CosmosTelecomProps) {
             {telecomSolutions.map((sol, idx) => {
               const IconComp = sol.icon;
               return (
-                <div 
+                <GlowCard
+                  theme="light"
                   key={idx}
                   className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between"
                 >
@@ -113,14 +115,14 @@ export default function CosmosTelecom({ onBackToHome }: CosmosTelecomProps) {
                       {sol.desc}
                     </p>
                   </div>
-                </div>
+                </GlowCard>
               );
             })}
           </div>
         </div>
 
         {/* Stats Block */}
-        <div className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
+        <GlowCard theme="light" className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
           <div className="max-w-3xl space-y-2">
             <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
               Reliable Gridways
@@ -134,7 +136,7 @@ export default function CosmosTelecom({ onBackToHome }: CosmosTelecomProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
               <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 99.999%
               </span>
@@ -144,9 +146,9 @@ export default function CosmosTelecom({ onBackToHome }: CosmosTelecomProps) {
               <p className="text-xs text-slate-500 font-light mt-2">
                 Delivering resilient telecommunications signaling and terminal equipment.
               </p>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
               <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 10K+ KM
               </span>
@@ -156,9 +158,9 @@ export default function CosmosTelecom({ onBackToHome }: CosmosTelecomProps) {
               <p className="text-xs text-slate-500 font-light mt-2">
                 Supported through our state-of-the-art SDH / DWDM terminals.
               </p>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
               <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 Top Operators
               </span>
@@ -168,9 +170,9 @@ export default function CosmosTelecom({ onBackToHome }: CosmosTelecomProps) {
               <p className="text-xs text-slate-500 font-light mt-2">
                 Strategic provider to major mobile telecommunication companies.
               </p>
-            </div>
+            </GlowCard>
           </div>
-        </div>
+        </GlowCard>
 
       </div>
     </div>

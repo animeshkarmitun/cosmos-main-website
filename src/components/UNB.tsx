@@ -16,6 +16,7 @@ import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
+import GlowCard from "./GlowCard";
 
 interface UNBProps {
   onBackToHome: () => void;
@@ -100,7 +101,7 @@ export default function UNB({ onBackToHome }: UNBProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Metric 1 */}
-            <div className="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm flex items-center gap-5 hover:border-red-200 transition-all group">
+            <GlowCard theme="light" className="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm flex items-center gap-5 hover:border-red-200 transition-all group">
               <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100 group-hover:scale-110 transition-transform">
                 <Users className="w-6 h-6" />
               </div>
@@ -115,10 +116,10 @@ export default function UNB({ onBackToHome }: UNBProps) {
                   Across readers, listeners, & viewers
                 </span>
               </div>
-            </div>
+            </GlowCard>
 
             {/* Metric 2 */}
-            <div className="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm flex items-center gap-5 hover:border-red-200 transition-all group">
+            <GlowCard theme="light" className="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm flex items-center gap-5 hover:border-red-200 transition-all group">
               <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100 group-hover:scale-110 transition-transform">
                 <MapPin className="w-6 h-6" />
               </div>
@@ -133,10 +134,10 @@ export default function UNB({ onBackToHome }: UNBProps) {
                   Comprehensive nationwide network
                 </span>
               </div>
-            </div>
+            </GlowCard>
 
             {/* Metric 3 */}
-            <div className="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm flex items-center gap-5 hover:border-red-200 transition-all group">
+            <GlowCard theme="light" className="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm flex items-center gap-5 hover:border-red-200 transition-all group">
               <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100 group-hover:scale-110 transition-transform">
                 <Calendar className="w-6 h-6" />
               </div>
@@ -151,13 +152,13 @@ export default function UNB({ onBackToHome }: UNBProps) {
                   First private wire service in SA
                 </span>
               </div>
-            </div>
+            </GlowCard>
 
           </div>
         </div>
 
         {/* Global Partnerships Section */}
-        <div className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
+        <GlowCard theme="light" className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
           <div className="max-w-3xl space-y-2">
             <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
               International Networks
@@ -172,7 +173,8 @@ export default function UNB({ onBackToHome }: UNBProps) {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {globalPartners.map((partner) => (
-              <div 
+              <GlowCard 
+                theme="light"
                 key={partner.name}
                 className={`p-6 rounded-2xl border transition-all duration-300 flex flex-col justify-between space-y-6 ${
                   partner.name.includes("Associated Press")
@@ -206,10 +208,10 @@ export default function UNB({ onBackToHome }: UNBProps) {
                   <span>SYNDICATED FEED</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </div>
-              </div>
+              </GlowCard>
             ))}
           </div>
-        </div>
+        </GlowCard>
 
       </div>
 

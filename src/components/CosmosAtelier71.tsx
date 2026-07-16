@@ -9,6 +9,7 @@ import {
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
+import GlowCard from "./GlowCard";
 
 interface CosmosAtelier71Props {
   onBackToHome: () => void;
@@ -62,7 +63,7 @@ export default function CosmosAtelier71({ onBackToHome }: CosmosAtelier71Props) 
         </div>
 
         {/* Introduction / About Block */}
-        <div className="bg-white border border-slate-200/80 p-8 md:p-12 rounded-3xl shadow-sm text-slate-700 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <GlowCard theme="light" className="bg-white border border-slate-200/80 p-8 md:p-12 rounded-3xl shadow-sm text-slate-700 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
            <div className="space-y-6">
              <h2 className="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tight mb-2">
                 A Legacy of Artistic Practice
@@ -80,7 +81,7 @@ export default function CosmosAtelier71({ onBackToHome }: CosmosAtelier71Props) 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
            </div>
-        </div>
+        </GlowCard>
 
         {/* Dynamic Focus Section */}
         <div className="space-y-6">
@@ -94,7 +95,7 @@ export default function CosmosAtelier71({ onBackToHome }: CosmosAtelier71Props) 
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-             <div className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between">
+             <GlowCard theme="light" className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between">
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100">
                     <Layers className="w-5 h-5" />
@@ -106,9 +107,9 @@ export default function CosmosAtelier71({ onBackToHome }: CosmosAtelier71Props) 
                     Organising intensive workshops in printmaking techniques, including etching, woodcut, plate lithography, cyanotype, and drypoint, led by master artists from Bangladesh and abroad.
                   </p>
                 </div>
-             </div>
+             </GlowCard>
 
-             <div className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between">
+             <GlowCard theme="light" className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between">
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100">
                     <Users className="w-5 h-5" />
@@ -120,9 +121,9 @@ export default function CosmosAtelier71({ onBackToHome }: CosmosAtelier71Props) 
                     Hosting local artists alongside an annual international residency programme that encourages cross-cultural dialogue. Participants are selected nationwide to support artistic decentralisation.
                   </p>
                 </div>
-             </div>
+             </GlowCard>
 
-             <div className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between">
+             <GlowCard theme="light" className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between">
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100">
                     <BookOpen className="w-5 h-5" />
@@ -134,7 +135,7 @@ export default function CosmosAtelier71({ onBackToHome }: CosmosAtelier71Props) 
                     In addition to printmaking, the studio regularly organises workshops in ceramics, drawing, and watercolour, while conducting educational programmes with children throughout the year.
                   </p>
                 </div>
-             </div>
+             </GlowCard>
           </div>
         </div>
 

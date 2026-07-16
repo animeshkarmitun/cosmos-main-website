@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import Carousel, { type CarouselSlide } from "./Carousel";
+import GlowCard from "./GlowCard";
 
 interface CSRPageProps {
   onBackToHome: () => void;
@@ -395,7 +396,8 @@ export default function CSRPage({ onBackToHome, onNavigate }: CSRPageProps) {
 
       {/* STATS */}
       <div className="max-w-7xl mx-auto px-4 md:px-6 mb-16 md:mb-24">
-        <motion.div
+        <GlowCard
+          theme="light"
           ref={statsRef}
           variants={fadeUp}
           initial="hidden"
@@ -412,7 +414,7 @@ export default function CSRPage({ onBackToHome, onNavigate }: CSRPageProps) {
               </div>
             </div>
           ))}
-        </motion.div>
+        </GlowCard>
       </div>
 
       {/* SECTIONS */}
@@ -466,20 +468,25 @@ export default function CSRPage({ onBackToHome, onNavigate }: CSRPageProps) {
             {relatedArms.map((arm) => {
               const Icon = arm.icon;
               return (
-                <button
+                <GlowCard
+                  theme="light"
                   key={arm.name}
-                  onClick={() => onNavigate(arm.page)}
-                  className="group text-left bg-white border border-slate-200/80 hover:border-red-600/30 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
+                  className="group text-left bg-white border border-slate-200/80 hover:border-red-600/30 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 cursor-pointer"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100 shrink-0 group-hover:bg-red-600 group-hover:text-white transition-colors">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="font-bold text-slate-900 text-sm uppercase tracking-tight">{arm.name}</div>
-                    <div className="text-xs text-slate-500 font-light mt-0.5">{arm.desc}</div>
-                  </div>
-                  <ArrowUpRight className="w-4 h-4 text-slate-300 group-hover:text-red-600 transition-colors" />
-                </button>
+                  <button
+                    onClick={() => onNavigate(arm.page)}
+                    className="flex items-center gap-4 w-full h-full text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
+                  >
+                    <div className="w-11 h-11 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100 shrink-0 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="font-bold text-slate-900 text-sm uppercase tracking-tight">{arm.name}</div>
+                      <div className="text-xs text-slate-500 font-light mt-0.5">{arm.desc}</div>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-slate-300 group-hover:text-red-600 transition-colors" />
+                  </button>
+                </GlowCard>
               );
             })}
           </div>

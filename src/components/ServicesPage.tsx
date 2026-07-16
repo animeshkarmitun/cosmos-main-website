@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, Handshake, Globe2, Briefcase } from "lucide-react";
 import PartnershipServices from "./PartnershipServices";
+import GlowCard from "./GlowCard";
 
 interface ServicesPageProps {
   onBackToHome: () => void;
@@ -43,7 +44,7 @@ const cardVariants = {
     opacity: 1,
     transition: {
       duration: 0.8,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 };
@@ -150,13 +151,12 @@ export default function ServicesPage({ onBackToHome }: ServicesPageProps) {
             {upcomingServices.map((service, index) => {
               const Icon = service.icon;
               return (
-                <motion.div
+                <GlowCard
                   key={index}
                   variants={cardVariants}
-                  className="group relative rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-900/40 p-8 overflow-hidden hover:border-slate-700 transition-colors duration-500"
+                  theme="dark"
+                  className="rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-900/40 p-8 hover:border-slate-700 transition-colors duration-500"
                 >
-                  {/* Subtle hover glow */}
-                  <div className="absolute inset-0 bg-red-600/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                   <div className="relative">
                     <div className="mx-auto mb-5 w-14 h-14 rounded-2xl bg-red-950/40 border border-red-900/30 flex items-center justify-center text-red-500 group-hover:bg-red-950/60 transition-colors duration-500">
@@ -178,7 +178,7 @@ export default function ServicesPage({ onBackToHome }: ServicesPageProps) {
                       </span>
                     </div>
                   </div>
-                </motion.div>
+                </GlowCard>
               );
             })}
           </motion.div>

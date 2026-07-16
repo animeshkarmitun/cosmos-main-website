@@ -17,6 +17,7 @@ import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
+import GlowCard from "./GlowCard";
 
 interface ShippingLogisticsProps {
   onBackToHome: () => void;
@@ -75,7 +76,7 @@ export default function ShippingLogistics({ onBackToHome }: ShippingLogisticsPro
           <div className="lg:col-span-7 space-y-6 order-2 lg:order-1">
             
             {/* Card 1: Cosmos Shipping & Logistics (CSL) */}
-            <div className="bg-white border border-slate-200/80 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-all space-y-6">
+            <GlowCard theme="light" className="bg-white border border-slate-200/80 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-all space-y-6">
               <div className="flex items-center gap-3.5 pb-4 border-b border-slate-100">
                 <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100">
                   <Ship className="w-5 h-5" />
@@ -105,10 +106,10 @@ export default function ShippingLogistics({ onBackToHome }: ShippingLogisticsPro
                   ))}
                 </div>
               </div>
-            </div>
+            </GlowCard>
 
             {/* Card 2: Civic Engineering */}
-            <div className="bg-white border border-slate-200/80 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-all space-y-6">
+            <GlowCard theme="light" className="bg-white border border-slate-200/80 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-all space-y-6">
               <div className="flex items-center gap-3.5 pb-4 border-b border-slate-100">
                 <div className="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200">
                   <Settings className="w-5 h-5 animate-spin-slow" />
@@ -137,7 +138,7 @@ export default function ShippingLogistics({ onBackToHome }: ShippingLogisticsPro
                   ))}
                 </div>
               </div>
-            </div>
+            </GlowCard>
 
             {/* Card 3: Service Portfolio (Dark Navy Blue) */}
             <div className="bg-[#0B132B] text-white p-6 md:p-8 rounded-3xl shadow-lg border border-slate-900 space-y-6">

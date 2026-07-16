@@ -15,6 +15,7 @@ import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
+import GlowCard from "./GlowCard";
 
 interface WildTeamProps {
   onBackToHome: () => void;
@@ -26,7 +27,7 @@ const fadeUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
@@ -180,9 +181,10 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
             {focusAreas.map((focus) => {
               const IconComponent = focus.icon;
               return (
-                <motion.div 
+                <GlowCard 
                   key={focus.title}
                   variants={fadeUp}
+                  theme="dark"
                   className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl hover:bg-white/[0.05] transition-colors flex flex-col justify-between space-y-6"
                 >
                   <div className="space-y-4">
@@ -200,7 +202,7 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
                     <span>Learn More</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
-                </motion.div>
+                </GlowCard>
               );
             })}
           </motion.div>
@@ -224,8 +226,9 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
             {impactMetrics.map((item, idx) => {
               const IconComponent = item.icon;
               return (
-                <div 
+                <GlowCard 
                   key={idx}
+                  theme="dark"
                   className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl flex flex-col justify-between space-y-4"
                 >
                   <div className="space-y-2">
@@ -240,7 +243,7 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
                       {item.description}
                     </p>
                   </div>
-                </div>
+                </GlowCard>
               );
             })}
           </div>
@@ -265,8 +268,9 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
           
           <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
             {/* Featured Image - Spans 8 cols */}
-            <motion.div 
+            <GlowCard 
               variants={fadeUp}
+              theme="dark"
               className="md:col-span-8 h-64 md:h-[500px] rounded-3xl overflow-hidden relative group bg-white/[0.03] border border-slate-800/60"
             >
               <img 
@@ -279,12 +283,13 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
                   {galleryImages[0].alt}
                 </p>
               </div>
-            </motion.div>
+            </GlowCard>
 
             {/* Side Stack - Spans 4 cols */}
             <div className="md:col-span-4 flex flex-col gap-4 md:gap-6">
-              <motion.div 
+              <GlowCard 
                 variants={fadeUp}
+                theme="dark"
                 className="flex-1 rounded-3xl overflow-hidden relative group bg-white/[0.03] border border-slate-800/60 h-48 md:h-auto"
               >
                 <img 
@@ -297,9 +302,10 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
                     {galleryImages[1].alt}
                   </p>
                 </div>
-              </motion.div>
-              <motion.div 
+              </GlowCard>
+              <GlowCard 
                 variants={fadeUp}
+                theme="dark"
                 className="flex-1 rounded-3xl overflow-hidden relative group bg-white/[0.03] border border-slate-800/60 h-48 md:h-auto"
               >
                 <img 
@@ -312,7 +318,7 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
                     {galleryImages[2].alt}
                   </p>
                 </div>
-              </motion.div>
+              </GlowCard>
             </div>
           </motion.div>
         </div>

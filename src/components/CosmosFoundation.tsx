@@ -3,6 +3,7 @@ import { ArrowLeft, Globe, Heart, BookOpen, Brush, Image as ImageIcon } from "lu
 import { motion } from "motion/react";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
 import DivisionBrandBanner from "./DivisionBrandBanner";
+import GlowCard from "./GlowCard";
 
 interface CosmosFoundationProps {
   onBackToHome: () => void;
@@ -10,7 +11,7 @@ interface CosmosFoundationProps {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const } }
 };
 
 const containerVariants = {
@@ -108,7 +109,7 @@ export default function CosmosFoundation({ onBackToHome }: CosmosFoundationProps
           </motion.div>
 
           <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div variants={fadeUp} className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-6 hover:bg-white/[0.05] transition-colors">
+            <GlowCard variants={fadeUp} theme="dark" className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-6 hover:bg-white/[0.05] transition-colors">
               <div className="h-12 w-auto flex justify-start">
                 <img src="/images/cosmosfoundation/cosmos-gallery-300x86.png" alt="Gallery Cosmos" className="h-full object-contain brightness-0 invert opacity-80" />
               </div>
@@ -120,9 +121,9 @@ export default function CosmosFoundation({ onBackToHome }: CosmosFoundationProps
                   A contemporary art space facilitating creative interventions among Bangladesh's artists. Dedicated to visual art exhibitions, workshops, residencies, and art camps, featuring a collection of over 11,000 original artworks.
                 </p>
               </div>
-            </motion.div>
+            </GlowCard>
 
-            <motion.div variants={fadeUp} className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-6 hover:bg-white/[0.05] transition-colors">
+            <GlowCard variants={fadeUp} theme="dark" className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-6 hover:bg-white/[0.05] transition-colors">
               <div className="h-12 w-auto flex justify-start">
                 <img src="/images/cosmosfoundation/a71.png" alt="Cosmos Atelier 71" className="h-full object-contain brightness-0 invert opacity-80" />
               </div>
@@ -134,9 +135,9 @@ export default function CosmosFoundation({ onBackToHome }: CosmosFoundationProps
                   A printmaking studio housing state-of-the-art equipment. It breaks new ground by facilitating the emergence of Arts in Bangladesh and offers residency programs for leading artists worldwide.
                 </p>
               </div>
-            </motion.div>
+            </GlowCard>
 
-            <motion.div variants={fadeUp} className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-6 hover:bg-white/[0.05] transition-colors">
+            <GlowCard variants={fadeUp} theme="dark" className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-6 hover:bg-white/[0.05] transition-colors">
               <div className="h-12 w-auto flex justify-start">
                 <img src="/images/cosmosfoundation/wt.png" alt="WildTeam" className="h-full object-contain brightness-0 invert opacity-80" />
               </div>
@@ -148,9 +149,9 @@ export default function CosmosFoundation({ onBackToHome }: CosmosFoundationProps
                   Initiated in 2003 by dedicated conservationists led by Enayetullah Khan, WildTeam works to improve the conservation status of key species and habitats, most notably implementing USAID's Bagh Activity to save tigers in the Sundarbans.
                 </p>
               </div>
-            </motion.div>
+            </GlowCard>
 
-            <motion.div variants={fadeUp} className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-6 hover:bg-white/[0.05] transition-colors">
+            <GlowCard variants={fadeUp} theme="dark" className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-6 hover:bg-white/[0.05] transition-colors">
               <div className="h-12 w-auto flex justify-start">
                 <img src="/images/cosmosfoundation/Bay-of-Bengal-Institute-Logo.png" alt="Bay of Bengal Institute" className="h-full object-contain brightness-0 invert opacity-80" />
               </div>
@@ -162,7 +163,7 @@ export default function CosmosFoundation({ onBackToHome }: CosmosFoundationProps
                   Set up to promote governance, dialogue, and conflict management in the Indo-Pacific. BBI focuses on Track II diplomacy, the blue economy, and strategic security issues in the region.
                 </p>
               </div>
-            </motion.div>
+            </GlowCard>
           </motion.div>
         </div>
 
@@ -188,9 +189,10 @@ export default function CosmosFoundation({ onBackToHome }: CosmosFoundationProps
             className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6"
           >
             {galleryImages.map((img, index) => (
-              <motion.div 
-                key={index} 
-                variants={fadeUp} 
+              <GlowCard
+                key={index}
+                variants={fadeUp}
+                theme="dark"
                 className="break-inside-avoid bg-white/[0.03] border border-slate-800/60 rounded-2xl overflow-hidden hover:border-slate-700 transition-colors group relative"
               >
                 <img 
@@ -204,27 +206,27 @@ export default function CosmosFoundation({ onBackToHome }: CosmosFoundationProps
                     {img.alt}
                   </p>
                 </div>
-              </motion.div>
+              </GlowCard>
             ))}
           </motion.div>
           
           {/* Summary Text for Gallery */}
           <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
-            <div className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl">
+            <GlowCard theme="dark" className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl">
               <Globe className="w-6 h-6 text-red-500 mb-4" />
               <h4 className="text-lg font-bold font-display uppercase tracking-tight text-white mb-2">Venice Biennale</h4>
               <p className="text-sm text-slate-400 font-light">Continued support for Bangladesh's participation, enriching the pavilion through compelling national and international art.</p>
-            </div>
-            <div className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl">
+            </GlowCard>
+            <GlowCard theme="dark" className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl">
               <Globe className="w-6 h-6 text-red-500 mb-4" />
               <h4 className="text-lg font-bold font-display uppercase tracking-tight text-white mb-2">BMTC Expeditions</h4>
               <p className="text-sm text-slate-400 font-light">Supporting Bangla Mountaineering and Trekking Club, including successful summits of Chulu West, Mera Peak, and Mt. Chekigo.</p>
-            </div>
-            <div className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl">
+            </GlowCard>
+            <GlowCard theme="dark" className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl">
               <Globe className="w-6 h-6 text-red-500 mb-4" />
               <h4 className="text-lg font-bold font-display uppercase tracking-tight text-white mb-2">Discovery Ride</h4>
               <p className="text-sm text-slate-400 font-light">Sponsoring cultural exchange cycling events to promote tourism and showcase the indigenous beauty of Bangladesh.</p>
-            </div>
+            </GlowCard>
           </motion.div>
         </div>
 

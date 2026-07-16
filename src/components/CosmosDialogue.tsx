@@ -3,6 +3,7 @@ import { ArrowLeft, MessageSquare } from "lucide-react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
+import GlowCard from "./GlowCard";
 
 interface CosmosDialogueProps {
   onBackToHome: () => void;
@@ -51,7 +52,7 @@ export default function CosmosDialogue({ onBackToHome }: CosmosDialogueProps) {
         </div>
 
         {/* Introduction Block */}
-        <div className="bg-white border border-slate-200/80 p-8 md:p-12 rounded-3xl shadow-sm text-slate-700 grid grid-cols-1 gap-8 items-center">
+        <GlowCard theme="light" className="bg-white border border-slate-200/80 p-8 md:p-12 rounded-3xl shadow-sm text-slate-700 grid grid-cols-1 gap-8 items-center">
            <div className="space-y-6 max-w-4xl mx-auto text-center md:text-left">
              <h2 className="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tight mb-2">
                 A Conversation Starter
@@ -66,7 +67,7 @@ export default function CosmosDialogue({ onBackToHome }: CosmosDialogueProps) {
                At Cosmos, we firmly believe that a vibrant democracy needs a continuous exchange of views between stakeholders and that the participation of citizens in the everyday political and socioeconomic process strengthens our democracy further. Taking advantage of state-of-the-art facilities at Cosmos Centre, the Cosmos Dialogue relies heavily on digital technology to bridge physical distances and help bring people together. Cosmos Dialogue takes the discussion beyond Bangladesh's borders and engages regional and international partners.
              </p>
            </div>
-        </div>
+        </GlowCard>
       </div>
 
       {/* Corporate Brochure Download */}

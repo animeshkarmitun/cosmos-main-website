@@ -13,6 +13,7 @@ import {
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
+import GlowCard from "./GlowCard";
 
 interface PearlsParadiseProps {
   onBackToHome: () => void;
@@ -98,7 +99,8 @@ export default function PearlsParadise({ onBackToHome }: PearlsParadiseProps) {
             {pearlCollections.map((col, idx) => {
               const IconComp = col.icon;
               return (
-                <div 
+                <GlowCard 
+                  theme="light"
                   key={idx}
                   className="bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between"
                 >
@@ -113,14 +115,14 @@ export default function PearlsParadise({ onBackToHome }: PearlsParadiseProps) {
                       {col.desc}
                     </p>
                   </div>
-                </div>
+                </GlowCard>
               );
             })}
           </div>
         </div>
 
         {/* Value Authenticity Block */}
-        <div className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
+        <GlowCard theme="light" className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-sm space-y-8">
           <div className="max-w-3xl space-y-2">
             <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-widest block">
               Certified Authority
@@ -134,7 +136,7 @@ export default function PearlsParadise({ onBackToHome }: PearlsParadiseProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
               <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 GIA Standards
               </span>
@@ -144,9 +146,9 @@ export default function PearlsParadise({ onBackToHome }: PearlsParadiseProps) {
               <p className="text-xs text-slate-500 font-light mt-2">
                 Diamonds appraised and graded according to strict Gemological Institute of America metrics.
               </p>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
               <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 100% Genuine
               </span>
@@ -156,9 +158,9 @@ export default function PearlsParadise({ onBackToHome }: PearlsParadiseProps) {
               <p className="text-xs text-slate-500 font-light mt-2">
                 Guaranteed saltwater pearls with exceptional nacre depth, luster, and perfect sphericity.
               </p>
-            </div>
+            </GlowCard>
 
-            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+            <GlowCard theme="light" className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
               <span className="block text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 Handcrafted
               </span>
@@ -168,9 +170,9 @@ export default function PearlsParadise({ onBackToHome }: PearlsParadiseProps) {
               <p className="text-xs text-slate-500 font-light mt-2">
                 Constructed meticulously by multi-generational artisanal goldsmiths in fine 18K and 22K gold.
               </p>
-            </div>
+            </GlowCard>
           </div>
-        </div>
+        </GlowCard>
 
       </div>
 
