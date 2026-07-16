@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { ArrowLeft, Building2, TrendingUp, Globe } from "lucide-react";
 import CosmosStats from "./CosmosStats";
 import MajorAchievements from "./MajorAchievements";
+import ExploreTeaser from "./ExploreTeaser";
 
 interface AboutPageProps {
   onBackToHome: () => void;
@@ -129,6 +130,27 @@ export default function AboutPage({ onBackToHome }: AboutPageProps) {
           </motion.div>
         </div>
       </section>
+
+      {/* ── Five Decades of Impact (moved from landing page) ────── */}
+      <ExploreTeaser
+        id="impact-teaser"
+        theme="dark"
+        variant="stats"
+        eyebrow="By the Numbers"
+        title="Five Decades of Impact"
+        summary="From a single venture founded in 1973 to a multi-sector conglomerate — the scale, milestones and achievements that define Cosmos Group."
+        ctaLabel="Explore Detailed Metrics"
+        onExplore={() => {
+          const el = document.getElementById("infographics");
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }}
+        stats={[
+          { value: 52, suffix: "+", label: "Years of Excellence" },
+          { value: 12, label: "Business Units" },
+          { value: 9, label: "Core Sectors" },
+          { value: 64, label: "Districts Covered" },
+        ]}
+      />
 
       {/* ── Cosmos Stats ────────────────────────────────────────── */}
       <CosmosStats />

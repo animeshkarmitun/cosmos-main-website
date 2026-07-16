@@ -108,27 +108,6 @@ export default function App() {
               }}
             />
 
-            {/* Teaser → AboutPage (stats/achievements deep-dive) */}
-            <ExploreTeaser
-              id="impact-teaser"
-              theme="dark"
-              variant="stats"
-              eyebrow="By the Numbers"
-              title="Five Decades of Impact"
-              summary="From a single venture founded in 1973 to a multi-sector conglomerate — the scale, milestones and achievements that define Cosmos Group."
-              ctaLabel="Explore Our Story"
-              onExplore={() => {
-                setCurrentPage("about-page");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              stats={[
-                { value: 52, suffix: "+", label: "Years of Excellence" },
-                { value: 12, label: "Business Units" },
-                { value: 9, label: "Core Sectors" },
-                { value: 64, label: "Districts Covered" },
-              ]}
-            />
-
             {/* Teaser → ServicesPage (partnership & services bento) */}
             <ExploreTeaser
               id="services-teaser"

@@ -18,13 +18,13 @@ export default function ServicesLight() {
     {
       icon: Layers,
       title: "Project & Supply Chain Management",
-      description: "Act as the in-country interface throughout project execution. Arrange transportation and customs clearance for project equipment arriving via Chittagong Port. Identify and engage qualified local contractors and suppliers.",
+      description: "We serve as your dedicated in-country anchor, managing everything from the moment your equipment hits our ports. From seamless customs clearance and local transport logistics to sourcing and managing top-tier local contractors, we handle the ground game, so your project executes without a hitch.",
       featured: false,
     },
     {
       icon: ShieldCheck,
       title: "Operational & Protocol Support",
-      description: "Manage employment visa applications, extensions, and renewals. Process work permits and security clearances. Provide qualified Bangladeshi engineers and subject-matter specialists to support project scope.",
+      description: "Manage employment visa applications, extensions, and renewals. Process work permits and security clearances. Provide qualified in-country domain experts to support project scope.",
       featured: false,
     },
   ];
@@ -62,7 +62,7 @@ export default function ServicesLight() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-500 text-base md:text-lg font-light max-w-md leading-relaxed"
           >
-            Providing international conglomerates, global investors, and technology partners with comprehensive administrative scaffolding, high-level policy advocacy, and seamless heavy-industry execution channels within Bangladesh.
+            We bridge the gap between global investment and heavy-industry execution in Bangladesh. By combining high-level policy advocacy with airtight administrative support, we give international conglomerates and technology partners a frictionless path to execution.
           </motion.p>
         </div>
 

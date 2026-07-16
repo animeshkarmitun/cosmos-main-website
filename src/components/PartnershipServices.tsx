@@ -153,7 +153,7 @@ export default function PartnershipServices() {
     },
     {
       title: "Project & Supply Chain Management",
-      description: "Act as the in-country interface throughout project execution. Arrange transportation and customs clearance for project equipment arriving via Chittagong Port. Identify and engage qualified local contractors and suppliers.",
+      description: "We serve as your dedicated in-country anchor, managing everything from the moment your equipment hits our ports. From seamless customs clearance and local transport logistics to sourcing and managing top-tier local contractors, we handle the ground game, so your project executes without a hitch.",
       icon: <Layers className="w-5 h-5" />,
       bullets: [
         "End-to-end custom clearance through major gateways (Chittagong, Mongla).",
@@ -164,11 +164,11 @@ export default function PartnershipServices() {
     },
     {
       title: "Operational & Protocol Support",
-      description: "Manage employment visa applications, extensions, and renewals. Process work permits and security clearances. Provide qualified Bangladeshi engineers and subject-matter specialists to support project scope.",
+      description: "Manage employment visa applications, extensions, and renewals. Process work permits and security clearances. Provide qualified in-country domain experts to support project scope.",
       icon: <ShieldCheck className="w-5 h-5" />,
       bullets: [
         "Expatriate visa renewals, extensions, and work permit coordination.",
-        "Provisioning of premium-tier electrical, structural, and mechanical engineers.",
+        "Provisioning of top-tier electrical, structural, and mechanical engineers.",
         "Comprehensive site protocol structures and necessary security clearances.",
       ],
       layoutClass: "lg:col-span-2",
@@ -212,7 +212,7 @@ export default function PartnershipServices() {
           </h2>
 
           <p className="text-slate-400 text-sm md:text-base font-light leading-relaxed max-w-2xl">
-            Providing international conglomerates, global investors, and technology partners with comprehensive administrative scaffolding, high-level policy advocacy, and seamless heavy-industry execution channels within Bangladesh.
+            We bridge the gap between global investment and heavy-industry execution in Bangladesh. By combining high-level policy advocacy with airtight administrative support, we give international conglomerates and technology partners a frictionless path to execution.
           </p>
         </div>
 
