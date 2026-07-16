@@ -136,7 +136,7 @@ export default function ServicesPage({ onBackToHome }: ServicesPageProps) {
               <span className="text-red-500">Capabilities</span>
             </h2>
             <p className="text-slate-500 text-xs md:text-sm font-light mt-3 max-w-xl mx-auto">
-              Adjacent service lines under active development as we broaden our advisory footprint.
+              We are aggressively expanding our service ecosystem to deliver comprehensive, end-to-end strategic advisory.
             </p>
           </motion.div>
 

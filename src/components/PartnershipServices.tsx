@@ -131,9 +131,7 @@ export default function PartnershipServices() {
       description: "Manage employment visa applications, extensions, and renewals. Process work permits and security clearances. Provide qualified in-country domain experts to support project scope.",
       icon: <ShieldCheck className="w-5 h-5" />,
       bullets: [
-        "Expatriate visa renewals, extensions, and work permit coordination.",
         "Provisioning of top-tier electrical, structural, and mechanical engineers.",
-        "Comprehensive site protocol structures and necessary security clearances.",
       ],
       layoutClass: "lg:col-span-2",
     },

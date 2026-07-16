@@ -92,7 +92,12 @@ export default function App() {
             <Hero />
 
             {/* Infinite logo marquee — conglomerate breadth at a glance */}
-            <LogoMarquee />
+            <LogoMarquee
+              onNavigate={(page) => {
+                setCurrentPage(page as typeof currentPage);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            />
 
             {/* About Section */}
             <About />

@@ -1,26 +1,12 @@
-interface LogoItem {
-  src: string;
-  name: string;
+import { companies } from "../data/companies";
+
+interface LogoMarqueeProps {
+  onNavigate: (page: string) => void;
 }
 
-const logos: LogoItem[] = [
-  { src: "/logos/Cosmos Energy Services.png", name: "Cosmos Energy" },
-  { src: "/logos/Cosmos Shipping and Logistics.png", name: "Cosmos Shipping" },
-  { src: "/logos/Cosmos Technologies.png", name: "Cosmos Technologies" },
-  { src: "/logos/Cosmos Resources Pte Ltd.png", name: "Cosmos Resources" },
-  { src: "/logos/Cosmos Foundation.png", name: "Cosmos Foundation" },
-  { src: "/logos/Cosmos Books.png", name: "Cosmos Books" },
-  { src: "/logos/Cosmos Atelier 71.png", name: "Atelier 71" },
-  { src: "/logos/Gallery Cosmos.png", name: "Gallery Cosmos" },
-  { src: "/logos/Dhaka Courier.png", name: "Dhaka Courier" },
-  { src: "/logos/United News of Bangladesh.png", name: "UNB" },
-  { src: "/logos/Pearls Paradise.png", name: "Pearls Paradise" },
-  { src: "/logos/WildTeam.png", name: "WildTeam" },
-];
-
-export default function LogoMarquee() {
+export default function LogoMarquee({ onNavigate }: LogoMarqueeProps) {
   // Render the set twice so the -50% keyframe loops seamlessly.
-  const loop = [...logos, ...logos];
+  const loop = [...companies, ...companies];
 
   return (
     <section
@@ -30,7 +16,7 @@ export default function LogoMarquee() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 mb-6 md:mb-7 flex items-center justify-center gap-3">
         <span className="w-8 h-px bg-slate-700" />
         <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.25em] text-slate-500">
-          14 Divisions · One Group
+          {companies.length} Divisions · One Group
         </span>
         <span className="w-8 h-px bg-slate-700" />
       </div>
@@ -45,18 +31,21 @@ export default function LogoMarquee() {
         }}
       >
         <div className="ticker-content items-center">
-          {loop.map((logo, i) => (
-            <div
-              key={`${logo.name}-${i}`}
-              className="inline-flex items-center shrink-0 mx-3 md:mx-4 h-14 md:h-16 px-5 md:px-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"
+          {loop.map((company, i) => (
+            <button
+              key={`${company.id}-${i}`}
+              type="button"
+              onClick={() => onNavigate(company.page)}
+              aria-label={`Visit ${company.title}`}
+              className="inline-flex items-center shrink-0 mx-3 md:mx-4 h-14 md:h-16 px-5 md:px-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
             >
               <img
-                src={logo.src}
-                alt={logo.name}
-                className="h-6 md:h-8 w-auto object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                src={company.logo}
+                alt={company.title}
+                className="h-6 md:h-8 w-auto object-contain"
                 loading="lazy"
               />
-            </div>
+            </button>
           ))}
         </div>
       </div>
