@@ -93,7 +93,7 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
     { name: "Cosmos Books", subtitle: "Publishing meaningful titles that enrich thought, culture, and knowledge.", icon: BookOpen, href: "#businesses" },
     { name: "WildTeam", subtitle: "Wildlife conservation initiative.", icon: PawPrint, href: "#businesses" },
     { name: "Cosmos Gallery", subtitle: "A premier destination for fine arts and cultural expression.", icon: ImageIcon, href: "#businesses" },
-    { name: "Pearls Paradise", subtitle: "Exquisite jewelry and precious gems.", icon: Gem, href: "#businesses" },
+    { name: "Pearls Paradise", subtitle: "Traditional jewelry and pink pearls since 1959.", icon: Gem, href: "#businesses" },
     { name: "Cosmos Printing", subtitle: "Advanced printing and commercial publishing solutions.", icon: Printer, href: "#businesses" },
     { name: "Cosmos Atelier 71", subtitle: "A premier printmaking studio promoting fine arts.", icon: Palette, href: "#businesses" },
     { name: "Cosmos Global", subtitle: "Global resources and international trade ventures.", icon: Globe, href: "#businesses" },

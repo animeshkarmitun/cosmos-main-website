@@ -123,13 +123,13 @@ export const companies: Company[] = [
   {
     id: "pearls",
     title: "Pearls Paradise",
-    tagline: "Exquisite jewelry and precious gems.",
+    tagline: "Traditional jewelry and pink pearls since 1959.",
     logo: "/logos/Pearls Paradise.png",
     image: "/images/pearls.jpg",
     detailedText:
-      "Pearls Paradise offers premium, finely crafted jewelry and authenticated precious stones with a commitment to quality and elegance.",
-    metric: "100%",
-    metricLabel: "Authentic Gems",
+      "Established in 1959 and incorporated in 1980, Pearls Paradise hand crafts jewelry, pink pearls, and precious and semi-precious stones cultivated in the sweet waters of Bangladesh.",
+    metric: "Since 1959",
+    metricLabel: "Heritage Jewellers",
     page: "pearls",
   },
   {

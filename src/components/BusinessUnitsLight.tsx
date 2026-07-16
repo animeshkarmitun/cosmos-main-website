@@ -32,7 +32,7 @@ export default function BusinessUnitsLight({ onNavigate }: BusinessUnitsLightPro
     { name: "Cosmos Books", subtitle: "Publishing meaningful titles that enrich thought, culture, and knowledge.", icon: BookOpen, page: "books", image: "/images/cosmos-books-card.png" },
     { name: "WildTeam", subtitle: "Wildlife conservation initiative protecting Bangladesh's rich biodiversity.", icon: PawPrint, page: "wildteam", image: "/images/wildteam.jpg" },
     { name: "Cosmos Gallery", subtitle: "A premier destination for fine arts and cultural expression.", icon: ImageIcon, page: "gallery", image: "/images/gallery.jpeg" },
-    { name: "Pearls Paradise", subtitle: "Exquisite jewelry and precious gems.", icon: Gem, page: "pearls", image: "/images/pearls.jpg" },
+    { name: "Pearls Paradise", subtitle: "Traditional jewelry and pink pearls since 1959.", icon: Gem, page: "pearls", image: "/images/pearls.jpg" },
     { name: "Cosmos Printing", subtitle: "Advanced printing and commercial publishing solutions.", icon: Printer, page: "printing", image: "/images/printing.jpg" },
     { name: "Cosmos Atelier 71", subtitle: "A premier printmaking studio promoting fine arts.", icon: Palette, page: "atelier", image: "/images/atelier.jpeg" },
     { name: "Cosmos Global", subtitle: "Global resources and international trade ventures.", icon: Globe, page: "global", image: "/images/global.jpg" },
