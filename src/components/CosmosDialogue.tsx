@@ -1,5 +1,12 @@
 import React from "react";
-import { ArrowLeft, MessageSquare } from "lucide-react";
+import {
+  ArrowLeft,
+  MessageSquare,
+  Users,
+  Globe,
+  Monitor,
+} from "lucide-react";
+import { motion } from "motion/react";
 
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
@@ -9,71 +16,191 @@ interface CosmosDialogueProps {
   onBackToHome: () => void;
 }
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const } },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+};
+
 export default function CosmosDialogue({ onBackToHome }: CosmosDialogueProps) {
+  const dialoguePillars = [
+    {
+      title: "Constructive Debate",
+      icon: MessageSquare,
+      description:
+        "Promoting a culture of constructive debate and tolerance that can act as a bulwark against violence and confrontation on the most pressing issues of our time.",
+    },
+    {
+      title: "Democratic Participation",
+      icon: Users,
+      description:
+        "A vibrant democracy needs continuous exchange of views between stakeholders. Citizen participation in everyday political and socioeconomic processes strengthens our democracy further.",
+    },
+    {
+      title: "Digital & Global Reach",
+      icon: Monitor,
+      description:
+        "Leveraging state-of-the-art facilities at Cosmos Centre and digital technology to bridge physical distances, bring people together, and engage regional and international partners.",
+    },
+  ];
+
   return (
-    <div id="dialogue-portal-page" className="pt-24 pb-20 bg-slate-50 min-h-screen text-slate-800 font-sans">
-      {/* Back Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+    <div id="dialogue-portal-page" className="bg-[#04060f] min-h-screen text-white font-sans selection:bg-red-500/30">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 pt-24 pb-6">
         <button
           onClick={onBackToHome}
-          className="inline-flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider text-slate-600 hover:text-red-700 bg-white border border-slate-200 hover:border-red-600/30 rounded-xl transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-red-400 bg-white/[0.04] border border-white/[0.06] rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-red-600 cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Portal Home
         </button>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
-        <DivisionBrandBanner name="Cosmos Dialogue" logo="/logos/Cosmos Logo-01.png" descriptor="Policy Dialogue" />
-      </div>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeUp}
+        className="max-w-7xl mx-auto px-4 md:px-6 mb-12"
+      >
+        <DivisionBrandBanner
+          name="Cosmos Dialogue"
+          logo="/logos/Cosmos Logo-01.png"
+          descriptor="Policy Dialogue"
+          theme="dark"
+        />
+      </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className="max-w-7xl mx-auto px-4 md:px-6 space-y-16 md:space-y-24 pb-24"
+      >
         {/* Hero Section */}
-        <div className="bg-[#0B132B] text-white rounded-3xl overflow-hidden border border-slate-900 shadow-2xl relative">
-          <div className="absolute inset-0 bg-radial-gradient from-red-950/20 via-transparent to-transparent opacity-60 pointer-events-none" />
-          
-          <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-950/60 border border-red-900/40 rounded-full">
+        <motion.div
+          variants={fadeUp}
+          className="bg-white/[0.03] border border-slate-800/60 rounded-3xl overflow-hidden relative shadow-2xl"
+        >
+          <div className="absolute inset-0">
+            <img
+              src="/images/cosmos-dialogue/hero.jpg"
+              alt="Cosmos Dialogue"
+              className="w-full h-full object-cover opacity-40"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f] via-[#04060f]/60 to-transparent" />
+          </div>
+
+          <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-8 mt-24 md:mt-32">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-950/50 border border-red-900/30 rounded-full">
               <MessageSquare className="w-3.5 h-3.5 text-red-500 animate-pulse" />
-              <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-red-400 uppercase">
+              <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-red-500 uppercase">
                 Core Mission of Cosmos Foundation
               </span>
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-3.5xl md:text-5.5xl font-black font-display tracking-tight text-white uppercase leading-none">
+              <h1 className="text-4xl md:text-6xl font-bold font-display tracking-tight text-white uppercase leading-none">
                 Cosmos Dialogue
               </h1>
-              <p className="text-red-400 font-mono font-bold text-xs md:text-sm uppercase tracking-widest">
+              <p className="text-red-500 font-mono font-bold text-sm md:text-base uppercase tracking-widest">
                 Understanding through Debate
               </p>
             </div>
+
+            <p className="text-slate-400 text-sm md:text-lg font-light leading-relaxed max-w-3xl">
+              The Cosmos Dialogue is intended to be a conversation starter that leads to healthy discussions and deepens our understanding of some of the most pressing issues of our time.
+            </p>
           </div>
+        </motion.div>
+
+        {/* About */}
+        <div className="space-y-8">
+          <motion.div variants={fadeUp} className="max-w-3xl space-y-2">
+            <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block">
+              Purpose & Philosophy
+            </span>
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
+              A Conversation Starter
+            </h2>
+          </motion.div>
+
+          <motion.div variants={containerVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <GlowCard
+              variants={fadeUp}
+              theme="dark"
+              className="bg-white/[0.03] border border-slate-800/60 p-8 md:p-10 rounded-2xl space-y-6"
+            >
+              <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
+                The Cosmos Dialogue, a core mission of Cosmos Foundation, seeks to promote a culture of constructive debate and tolerance that can act as a bulwark against violence and confrontation.
+              </p>
+              <blockquote className="border-l-4 border-red-600 pl-4 py-3 italic text-slate-300 font-medium bg-[#0B132B]/60 rounded-r-xl">
+                As Rabindranath Tagore said: &ldquo;Where the clear stream of reason and thoughts has not lost its way in the dreary desert of lowly habits and deeds&rdquo;.
+              </blockquote>
+            </GlowCard>
+
+            <GlowCard
+              variants={fadeUp}
+              theme="dark"
+              className="bg-white/[0.03] border border-slate-800/60 p-8 md:p-10 rounded-2xl flex flex-col justify-center"
+            >
+              <Globe className="w-6 h-6 text-red-500 mb-4" />
+              <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
+                At Cosmos, we firmly believe that a vibrant democracy needs a continuous exchange of views between stakeholders and that the participation of citizens in the everyday political and socioeconomic process strengthens our democracy further.
+              </p>
+              <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed mt-4">
+                Taking advantage of state-of-the-art facilities at Cosmos Centre, the Cosmos Dialogue relies heavily on digital technology to bridge physical distances and help bring people together. Cosmos Dialogue takes the discussion beyond Bangladesh&apos;s borders and engages regional and international partners.
+              </p>
+            </GlowCard>
+          </motion.div>
         </div>
 
-        {/* Introduction Block */}
-        <GlowCard theme="light" className="bg-white border border-slate-200/80 p-8 md:p-12 rounded-3xl shadow-sm text-slate-700 grid grid-cols-1 gap-8 items-center">
-           <div className="space-y-6 max-w-4xl mx-auto text-center md:text-left">
-             <h2 className="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tight mb-2">
-                A Conversation Starter
-             </h2>
-             <p className="text-sm md:text-base font-light leading-relaxed">
-               The Cosmos Dialogue, a core mission of Cosmos Foundation, is intended to be a conversation starter that will lead to healthy discussions and deepen our understanding of some the most pressing issues of our time. The Dialogue seeks to promote a culture of constructive debate and tolerance that can act as a bulwark against violence and confrontation. 
-             </p>
-             <blockquote className="border-l-4 border-red-600 pl-4 py-3 italic text-slate-600 font-medium my-6 bg-slate-50/50 rounded-r-xl">
-               As Rabindranath Tagore said: "Where the clear stream of reason and thoughts has not lost its way in the dreary desert of lowly habits and deeds".
-             </blockquote>
-             <p className="text-sm md:text-base font-light leading-relaxed">
-               At Cosmos, we firmly believe that a vibrant democracy needs a continuous exchange of views between stakeholders and that the participation of citizens in the everyday political and socioeconomic process strengthens our democracy further. Taking advantage of state-of-the-art facilities at Cosmos Centre, the Cosmos Dialogue relies heavily on digital technology to bridge physical distances and help bring people together. Cosmos Dialogue takes the discussion beyond Bangladesh's borders and engages regional and international partners.
-             </p>
-           </div>
-        </GlowCard>
-      </div>
+        {/* Dialogue Pillars */}
+        <div className="space-y-8">
+          <motion.div variants={fadeUp} className="max-w-2xl">
+            <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block mb-2">
+              How We Engage
+            </span>
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
+              Dialogue Principles
+            </h2>
+          </motion.div>
 
-      {/* Corporate Brochure Download */}
-      <div className="mt-12 md:mt-16">
-        <CompanyBrochureCTA companyId="dialogue" />
-      </div>
+          <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {dialoguePillars.map((pillar) => {
+              const IconComp = pillar.icon;
+              return (
+                <GlowCard
+                  key={pillar.title}
+                  variants={fadeUp}
+                  theme="dark"
+                  className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-6 hover:bg-white/[0.05] transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-red-950/50 text-red-400 flex items-center justify-center border border-red-900/30">
+                    <IconComp className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold font-display text-white uppercase tracking-tight mb-3">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
+                      {pillar.description}
+                    </p>
+                  </div>
+                </GlowCard>
+              );
+            })}
+          </motion.div>
+        </div>
+
+        <div className="mt-12 md:mt-16">
+          <CompanyBrochureCTA companyId="dialogue" />
+        </div>
+      </motion.div>
     </div>
   );
 }
