@@ -28,9 +28,10 @@ interface FooterProps {
   onCareersClick?: () => void;
   onCsrClick?: () => void;
   onPoliciesClick?: () => void;
+  onResourcesClick?: () => void;
 }
 
-export default function Footer({ onCareersClick, onCsrClick, onPoliciesClick }: FooterProps) {
+export default function Footer({ onCareersClick, onCsrClick, onPoliciesClick, onResourcesClick }: FooterProps) {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const [activeDoc, setActiveDoc] = useState<DocType | null>(null);
@@ -456,6 +457,16 @@ export default function Footer({ onCareersClick, onCsrClick, onPoliciesClick }: 
               >
                 <span>Governance & Policies</span>
                 <span className="text-[8px] bg-slate-800 border border-slate-700/30 text-slate-400 px-1.5 py-0.2 rounded font-mono font-bold uppercase">Hub</span>
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => onResourcesClick && onResourcesClick()}
+                disabled={!onResourcesClick}
+                className={`hover:text-red-400 transition-colors focus-visible:outline-none text-left font-light flex items-center gap-2 ${onResourcesClick ? "cursor-pointer" : "cursor-default opacity-70"}`}
+              >
+                <span>Resources & Downloads</span>
+                <span className="text-[8px] bg-cyan-950 border border-cyan-900/30 text-cyan-400 px-1.5 py-0.2 rounded font-mono font-bold uppercase">PDF</span>
               </button>
             </li>
           </ul>

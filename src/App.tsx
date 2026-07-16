@@ -35,7 +35,7 @@ import EventsPage from "./components/EventsPage";
 import EventDetail from "./components/EventDetail";
 import ExploreTeaser from "./components/ExploreTeaser";
 import LogoMarquee from "./components/LogoMarquee";
-import ResourcesSection from "./components/ResourcesSection";
+import ResourcesPage from "./components/ResourcesPage";
 import { Zap, Ship, Cpu, Shield, Scale } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -43,7 +43,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<
     "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" |
     "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" |
-    "about-page" | "team" | "policies" | "services" | "why-us" | "events" | "event-detail"
+    "about-page" | "team" | "policies" | "services" | "why-us" | "events" | "event-detail" | "resources"
   >("home");
 
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
@@ -177,9 +177,6 @@ export default function App() {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             />
-
-            {/* Corporate Resources / Brochure Downloads */}
-            <ResourcesSection id="resources" />
 
             {/* Dynamic Partner & Contact Section */}
             <ContactSection />
@@ -526,6 +523,19 @@ export default function App() {
               }}
             />
           </motion.div>
+        ) : currentPage === "resources" ? (
+          <motion.div
+            key="resources-page-content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <ResourcesPage onBackToHome={() => {
+              setCurrentPage("home");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }} />
+          </motion.div>
         ) : (
           <motion.div
             key="foundation-page-content"
@@ -554,6 +564,10 @@ export default function App() {
         }}
         onPoliciesClick={() => {
           setCurrentPage("policies");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+        onResourcesClick={() => {
+          setCurrentPage("resources");
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
       />

@@ -26,7 +26,7 @@ import CosmosLogo from "./CosmosLogo";
 
 interface NavbarProps {
   currentPage: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services" | "why-us" | "events" | "event-detail";
-  onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services" | "why-us" | "events" | "event-detail") => void;
+  onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services" | "why-us" | "events" | "event-detail" | "resources") => void;
 }
 
 export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
@@ -75,7 +75,6 @@ export default function Navbar({ currentPage, onPageChange }: NavbarProps) {
     { name: "Why Us", href: "#why-cosmos", page: "why-us" as const },
     { name: "Team", href: "#founder", page: "team" as const },
     { name: "Events", href: "#events", page: "events" as const },
-    { name: "Resources", href: "#resources" },
     { name: "Careers", href: "#careers" },
   ];
 
