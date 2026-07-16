@@ -18,7 +18,7 @@ export default function CosmosBooks({ onBackToHome }: CosmosBooksProps) {
       translatedBy: "Haider A. Khan",
       price: "৳500.00",
       description: "Antoine de Saint-Exupéry wrote the classic The Little Prince in 1943. Reading it even today, we are struck by the uncanny ability of the author to enter completely the imaginative universe of a child’s mind. The current translation also highlights from a postcolonial perspective his implicit and complex engagement with the colonial world.",
-      image: "https://cosmosbooks.com.bd/image/cache/catalog/product/Book/book-2-600x695.png",
+      image: "/images/cosmos-books/the-little-prince.png",
       url: "https://cosmosbooks.com.bd/index.php?route=product/product&product_id=129",
       accent: "from-amber-600 to-yellow-500",
       bgAccent: "bg-amber-50 border-amber-200"
@@ -30,7 +30,7 @@ export default function CosmosBooks({ onBackToHome }: CosmosBooksProps) {
       price: "৳5,250.00",
       description: "Cosmos Books has earned the distinction of bringing out the first publication on the Rohingya crisis, documenting the ordeal and artistic protests. Published in association with Cosmos Foundation, it features 30 artworks in various mediums derived from Gallery Cosmos and Cox's Bazar Art Club, alongside expert analysis.",
       // Using a stylized placeholder
-      image: "https://cosmosbooks.com.bd/image/cache/catalog/product/Book/art-against-2-600x695.png",
+      image: "/images/cosmos-books/art-against-genocide.png",
       url: "https://cosmosbooks.com.bd/index.php?route=product/product&product_id=125",
       accent: "from-red-700 to-red-500",
       bgAccent: "bg-red-50 border-red-200"
