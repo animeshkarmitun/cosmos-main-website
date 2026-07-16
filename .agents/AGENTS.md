@@ -9,7 +9,7 @@ These rules bias toward simplicity, shipping, and robustness over architectural 
 ## Design System Reference (Mandatory)
 
 - For any UI, styling, section-order, background, or visual-consistency change, read `DESIGN.md` first.
-- Treat `DESIGN.md` as the visual source of truth for landing-page color rhythm, section separation, and palette consistency.
+- Treat `DESIGN.md` as the visual source of truth for colors, typography, spacing, animations, component patterns, and page templates across the entire site.
 - If a request conflicts with `DESIGN.md`, follow the user request and then update `DESIGN.md` in the same change so future agents stay aligned.
 
 ---
@@ -50,12 +50,33 @@ These rules bias toward simplicity, shipping, and robustness over architectural 
 - `framer-motion` (motion) for animations.
 - Express (for any backend API/server-side requirements).
 
+### Key Dependencies (do not duplicate)
+- **Icons**: `lucide-react` — use this for all icons. Do not add Font Awesome, Heroicons, or others.
+- **Animations**: `motion` (framer-motion v12+) — already installed. Do not add `react-spring`, `gsap`, or `animate.css`.
+- **AI/GenAI**: `@google/genai` — for any AI-powered features.
+- **Dev tools**: `puppeteer` (devDep) — for screenshot scripts. Do not add Playwright unless migrating.
+
 ### Code Style
 - Use Functional Components and Hooks.
 - Use Tailwind CSS for all styling. Avoid writing custom CSS unless absolutely necessary.
 - Strongly type your components, props, and states. Avoid using `any`.
 - Keep components small and focused.
 - Store assets in the `assets/` directory and components in the `src/` directory appropriately.
+
+### File & Folder Organization
+- Page-level components (routed views): `src/components/` — named as `<PageName>.tsx` (e.g., `AboutPage.tsx`, `TeamPage.tsx`).
+- Shared UI components (reusable widgets): `src/components/` — named descriptively (e.g., `AnimatedCounter.tsx`, `BlurFocusReveal.tsx`).
+- All routing is handled in `App.tsx` — do not create a separate router config file.
+- Static assets (images, fonts) go in `public/` or `assets/` depending on whether they need Vite processing.
+
+### Naming Conventions
+- Components: `PascalCase.tsx` (e.g., `BusinessUnits.tsx`).
+- Utility/helper files: `camelCase.ts`.
+- Image assets: `kebab-case` (e.g., `hero-background.webp`).
+
+### Import Aliases
+- The project uses `@/` alias mapped to the project root (defined in `vite.config.ts`).
+- Prefer `@/src/components/Foo` over relative paths when crossing directories.
 
 ---
 
@@ -65,6 +86,9 @@ These rules bias toward simplicity, shipping, and robustness over architectural 
 - **Minimize Re-renders.** Use `useMemo`, `useCallback`, and React's built-in optimizations when passing props down to heavy components.
 - **Smooth Animations.** Use `motion` for fluid micro-interactions and transitions, ensuring a premium feel.
 - **Clean Console.** No React hydration errors, missing keys, or console warnings.
+- **Image Optimization.** Use WebP or AVIF for new images where possible. Avoid committing unoptimized PNGs above 500KB.
+- **Lazy Loading.** Images below the fold should use `loading="lazy"`. Critical above-fold images (hero, logos) should be eager-loaded.
+- **Alt Text.** Every `<img>` must have meaningful `alt` text for accessibility.
 
 ---
 
@@ -91,10 +115,32 @@ Do not say "make it work." Define verifiable success.
 Before considering a task done:
 
 - [ ] `npm run lint` (or `tsc --noEmit`) passes without errors.
+- [ ] `npm run build` succeeds without errors (catches asset/import issues that lint misses).
 - [ ] No TypeScript or ESLint syntax errors.
 - [ ] UI renders correctly across breakpoints (Mobile, Tablet, Desktop).
 - [ ] Code follows existing style and touches only requested files.
 - [ ] Clean up of any unused imports or variables.
+
+### 7.1 Visual Verification (UI/UX Changes)
+
+After any UI, styling, layout, or animation change, **visually verify** the result in a real browser before considering the task complete. Code-level correctness alone is not sufficient — the change must look and behave as intended.
+
+#### Mandatory Breakpoint Checks
+
+Every UI change must be verified at all three viewports:
+
+- [ ] **Mobile** (≤640px) — layout, text sizing, touch targets, no horizontal overflow.
+- [ ] **Tablet** (641–1024px) — grid/layout adapts correctly, spacing is balanced.
+- [ ] **Desktop** (≥1025px) — full layout renders as designed, no wasted space.
+
+#### How to Verify
+
+- **Use browser tools** (e.g., `/browser` command) to load the page and visually inspect at each breakpoint above.
+- **Use Playwright** for automated visual checks when the change affects multiple pages or components, or when regression risk is high.
+- **Capture evidence**: Take a screenshot or describe what was verified and at which breakpoints. This confirms the change was actually rendered and reviewed.
+- **Check interactions**: If the change involves hover states, animations, or click behavior, trigger those interactions during verification.
+
+> Without visual verification, there is no proof that a UI/UX change is effective. A code diff alone cannot confirm visual correctness.
 
 ---
 
@@ -184,3 +230,22 @@ ui(hero): update headline copy per brand review
 
 docs(agents): add commit message structure
 ```
+
+### 9.5 Branch Naming
+
+Use descriptive branch names in this format:
+
+- `feat/<short-description>` — for new features (e.g., `feat/careers-page`)
+- `fix/<short-description>` — for bug fixes (e.g., `fix/navbar-mobile-menu`)
+- `ui/<short-description>` — for visual changes (e.g., `ui/hero-redesign`)
+- `chore/<short-description>` — for tooling/config (e.g., `chore/update-deps`)
+
+---
+
+## 10. Accessibility Basics
+
+- **Semantic HTML.** Use `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>` — not generic `<div>` for layout landmarks.
+- **Alt text.** Every image must have descriptive `alt` text. Decorative images use `alt=""`.
+- **Keyboard navigation.** Interactive elements (buttons, links, menus) must be reachable via Tab and operable via Enter/Space.
+- **Color contrast.** Text must meet WCAG AA contrast ratio (4.5:1 for normal text, 3:1 for large text) against its background.
+- **Focus indicators.** Do not remove default focus outlines without providing a visible alternative.

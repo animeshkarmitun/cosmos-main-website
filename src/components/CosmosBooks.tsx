@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowLeft, BookOpen, ExternalLink, Library, Globe, Bookmark, Feather } from "lucide-react";
+import { ArrowLeft, ExternalLink, Library, Globe, Bookmark, Feather } from "lucide-react";
 import { motion } from "motion/react";
 import DivisionBrandBanner from "./DivisionBrandBanner";
 import CompanyBrochureCTA from "./CompanyBrochureCTA";
@@ -101,13 +101,16 @@ export default function CosmosBooks({ onBackToHome }: CosmosBooksProps) {
       <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-16">
         {/* Hero Section */}
         <div className="relative rounded-3xl overflow-hidden bg-slate-900 text-white shadow-2xl border border-slate-800">
-          {/* Subtle Background Pattern */}
-          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-500 via-slate-900 to-black pointer-events-none" />
-          <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
-            <BookOpen className="w-64 h-64 text-white" />
+          <div className="absolute inset-0">
+            <img
+              src="/images/cosmos-books/Bangladesh - Splendors of the past.jpeg"
+              alt="Cosmos Books — Bangladesh Splendors of the Past"
+              className="w-full h-full object-cover opacity-40"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
           </div>
 
-          <div className="relative z-10 p-8 md:p-16 lg:p-20 max-w-4xl space-y-8">
+          <div className="relative z-10 p-8 md:p-16 lg:p-20 max-w-4xl space-y-8 mt-24 md:mt-32">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
