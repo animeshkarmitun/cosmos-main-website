@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
 import { GraduationCap } from "lucide-react";
 import ExpandableBio from "./ExpandableBio";
@@ -51,6 +51,8 @@ const blurFocusVariants = {
 };
 
 export default function VicePresidentProfile() {
+  const [bioExpanded, setBioExpanded] = useState(false);
+
   return (
     <section
       id="vice-president"
@@ -79,11 +81,15 @@ export default function VicePresidentProfile() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div className="relative aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none bg-slate-900/40 overflow-hidden shadow-[0_0_35px_rgba(0,0,0,0.8)] border border-slate-800/60 group lg:sticky lg:top-28">
+          <div
+            className={`relative aspect-square w-full max-w-sm mx-auto lg:max-w-none bg-slate-900/40 overflow-hidden shadow-[0_0_35px_rgba(0,0,0,0.8)] border border-slate-800/60 group ${
+              bioExpanded ? "" : "lg:sticky lg:top-28"
+            }`}
+          >
             <img
               src="/images/teams/Shawkat Hossain - Vice President - Cosmos Group.jpeg"
               alt="Shawkat Hossain, Senior Vice President of Cosmos Group"
-              className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-contain object-center transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute bottom-4 left-4 right-4 bg-slate-950/80 backdrop-blur-md border border-slate-800/40 px-4 py-2 flex items-center justify-between text-xs font-mono text-slate-400">
               <span className="tracking-wider">SHAWKAT HOSSAIN</span>
@@ -96,7 +102,7 @@ export default function VicePresidentProfile() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8 text-left"
+            className="space-y-8 text-left min-w-0"
           >
             <motion.div variants={blurFocusVariants} className="space-y-2">
               <h3 className="text-2xl md:text-4xl font-extrabold font-display text-white tracking-tight uppercase">
@@ -109,6 +115,7 @@ export default function VicePresidentProfile() {
 
             <motion.div variants={blurFocusVariants}>
               <ExpandableBio
+                onOpenChange={setBioExpanded}
                 teaser={
                   <p className="text-sm md:text-base text-slate-300 leading-relaxed font-light">
                     Shawkat Hossain is a seasoned executive with nearly three decades of leadership
