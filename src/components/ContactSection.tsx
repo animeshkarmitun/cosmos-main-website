@@ -6,7 +6,6 @@ import {
   Mail,
   Phone,
   Handshake,
-  ShieldCheck,
   Send,
   CheckCircle2,
   ChevronRight,
@@ -337,20 +336,7 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* CARD 3: Corporate Integrity Standard */}
-            <div className="bg-slate-950/40 border border-slate-900 rounded-2xl p-4 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-lg bg-emerald-950/30 border border-emerald-900/30 flex items-center justify-center text-emerald-400 shrink-0">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <div className="space-y-0.5">
-                <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-                  Verified In-Country Presence
-                </h4>
-                <p className="text-[10px] text-slate-500">
-                  ISO 9001:2015 & National Defense Cyber Security Compliance Certified.
-                </p>
-              </div>
-            </div>
+
 
           </div>
 
