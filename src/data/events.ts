@@ -139,6 +139,44 @@ export const events: CosmosEvent[] = [
       "/images/cosmos-dialogue/nepal-bangladesh-energy-1.jpg",
     ],
   },
+  {
+    id: "art-against-fake-news-exhibition",
+    title: "Gallery Cosmos hosts ‘Art Against Fake News’ exhibition",
+    date: "September 30, 2019",
+    category: "Exhibition",
+    excerpt:
+      "Gallery Cosmos presents a group exhibition of 30 artworks by 24 artists, using art to challenge misinformation and hate speech as part of Cosmos Dialogue.",
+    description: [
+      "With a view to promoting arts to reduce the spread of misinformation and fake news, a group exhibition was held showcasing works of renowned artists.",
+      "The exhibition, ‘Art Against Fake News’, arranged by Gallery Cosmos at Cosmos Atelier71 in the city’s Malibagh as part of Cosmos Dialogue on fake news and hate speech arranged by Cosmos Foundation.",
+      "It featured 30 artworks by 24 artists. Prominent artist Mustafa Monwar inaugurated the exhibition as the chief guest while artists Samarjit Roy Chowdhury and Rafiqun Nabi were present as the special guests.",
+      "Monwar lauded Gallery Cosmos for such a timely endeavour against this menace. “Artists are always against the spread of fake news,” he said.",
+      "Samarjit said the country’s artists will spread positive vibes through artworks to prevent the spread of hate speech. Rafiqun Nabi said that cartoon is the best medium to speak against fake news.",
+      "President of Association for Accountability and Internet Democracy (AAID) Dan Shefet highlighted the contributions of artists to society. He congratulated the participating artists and appreciated the initiative for such a brave step in today’s world where people are afraid of not being politically correct. “Artists are the heroes who will take the society forward,” he added.",
+      "Enayetullah Khan, Chairman of Gallery Cosmos, said he wishes to use the artists’ platform to highlight all the challenges of life. “The problem is not country specific. It doesn’t respect border. It goes beyond the question of borderlines,” he said about the spread of fake news. “This challenge (against fake news) will bring all the people of the world on one platform.”",
+      "United News of Bangladesh (UNB) Chairman Amanullah Khan, alongside artists Biren Shome, Shahabuddin Ahmed, Sourav Chowdhury and Toshihiko Ikeda were present at the inauguration.",
+      "The participating artists are: Abdul Gaffar Babu, Abdus Shakoor Shah, Alakesh Ghosh, Anisuzzaman Anis, Biren Shome, Bishwajit Goswami, Devdas Malakar, Hamiduzzaman Khan, Kalidas Karmakar, Kanak Chanpa Chakma, Maksuda Iqbal Nipa, Monirul Islam, Mustafa Monowar, Nagarbasi Barman, Nasir Ali Mamun, Nazia Andaleeb Preema, Prashanta Karmakar, Qayyum Chowdhury, Rafiqun Nabi, Rokeya Sultana, Samarjit Roy Chowdhury, Shahabuddin Ahmed, Sourav Chowdhury and Toshihiko Ikeda.",
+    ],
+    coverImage: "/images/cosmos-dialogue/art-against-fake-news-cover.jpg",
+    gallery: [],
+  },
+  {
+    id: "life-2019-exhibition",
+    title: "Group art exhibition ‘Life 2019’ begins at Gallery Cosmos",
+    date: "March 23, 2019",
+    category: "Exhibition",
+    excerpt:
+      "A group art exhibition featuring 39 women artists opens at Gallery Cosmos in Mohakhali, dedicated to women worldwide and running through April 9.",
+    description: [
+      "A group art exhibition titled ‘Life 2019’ featuring 39 women artists began at Gallery Cosmos in the city’s Mohakhali New DOHS area.",
+      "The exhibition, dedicated to all the women of the world, showcased 39 artworks of the 39 women artists.",
+      "Australian High Commissioner to Bangladesh Julia Niblett inaugurated the show at Villa de Anjuman, House 115, Lane 6 of New DOHS, Mohakhali as the chief guest at 6pm while Cornelia Gautschi Holenstein was present as a special guest.",
+      "The participating artists are Afrozaa Jamil Konka, Antara Mehrukh Azad, Asma Akber, Atia Islam Anne, Bipasha Hayat, Dilara Begum Jolly, Dilruba Latif, Elham Huq (Khuku), Fahmida Enam Kakoli, Fahmida Khatun, Fareha Zeba, Farida Zaman, Farzana Rahman Bobby, Ferdowsi Priobhashini, Halide Salam, Hazvineyi Bridget Mutasa, Ivy Zaman, Kanak Chanpa Chakma, Kuhu Plamandan, Maksuda Iqbal Nipa, Mini Karim, Nargis Poly, Nasima Haque Quenee, Nasreen Begum, Preema Nazia Andaleeb, Rahima Afroz, Rebeka Sultana, Rokeya Sultana, Rubina Akhter, Samina Nafies, Shantwana Shahrin, Shameem Subrana, Sharbari Roy Choudhury, Shulekha Chaudhury, Sohana Shahreen, Soma Surovi Jannat, Shruti Gupta Kasana, Surovi Akhter and Vinita Karim.",
+      "The exhibition remained open from 12 noon to 8 pm every day till April 9.",
+    ],
+    coverImage: "/images/cosmos-dialogue/life-2019-exhibition-cover.jpg",
+    gallery: [],
+  },
 ];
 
 export function getEventById(id: string): CosmosEvent | undefined {
