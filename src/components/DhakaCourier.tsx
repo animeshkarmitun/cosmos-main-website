@@ -8,7 +8,6 @@ import {
   Link,
   ArrowUpRight,
   Bookmark,
-  Image as ImageIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -68,45 +67,6 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
       title: "Global Distribution",
       metric: "50+ Countries",
       description: "Reaching diplomatic channels, educational hubs, and global diaspora networks worldwide.",
-    },
-  ];
-
-  const recentIssues = [
-    {
-      title: "DhakaCourier Vol 42 Issue 51",
-      date: "July 10, 2026",
-      image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/F4ZVUPr0LYTO00aaZTaRSA5SqFfg5G9Yi4bA72y2.jpg",
-      link: "https://drive.google.com/file/d/1TkPqxZniCiqdN4xRCSmp00cpERP2Vrm2/view?usp=drive_link",
-    },
-    {
-      title: "DhakaCourier Vol 42 Issue 50",
-      date: "July 03, 2026",
-      image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/1tPlR856QMJaHISq1lQXubnBKWFFO0zrg77ksUDg.jpg",
-      link: "https://drive.google.com/file/d/1Wq76pOuODL9r3HpNnIkV4ih9fvsQTGXa/view?usp=drive_link",
-    },
-    {
-      title: "DhakaCourier Vol 42 Issue 49",
-      date: "June 26, 2026",
-      image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/WfOiv2lXbu2Opxl7TZduuXpZJwK4lhp7XYtmmWHt.jpg",
-      link: "https://drive.google.com/file/d/1i4pnvwgfnADzN6Zv9O2CalE8Ae3_NTtu/view?usp=drive_link",
-    },
-    {
-      title: "DhakaCourier Vol 42 Issue 48",
-      date: "June 19, 2026",
-      image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/jXIQkTDcrryco0JhlUkAPKiNw8dDr0w4GnCRTl7e.jpg",
-      link: "https://drive.google.com/file/d/1yVUuRMvLDZHxoYOcob4RHDZSoRhARLmU/view?usp=drive_link",
-    },
-    {
-      title: "DhakaCourier Vol 42 Issue 47",
-      date: "June 12, 2026",
-      image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/nMcsyonrG1Ga7DnGHyldGEwoJAGAd1U7PAN1DUSt.jpg",
-      link: "https://drive.google.com/file/d/1sqxFThLkE94jMd66SYkYW7NhfHGuGIpA/view?usp=drive_link",
-    },
-    {
-      title: "DhakaCourier Vol 42 Issue 36",
-      date: "June 05, 2026",
-      image: "https://sgp1.digitaloceanspaces.com/dc2/dhaka_courier/v1DIE2GUqc2oGWo9hCnkL7JVkuWeXscOAyxFDSRR.jpg",
-      link: "https://drive.google.com/file/d/1_qbXBq1ZKf5gl_3M-3Hhph-hphDT0egb/view?usp=sharing",
     },
   ];
 
@@ -271,80 +231,6 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
                     </a>
                   </div>
                 )}
-              </GlowCard>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Recent Issues */}
-        <div className="space-y-8">
-          <motion.div
-            variants={fadeUp}
-            className="max-w-full flex flex-col md:flex-row md:items-end justify-between gap-4"
-          >
-            <div className="space-y-2">
-              <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block">
-                Magazine Archive
-              </span>
-              <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
-                Recent Issues
-              </h2>
-            </div>
-            <div className="inline-flex items-center gap-4">
-              <div className="inline-flex items-center gap-2 text-slate-400">
-                <ImageIcon className="w-4 h-4" />
-                <span className="text-xs font-mono uppercase tracking-widest">Latest Editions</span>
-              </div>
-              <a
-                href="https://www.dhakacourier.com.bd/archive"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold font-mono uppercase tracking-wider text-red-500 hover:text-red-400 transition-colors"
-              >
-                View Full Archive
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </motion.div>
-
-          <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recentIssues.map((issue) => (
-              <GlowCard
-                key={issue.title}
-                variants={fadeUp}
-                theme="dark"
-                className="group bg-white/[0.03] border border-slate-800/60 rounded-2xl overflow-hidden hover:border-slate-700 transition-colors flex flex-col"
-              >
-                <a
-                  href={issue.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col h-full"
-                >
-                  <div className="relative aspect-[3/4] overflow-hidden bg-slate-900">
-                    <img
-                      src={issue.image}
-                      alt={issue.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                  </div>
-                  <div className="p-5 flex flex-col flex-grow justify-between space-y-4">
-                    <div className="space-y-1">
-                      <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block">
-                        {issue.date}
-                      </span>
-                      <h3 className="text-lg font-bold text-white uppercase tracking-tight line-clamp-2">
-                        {issue.title}
-                      </h3>
-                    </div>
-                    <div className="pt-3 border-t border-slate-800/60 flex items-center gap-1.5 text-xs text-slate-400 group-hover:text-red-500 font-mono font-bold uppercase tracking-wider transition-colors">
-                      <span>Read Issue</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </div>
-                  </div>
-                </a>
               </GlowCard>
             ))}
           </motion.div>
