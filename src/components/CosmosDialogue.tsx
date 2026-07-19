@@ -5,6 +5,7 @@ import {
   Users,
   Globe,
   Monitor,
+  Image as ImageIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -48,6 +49,25 @@ export default function CosmosDialogue({ onBackToHome }: CosmosDialogueProps) {
     },
   ];
 
+  const galleryImages = [
+    {
+      src: "/images/cosmos-dialogue/hero.webp",
+      alt: "Ambassadors' Lecture Series on Bangladesh-Nepal relations",
+    },
+    {
+      src: "/images/cosmos-dialogue/image-1.webp",
+      alt: "Distinguished Speaker's Lecture on the EU and the contemporary global scenario",
+    },
+    {
+      src: "/images/cosmos-dialogue/image-2.webp",
+      alt: "Panel discussion on values in foreign policy",
+    },
+    {
+      src: "/images/cosmos-dialogue/image-3.webp",
+      alt: "Ambassadors' Lecture Series on Bangladesh-European Union relations",
+    },
+  ];
+
   return (
     <div id="dialogue-portal-page" className="bg-[#04060f] min-h-screen text-white font-sans selection:bg-red-500/30">
       <div className="max-w-7xl mx-auto px-4 md:px-6 pt-24 pb-6">
@@ -88,8 +108,8 @@ export default function CosmosDialogue({ onBackToHome }: CosmosDialogueProps) {
         >
           <div className="absolute inset-0">
             <img
-              src="/images/cosmos-dialogue/hero.jpg"
-              alt="Cosmos Dialogue"
+              src="/images/cosmos-dialogue/hero.webp"
+              alt="Cosmos Dialogue Ambassadors' Lecture Series"
               className="w-full h-full object-cover opacity-40"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#04060f] via-[#04060f]/60 to-transparent" />
@@ -194,6 +214,68 @@ export default function CosmosDialogue({ onBackToHome }: CosmosDialogueProps) {
                 </GlowCard>
               );
             })}
+          </motion.div>
+        </div>
+
+        {/* Event Gallery (Foundation masonry pattern) */}
+        <div className="space-y-8">
+          <motion.div variants={fadeUp} className="max-w-2xl flex flex-col md:flex-row md:items-end justify-between gap-4 w-full">
+            <div>
+              <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block mb-2">
+                Lectures & Conversations
+              </span>
+              <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
+                Dialogue in Action
+              </h2>
+            </div>
+            <div className="inline-flex items-center gap-2 text-slate-400">
+              <ImageIcon className="w-4 h-4" />
+              <span className="text-xs font-mono uppercase tracking-widest">Event Highlights</span>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6"
+          >
+            {galleryImages.map((img) => (
+              <GlowCard
+                key={img.src}
+                variants={fadeUp}
+                theme="dark"
+                className="break-inside-avoid bg-white/[0.03] border border-slate-800/60 rounded-2xl overflow-hidden hover:border-slate-700 transition-colors group relative"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <p className="text-sm font-bold font-display uppercase tracking-wide text-white">
+                    {img.alt}
+                  </p>
+                </div>
+              </GlowCard>
+            ))}
+          </motion.div>
+
+          <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+            <GlowCard theme="dark" className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl">
+              <Globe className="w-6 h-6 text-red-500 mb-4" />
+              <h4 className="text-lg font-bold font-display uppercase tracking-tight text-white mb-2">Ambassadors&apos; Series</h4>
+              <p className="text-sm text-slate-400 font-light">Hosting envoys and diplomats to examine bilateral partnerships and regional futures with Bangladesh at the centre.</p>
+            </GlowCard>
+            <GlowCard theme="dark" className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl">
+              <MessageSquare className="w-6 h-6 text-red-500 mb-4" />
+              <h4 className="text-lg font-bold font-display uppercase tracking-tight text-white mb-2">Distinguished Speakers</h4>
+              <p className="text-sm text-slate-400 font-light">Bringing global leaders and scholars into open conversation on governance, foreign policy, and shared challenges.</p>
+            </GlowCard>
+            <GlowCard theme="dark" className="bg-[#0B132B] border border-slate-800/60 p-6 rounded-2xl">
+              <Users className="w-6 h-6 text-red-500 mb-4" />
+              <h4 className="text-lg font-bold font-display uppercase tracking-tight text-white mb-2">Public Forums</h4>
+              <p className="text-sm text-slate-400 font-light">Creating space for policymakers, academics, and citizens to exchange views that strengthen democratic debate.</p>
+            </GlowCard>
           </motion.div>
         </div>
 
