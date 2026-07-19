@@ -59,7 +59,7 @@ export default function Hero() {
       title: "Innovating",
       highlightText: "Intelligent Futures",
       subtitle: "Cosmos Group pioneers digital networks, advanced enterprise systems for empowering institutions with innovation, compliance, and trust",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC5LwdWY6qNBLTvN0Cko-8qaRDmuTnL-7TO3mY9Xdn5zMrTOf_d_49kKHRfCJhNupI1Kwn4pMQLWTakcQK2zMNd50YgNM4_s1vWjbzMUukOFx7I_HWQOqaiaGtoc5dHuQ7MRzpjSuirSBWYJ2IbqO6eICxY5_CjTZsxab20onT5IVKo_k5zolKsJV1xi8x2X8PgYV90daQTv72wB1yqJz2r30jnKGP3ePhu2lOt_ptsmIKgrueM_kHb-FL8Q3eX2a4vvqmmHSVW0mo",
+      image: "/images/hero-images/slide-3-with-cover-3.png",
       ctaText: "Explore Technology Systems",
       ctaLink: "#businesses",
     },
