@@ -118,6 +118,10 @@ export default function EventDetail({
     return <NotFound onBackToEvents={onBackToEvents} />;
   }
 
+  const galleryImages = event.gallery.filter(
+    (image) => image !== event.coverImage,
+  );
+
   return (
     <div className="pt-24 pb-20 bg-slate-50 min-h-screen text-slate-800 font-sans">
       {/* Navigation */}
@@ -139,37 +143,37 @@ export default function EventDetail({
         </div>
       </div>
 
-      {/* Hero */}
+      {/* Hero + featured image */}
       <div className="max-w-7xl mx-auto px-4 md:px-6 mb-12 md:mb-16">
         <motion.div
           ref={heroRef}
           variants={fadeUp}
           initial="hidden"
           animate={heroInView ? "visible" : "hidden"}
-          className="relative overflow-hidden rounded-3xl bg-[#0B132B] text-white border border-slate-900 shadow-2xl"
+          className="space-y-6 md:space-y-8"
         >
-          <img
-            src={event.coverImage}
-            alt={event.title}
-            className="absolute inset-0 w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/80 to-[#0B132B]/40" />
-          <div className="relative z-10 p-8 md:p-16 lg:p-20 min-h-[360px] md:min-h-[440px] flex flex-col justify-end">
-            <div className="max-w-4xl space-y-5">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-950/60 border border-red-900/40 rounded-full text-[10px] font-mono font-bold tracking-widest text-red-400 uppercase">
-                  <Tag className="w-3 h-3" />
-                  {event.category}
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/10 border border-white/10 rounded-full text-[10px] font-mono font-bold tracking-widest text-slate-300 uppercase">
-                  <CalendarDays className="w-3 h-3" />
-                  {event.date}
-                </span>
-              </div>
-              <h1 className="text-3xl md:text-5xl font-black font-display tracking-tight leading-tight">
-                {event.title}
-              </h1>
+          <div className="max-w-4xl space-y-5">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-50 border border-red-100 rounded-full text-[10px] font-mono font-bold tracking-widest text-red-700 uppercase">
+                <Tag className="w-3 h-3" />
+                {event.category}
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-full text-[10px] font-mono font-bold tracking-widest text-slate-500 uppercase">
+                <CalendarDays className="w-3 h-3" />
+                {event.date}
+              </span>
             </div>
+            <h1 className="text-3xl md:text-5xl font-black font-display tracking-tight leading-tight text-slate-900">
+              {event.title}
+            </h1>
+          </div>
+
+          <div className="relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[16/9] md:aspect-[21/9] ring-1 ring-slate-200/80 shadow-lg bg-slate-100">
+            <img
+              src={event.coverImage}
+              alt={event.title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </div>
         </motion.div>
       </div>
@@ -196,46 +200,48 @@ export default function EventDetail({
         </div>
       </div>
 
-      {/* Gallery */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-16 md:mb-24">
-        <motion.div
-          ref={galleryRef}
-          variants={fadeUp}
-          initial="hidden"
-          animate={galleryInView ? "visible" : "hidden"}
-        >
-          <div className="mb-8">
-            <span className="text-[10px] md:text-xs font-mono font-bold text-red-600 uppercase tracking-widest block mb-2">
-              Gallery
-            </span>
-            <h2 className="text-2xl md:text-3xl font-black font-display tracking-tight text-slate-900 uppercase">
-              Event Highlights
-            </h2>
-          </div>
+      {/* Gallery — skip cover if it already appears as the featured image */}
+      {galleryImages.length > 0 && (
+        <div className="max-w-7xl mx-auto px-4 md:px-6 mb-16 md:mb-24">
           <motion.div
-            variants={staggerContainer}
+            ref={galleryRef}
+            variants={fadeUp}
             initial="hidden"
             animate={galleryInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
           >
-            {event.gallery.map((image, index) => (
-              <motion.div
-                key={index}
-                variants={fadeUp}
-                className="relative overflow-hidden rounded-2xl aspect-[4/3] ring-1 ring-slate-200/80 shadow-sm group"
-              >
-                <img
-                  src={image}
-                  alt={`${event.title} highlight ${index + 1}`}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
-              </motion.div>
-            ))}
+            <div className="mb-8">
+              <span className="text-[10px] md:text-xs font-mono font-bold text-red-600 uppercase tracking-widest block mb-2">
+                Gallery
+              </span>
+              <h2 className="text-2xl md:text-3xl font-black font-display tracking-tight text-slate-900 uppercase">
+                Event Highlights
+              </h2>
+            </div>
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              animate={galleryInView ? "visible" : "hidden"}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+            >
+              {galleryImages.map((image, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeUp}
+                  className="relative overflow-hidden rounded-2xl aspect-[4/3] ring-1 ring-slate-200/80 shadow-sm group"
+                >
+                  <img
+                    src={image}
+                    alt={`${event.title} highlight ${index + 1}`}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </div>
+        </div>
+      )}
 
       {/* Adjacent events */}
       <div className="max-w-7xl mx-auto px-4 md:px-6 mb-16 md:mb-24">
