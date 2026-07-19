@@ -108,11 +108,12 @@ export default function CosmosGlobal({ onBackToHome }: CosmosGlobalProps) {
         >
           <div className="absolute inset-0">
             <img
-              src="/images/cosmos-global/hero.jpg"
-              alt="Cosmos Global Resources"
-              className="w-full h-full object-cover"
+              src="/images/cosmos-global/hero.webp"
+              alt="Cosmos Global Resources international commodity trading port"
+              className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/85 via-[#04060f]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#04060f]/90 via-[#04060f]/55 to-[#04060f]/25" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/80 via-[#04060f]/15 to-transparent" />
           </div>
 
           <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-8 mt-24 md:mt-32">
@@ -210,6 +211,23 @@ export default function CosmosGlobal({ onBackToHome }: CosmosGlobalProps) {
             ))}
           </motion.div>
         </div>
+
+        {/* Global Finance Visual */}
+        <motion.div
+          variants={fadeUp}
+          className="relative rounded-3xl overflow-hidden border border-slate-800/70 shadow-2xl shadow-black/35"
+        >
+          <img
+            src="/images/cosmos-global/global-finance.webp"
+            alt="Global finance and international trade corridors"
+            className="w-full h-56 md:h-80 object-cover object-center"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/45 via-transparent to-[#04060f]/15" />
+          <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 inline-flex items-center gap-2 px-3 py-1.5 bg-red-950/70 border border-red-900/40 rounded-full text-[10px] font-mono font-bold tracking-widest text-red-300 uppercase backdrop-blur-sm">
+            Global Finance & Trade
+          </div>
+        </motion.div>
 
         <div className="mt-12 md:mt-16">
           <CompanyBrochureCTA companyId="global" />
