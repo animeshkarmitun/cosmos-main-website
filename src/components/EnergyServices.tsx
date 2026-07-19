@@ -7,8 +7,6 @@ import {
   Sun,
   CheckCircle,
   Star,
-  Users,
-  Shield,
   Award,
   Cable,
   Factory,
@@ -50,6 +48,8 @@ const capabilities = [
     description:
       "Bangladesh's first geological study, Haripur Oil Field discovery, Sangu Gas Field for Cairn Energy, Lakatura 300 MMSCFD Plant, pipeline infrastructure, refinery FEED, and SCADA systems.",
     highlight: "Est. 1982",
+    image: "/images/energy/oil-gas-exploration.jpg",
+    imageAlt: "Oil and gas drilling rig at an exploration site",
   },
   {
     icon: Zap,
@@ -57,6 +57,8 @@ const capabilities = [
     description:
       "First Independent Captive Power Producer in Bangladesh. Built a 10MW gas-engine power plant for Scan Cement factory under JV with Rolls Royce Power Ventures, UK. O&M of power plants, substations, and supply of major electrical equipment.",
     highlight: "ISO 9001 Certified",
+    image: "/images/energy/power-generation.jpg",
+    imageAlt: "Thermal power plant cooling towers generating electricity",
   },
   {
     icon: Cable,
@@ -64,6 +66,8 @@ const capabilities = [
     description:
       "First 230KV substation for PGCB in partnership with Mahkota Technologies (formerly GEC Malaysia). 400kV and 230kV transmission lines, turnkey contracts for 15+ substations under rehabilitation and upgradation projects.",
     highlight: "400kV Max Voltage",
+    image: "/images/energy/transmission-distribution.jpg",
+    imageAlt: "High-voltage transmission towers across the landscape at sunset",
   },
   {
     icon: Sun,
@@ -71,6 +75,8 @@ const capabilities = [
     description:
       "200 MW Solar PV Project by Sun Edison, 100 MW Wind Power Plant by VESTAS. Pre-payment metering systems, smart grid solutions, and network automation for next-generation energy distribution.",
     highlight: "Future-Forward",
+    image: "/images/energy/renewable-solar-wind.jpg",
+    imageAlt: "Large-scale solar photovoltaic farm under open sky",
   },
 ];
 
@@ -203,12 +209,12 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
         >
           <div className="absolute inset-0">
             <img
-              src="/images/cosmos-energy-card.png"
-              alt="Cosmos Energy Services operations"
-              className="w-full h-full object-cover"
+              src="/images/energy/oil-gas-refinery.jpg"
+              alt="Industrial oil, gas and power infrastructure"
+              className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#04060f]/75 via-[#04060f]/35 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#04060f]/90 via-[#04060f]/65 to-[#04060f]/25" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/70 via-transparent to-[#04060f]/30" />
           </div>
 
           <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-8 mt-24 md:mt-32">
@@ -257,25 +263,34 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
                 key={cap.title}
                 variants={fadeUp}
                 theme="dark"
-                className="bg-white/[0.03] border border-slate-800/60 p-8 rounded-2xl flex flex-col gap-5 hover:bg-white/[0.05] transition-colors group"
+                className="bg-white/[0.03] border border-slate-800/60 rounded-2xl flex flex-col hover:bg-white/[0.05] transition-colors"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-red-950/50 border border-red-900/30 flex items-center justify-center shrink-0">
-                    <cap.icon className="w-5 h-5 text-red-500" />
+                <div className="relative h-44 md:h-52 overflow-hidden">
+                  <img
+                    src={cap.image}
+                    alt={cap.imageAlt}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-[#0a0e1a]/45 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#04060f]/35 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
+                    <div className="w-11 h-11 rounded-xl bg-red-950/70 border border-red-900/40 backdrop-blur-sm flex items-center justify-center shrink-0 shadow-lg shadow-black/30">
+                      <cap.icon className="w-5 h-5 text-red-500" />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold text-red-400 uppercase tracking-widest bg-black/40 border border-white/10 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                      {cap.highlight}
+                    </span>
                   </div>
+                </div>
+
+                <div className="p-6 md:p-8 flex flex-col gap-4 flex-1">
                   <h3 className="text-xl font-bold font-display text-white uppercase tracking-tight">
                     {cap.title}
                   </h3>
-                </div>
-
-                <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
-                  {cap.description}
-                </p>
-
-                <div className="mt-auto pt-4 border-t border-slate-800/60">
-                  <span className="text-[10px] font-mono font-bold text-red-500 uppercase tracking-widest">
-                    {cap.highlight}
-                  </span>
+                  <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
+                    {cap.description}
+                  </p>
                 </div>
               </GlowCard>
             ))}
@@ -291,6 +306,30 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
             <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
               Power Generation Projects
             </h2>
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            className="relative h-48 md:h-64 rounded-2xl overflow-hidden border border-slate-800/60 shadow-2xl"
+          >
+            <img
+              src="/images/energy/power-generation.jpg"
+              alt="Power generation plant infrastructure"
+              loading="lazy"
+              className="w-full h-full object-cover object-[center_30%]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#04060f]/90 via-[#04060f]/55 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/50 via-transparent to-transparent" />
+            <div className="absolute inset-0 flex items-end p-6 md:p-10">
+              <div className="max-w-lg space-y-2">
+                <p className="text-[10px] font-mono font-bold text-red-500 uppercase tracking-widest">
+                  Captive · Combined Cycle · Thermal
+                </p>
+                <p className="text-sm md:text-base text-slate-200 font-light leading-relaxed">
+                  From Bangladesh&apos;s first CIPP to multi-hundred-MW combined-cycle plants — delivering generation capacity at national scale.
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={containerVariants} className="space-y-4">
@@ -347,10 +386,33 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
             ))}
           </motion.div>
 
-          {/* Transmission & Distribution summary cards */}
+          {/* Transmission & Distribution visual + summary */}
+          <motion.div
+            variants={fadeUp}
+            className="relative h-44 md:h-56 rounded-2xl overflow-hidden border border-slate-800/60 mt-4"
+          >
+            <img
+              src="/images/energy/transmission-distribution.jpg"
+              alt="High-voltage transmission and distribution network"
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#04060f]/88 via-[#04060f]/50 to-[#04060f]/20" />
+            <div className="absolute inset-0 flex items-end p-6 md:p-8">
+              <div>
+                <p className="text-[10px] font-mono font-bold text-red-500 uppercase tracking-widest mb-1">
+                  Grid Infrastructure
+                </p>
+                <h3 className="text-lg md:text-2xl font-bold font-display text-white uppercase tracking-tight">
+                  Transmission & Distribution
+                </h3>
+              </div>
+            </div>
+          </motion.div>
+
           <motion.div
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
             <GlowCard
               variants={fadeUp}
@@ -409,8 +471,38 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
               Oil & Gas Achievements
             </h2>
             <p className="text-slate-400 text-sm md:text-base font-light mt-2">
-              Landmark projects in Bangladesh's petroleum sector since 1982
+              Landmark projects in Bangladesh&apos;s petroleum sector since 1982
             </p>
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+          >
+            <div className="relative h-44 md:h-56 rounded-2xl overflow-hidden border border-slate-800/60">
+              <img
+                src="/images/energy/oil-gas-exploration.jpg"
+                alt="Oil and gas exploration drilling operations"
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/80 via-transparent to-transparent" />
+              <span className="absolute bottom-4 left-4 text-[10px] font-mono font-bold text-white uppercase tracking-widest">
+                Exploration & Drilling
+              </span>
+            </div>
+            <div className="relative h-44 md:h-56 rounded-2xl overflow-hidden border border-slate-800/60">
+              <img
+                src="/images/energy/oil-gas-refinery.jpg"
+                alt="Oil refinery and gas processing infrastructure"
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/80 via-transparent to-transparent" />
+              <span className="absolute bottom-4 left-4 text-[10px] font-mono font-bold text-white uppercase tracking-widest">
+                Processing & Infrastructure
+              </span>
+            </div>
           </motion.div>
 
           <motion.div variants={containerVariants} className="space-y-4">
@@ -456,6 +548,34 @@ export default function EnergyServices({ onBackToHome }: EnergyServicesProps) {
             ))}
           </motion.div>
         </div>
+
+        {/* ─── Renewable horizon strip ─── */}
+        <motion.div
+          variants={fadeUp}
+          className="relative h-48 md:h-64 rounded-2xl overflow-hidden border border-slate-800/60"
+        >
+          <img
+            src="/images/energy/wind-farm.jpg"
+            alt="Wind farm representing renewable energy future"
+            loading="lazy"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#04060f]/85 via-[#04060f]/45 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 flex items-end p-6 md:p-10">
+            <div className="max-w-md space-y-2">
+              <p className="text-[10px] font-mono font-bold text-red-500 uppercase tracking-widest">
+                Solar · Wind · Smart Grid
+              </p>
+              <h3 className="text-xl md:text-3xl font-bold font-display text-white uppercase tracking-tight">
+                Powering the Next Generation
+              </h3>
+              <p className="text-sm text-slate-300 font-light leading-relaxed">
+                200 MW solar and 100 MW wind projects — advancing Bangladesh&apos;s clean energy transition.
+              </p>
+            </div>
+          </div>
+        </motion.div>
 
         {/* ─── SECTION 5: Key Metrics ─── */}
         <motion.div
