@@ -42,7 +42,7 @@ export default function Hero() {
       title: "Powering Progress,",
       highlightText: "Sustaining Tomorrow",
       subtitle: "Cosmos Group integrates hydrocarbons and renewables, delivering reliable energy solutions with integrity, compliance, and visionary leadership for lasting impact",
-      image: "/images/header-1.jpg",
+      image: "/images/header-1-with-bangladesh-map.png",
       imagePosition: "72% center",
       ctaText: "Discover Our Strategy",
       ctaLink: "#about",
