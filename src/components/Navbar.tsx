@@ -24,8 +24,8 @@ import { motion, AnimatePresence } from "motion/react";
 import CosmosLogo from "./CosmosLogo";
 
 interface NavbarProps {
-  currentPage: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services" | "why-us" | "events" | "event-detail";
-  onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services" | "why-us" | "events" | "event-detail" | "resources") => void;
+  currentPage: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services" | "why-us" | "events" | "event-detail" | "resources" | "certifications";
+  onPageChange: (page: "home" | "home2" | "careers" | "energy" | "shipping" | "unb" | "dhaka-courier" | "marketing" | "technology" | "pearls" | "printing" | "atelier" | "global" | "wildteam" | "gallery" | "dialogue" | "foundation" | "books" | "csr" | "about-page" | "team" | "policies" | "services" | "why-us" | "events" | "event-detail" | "resources" | "certifications") => void;
 }
 
 export default function Navbar({ currentPage, onPageChange }: NavbarProps) {

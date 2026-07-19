@@ -161,14 +161,14 @@ export default function WhyCosmosGroup() {
           className="relative mb-12 md:mb-16 rounded-3xl overflow-hidden border border-slate-800/70 shadow-2xl shadow-black/35"
         >
           <img
-            src="/images/Why%20Cosmos%20Group.jpeg"
+            src="/images/why-cosmos-group.webp"
             alt="Why Cosmos Group thematic visual"
-            className="w-full h-56 md:h-72 object-cover object-center"
+            className="w-full h-56 md:h-80 object-cover object-center"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B132B]/62 via-[#0B132B]/42 to-[#0B132B]/30" />
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0B132B]/48 to-transparent" />
-          <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1 bg-red-950/60 border border-red-900/40 rounded-full text-[10px] font-mono font-bold tracking-widest text-red-300 uppercase">
+          {/* Light edge blend only — keep the photo readable */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B]/35 via-transparent to-[#0B132B]/10" />
+          <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1 bg-red-950/70 border border-red-900/40 rounded-full text-[10px] font-mono font-bold tracking-widest text-red-300 uppercase backdrop-blur-sm">
             Strategic Trust Framework
           </div>
         </motion.div>

@@ -110,9 +110,9 @@ export default function CosmosDialogue({ onBackToHome }: CosmosDialogueProps) {
             <img
               src="/images/cosmos-dialogue/hero.webp"
               alt="Cosmos Dialogue Ambassadors' Lecture Series"
-              className="w-full h-full object-cover opacity-40"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f] via-[#04060f]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/85 via-[#04060f]/20 to-transparent" />
           </div>
 
           <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-8 mt-24 md:mt-32">

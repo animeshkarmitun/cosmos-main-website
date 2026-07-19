@@ -29,9 +29,10 @@ interface FooterProps {
   onCsrClick?: () => void;
   onPoliciesClick?: () => void;
   onResourcesClick?: () => void;
+  onCertificationsClick?: () => void;
 }
 
-export default function Footer({ onCareersClick, onCsrClick, onPoliciesClick, onResourcesClick }: FooterProps) {
+export default function Footer({ onCareersClick, onCsrClick, onPoliciesClick, onResourcesClick, onCertificationsClick }: FooterProps) {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const [activeDoc, setActiveDoc] = useState<DocType | null>(null);
@@ -467,6 +468,15 @@ export default function Footer({ onCareersClick, onCsrClick, onPoliciesClick, on
               >
                 <span>Resources & Downloads</span>
                 <span className="text-[8px] bg-cyan-950 border border-cyan-900/30 text-cyan-400 px-1.5 py-0.2 rounded font-mono font-bold uppercase">PDF</span>
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => onCertificationsClick && onCertificationsClick()}
+                disabled={!onCertificationsClick}
+                className={`hover:text-red-400 transition-colors focus-visible:outline-none text-left font-light flex items-center gap-2 ${onCertificationsClick ? "cursor-pointer" : "cursor-default opacity-70"}`}
+              >
+                <span>Certifications</span>
               </button>
             </li>
           </ul>

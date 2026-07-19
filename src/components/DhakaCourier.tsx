@@ -8,6 +8,7 @@ import {
   Link,
   ArrowUpRight,
   Bookmark,
+  Image as ImageIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -70,6 +71,46 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
     },
   ];
 
+  // Covers sourced from dhakacourier.com.bd/archive — only issues with loadable images
+  const recentIssues = [
+    {
+      title: "DhakaCourier Vol 42 Issue 44-45",
+      date: "May 22, 2026",
+      image: "/images/dhaka-courier/issues/vol-42-issue-44-45.jpg",
+      link: "https://drive.google.com/file/d/12PygAfqqIZGWeiBYGt_i_wEI_3eC5gZq/view?usp=sharing",
+    },
+    {
+      title: "DhakaCourier Vol 42 Issue 43",
+      date: "May 15, 2026",
+      image: "/images/dhaka-courier/issues/vol-42-issue-43.jpg",
+      link: "https://drive.google.com/file/d/14dDigS7_-qIatPXqGsWBIoaQyl9fJReg/view?usp=drive_link",
+    },
+    {
+      title: "DhakaCourier Vol 42 Issue 42",
+      date: "May 08, 2026",
+      image: "/images/dhaka-courier/issues/vol-42-issue-42.jpg",
+      link: "https://drive.google.com/file/d/1svB_4kMUDbbpa1PooEzXM28Uw7BI3aGm/view?usp=sharing",
+    },
+    {
+      title: "DhakaCourier Vol 42 Issue 41",
+      date: "May 01, 2026",
+      image: "/images/dhaka-courier/issues/vol-42-issue-41.jpg",
+      link: "https://drive.google.com/file/d/126EzBUDU5l4nn-y1mqDL8Vqo4xe7Y8gY/view?usp=drive_link",
+    },
+    {
+      title: "DhakaCourier Vol 42 Issue 40",
+      date: "April 24, 2026",
+      image: "/images/dhaka-courier/issues/vol-42-issue-40.jpg",
+      link: "https://drive.google.com/file/d/1eXOFS4MsW-Bk4v51t2Rj3NxMUQ0KFZyz/view?usp=drive_link",
+    },
+    {
+      title: "DhakaCourier Vol 42 Issue 39",
+      date: "April 17, 2026",
+      image: "/images/dhaka-courier/issues/vol-42-issue-39.jpg",
+      link: "https://drive.google.com/file/d/1DY4HCi5p-duQKpLBv-HeyHajlplF_f-f/view?usp=drive_link",
+    },
+  ];
+
   return (
     <div id="dhaka-courier-portal-page" className="bg-[#04060f] min-h-screen text-white font-sans selection:bg-red-500/30">
       <div className="max-w-7xl mx-auto px-4 md:px-6 pt-24 pb-6">
@@ -113,9 +154,9 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
             <img
               src="/images/dhaka-courier/sv-dc-updatev1.jpg"
               alt="Dhaka Courier"
-              className="w-full h-full object-cover opacity-40"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f] via-[#04060f]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/85 via-[#04060f]/20 to-transparent" />
           </div>
 
           <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-8 mt-24 md:mt-32">
@@ -231,6 +272,69 @@ export default function DhakaCourier({ onBackToHome }: DhakaCourierProps) {
                     </a>
                   </div>
                 )}
+              </GlowCard>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Recent Issues — only covers verified from archive */}
+        <div className="space-y-8">
+          <motion.div
+            variants={fadeUp}
+            className="max-w-full flex flex-col md:flex-row md:items-end justify-between gap-4"
+          >
+            <div className="space-y-2">
+              <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block">
+                Magazine Archive
+              </span>
+              <h2 className="text-2xl md:text-4xl font-bold font-display text-white uppercase tracking-tight">
+                Recent Issues
+              </h2>
+            </div>
+            <div className="inline-flex items-center gap-2 text-slate-400">
+              <ImageIcon className="w-4 h-4" />
+              <span className="text-xs font-mono uppercase tracking-widest">Latest Editions</span>
+            </div>
+          </motion.div>
+
+          <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recentIssues.map((issue) => (
+              <GlowCard
+                key={issue.title}
+                variants={fadeUp}
+                theme="dark"
+                className="group bg-white/[0.03] border border-slate-800/60 rounded-2xl overflow-hidden hover:border-slate-700 transition-colors flex flex-col"
+              >
+                <a
+                  href={issue.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col h-full"
+                >
+                  <div className="relative aspect-[3/4] overflow-hidden bg-slate-900">
+                    <img
+                      src={issue.image}
+                      alt={issue.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                  </div>
+                  <div className="p-5 flex flex-col flex-grow justify-between space-y-4">
+                    <div className="space-y-1">
+                      <span className="text-[10px] md:text-xs font-mono font-bold text-red-500 uppercase tracking-widest block">
+                        {issue.date}
+                      </span>
+                      <h3 className="text-lg font-bold text-white uppercase tracking-tight line-clamp-2">
+                        {issue.title}
+                      </h3>
+                    </div>
+                    <div className="pt-3 border-t border-slate-800/60 flex items-center gap-1.5 text-xs text-slate-400 group-hover:text-red-500 font-mono font-bold uppercase tracking-wider transition-colors">
+                      <span>Read Issue</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                </a>
               </GlowCard>
             ))}
           </motion.div>

@@ -122,11 +122,11 @@ export default function UNB({ onBackToHome }: UNBProps) {
         >
           <div className="absolute inset-0">
             <img
-              src="/images/unb/6805988_jpg.webp"
+              src="/images/unb/sv-unb-cover.jpg"
               alt="United News of Bangladesh"
-              className="w-full h-full object-cover opacity-40"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f] via-[#04060f]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/85 via-[#04060f]/20 to-transparent" />
           </div>
 
           <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-8 mt-24 md:mt-32">
@@ -138,7 +138,7 @@ export default function UNB({ onBackToHome }: UNBProps) {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold font-display tracking-tight text-white uppercase leading-none">
+              <h1 className="text-4xl md:text-6xl font-bold font-display tracking-tight text-white uppercase leading-none drop-shadow-md">
                 United News of Bangladesh (UNB)
               </h1>
               <p className="text-red-500 font-mono font-bold text-sm md:text-base uppercase tracking-widest">
@@ -146,7 +146,7 @@ export default function UNB({ onBackToHome }: UNBProps) {
               </p>
             </div>
 
-            <p className="text-slate-400 text-sm md:text-lg font-light leading-relaxed max-w-3xl">
+            <p className="text-slate-200 text-sm md:text-lg font-light leading-relaxed max-w-3xl drop-shadow-sm">
               Informing and connecting Bangladesh with the world since 1988. As the nation&apos;s premier independent news agency, UNB delivers robust, authoritative, and real-time coverage across all media platforms.
             </p>
           </div>
