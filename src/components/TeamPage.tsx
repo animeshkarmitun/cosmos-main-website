@@ -69,11 +69,11 @@ export default function TeamPage({ onBackToHome }: TeamPageProps) {
         </div>
       </section>
 
-      {/* ── Senior Vice President Profile ─────────────────────────── */}
-      <VicePresidentProfile />
-
       {/* ── Founder Message ──────────────────────────────────────── */}
       <FounderMessage />
+
+      {/* ── Senior Vice President Profile ─────────────────────────── */}
+      <VicePresidentProfile />
     </div>
   );
 }

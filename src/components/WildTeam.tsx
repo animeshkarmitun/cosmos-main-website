@@ -136,11 +136,12 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
         <motion.div variants={fadeUp} className="bg-white/[0.03] border border-slate-800/60 rounded-3xl overflow-hidden relative shadow-2xl">
           <div className="absolute inset-0">
             <img 
-              src="/images/wildteam/dd55b2_bea383b5cdc54422913780973ec2bd49~mv2.avif" 
+              src="/images/wildteam/cover-image.webp" 
               alt="WildTeam Banner" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/85 via-[#04060f]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#04060f]/75 via-[#04060f]/35 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/40 via-transparent to-transparent" />
           </div>
           
           <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-8 mt-24 md:mt-32">
@@ -160,7 +161,7 @@ export default function WildTeam({ onBackToHome }: WildTeamProps) {
               </p>
             </div>
 
-            <p className="text-slate-400 text-sm md:text-lg font-light leading-relaxed max-w-3xl">
+            <p className="text-slate-100 text-sm md:text-lg font-light leading-relaxed max-w-3xl drop-shadow-md">
               A pioneering wildlife conservation initiative dedicated to safeguarding the Royal Bengal Tiger and preserving Bangladesh's rich biodiversity through science, community partnership, and relentless field action.
             </p>
           </div>

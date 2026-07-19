@@ -112,8 +112,8 @@ export default function CosmosGlobal({ onBackToHome }: CosmosGlobalProps) {
               alt="Cosmos Global Resources international commodity trading port"
               className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#04060f]/90 via-[#04060f]/55 to-[#04060f]/25" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/80 via-[#04060f]/15 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#04060f]/75 via-[#04060f]/35 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/40 via-transparent to-transparent" />
           </div>
 
           <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-8 mt-24 md:mt-32">
@@ -133,7 +133,7 @@ export default function CosmosGlobal({ onBackToHome }: CosmosGlobalProps) {
               </p>
             </div>
 
-            <p className="text-slate-400 text-sm md:text-lg font-light leading-relaxed max-w-3xl">
+            <p className="text-slate-100 text-sm md:text-lg font-light leading-relaxed max-w-3xl drop-shadow-md">
               Constructing vital, compliant corridors for essential resources. We manage international commodity networks, bulk logistics, and raw material procurement channels to keep domestic industrial processing plants operating efficiently.
             </p>
           </div>

@@ -71,7 +71,8 @@ export default function CosmosFoundation({ onBackToHome }: CosmosFoundationProps
               alt="Cosmos Foundation Banner" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/85 via-[#04060f]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#04060f]/75 via-[#04060f]/35 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060f]/40 via-transparent to-transparent" />
           </div>
           
           <div className="p-8 md:p-16 lg:p-20 relative z-10 max-w-4xl space-y-8 mt-24 md:mt-32">
@@ -91,7 +92,7 @@ export default function CosmosFoundation({ onBackToHome }: CosmosFoundationProps
               </p>
             </div>
             
-            <p className="text-slate-400 text-sm md:text-lg font-light leading-relaxed max-w-3xl">
+            <p className="text-slate-100 text-sm md:text-lg font-light leading-relaxed max-w-3xl drop-shadow-md">
               Cosmos Foundation is registered as a trust dedicated to providing strategic insights and policy solutions to help Bangladesh chart its course toward a better future. The Foundation oversees the group's abiding commitment to nature and heritage conservation, while also discovering, cultivating, and disseminating the art of Bangladesh for a global audience.
             </p>
           </div>
